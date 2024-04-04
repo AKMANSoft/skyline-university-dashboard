@@ -44,7 +44,13 @@ const Sidebar = () => {
             <div key={subIndex}>
                 <ListItem 
                     button 
-                    onClick={() => handleMenuClick('sub', parentIndex + '.' + subIndex)}
+                    onClick={() => {
+                        if(submenu?.children?.length > 0) {
+                            handleMenuClick('sub', parentIndex + '.' + subIndex)
+                        }else{
+                            handleMenuClick('sub', parentIndex + '.' + subIndex)
+                        }
+                    }}
                     sx={{
                         pl:'16px',
                         height: '40px',

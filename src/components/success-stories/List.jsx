@@ -14,7 +14,6 @@ import MenuItem from '@mui/material/MenuItem'
 import CardHeader from '@mui/material/CardHeader'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
-import CardContent from '@mui/material/CardContent'
 import { DataGrid } from '@mui/x-data-grid'
 
 // ** Icon Imports
@@ -26,7 +25,7 @@ import OptionsMenu from './OptionMenu'
 // ** Styled Components
 // import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker'
 import TableHeader from './TableHeader'
-import { Avatar } from '@mui/material'
+import { Avatar, Switch } from '@mui/material'
 import img from "@/assets/images/img1.png"
 
 // ** renders client column
@@ -146,7 +145,12 @@ const defaultColumns = [
     field: 'status',
     headerName: 'status',
     renderCell: ({ row }) => {
-      return <Typography sx={{ color: 'text.secondary', height: '62px', lineHeight: '62px' }}>Test Status</Typography>
+      return <Switch 
+        color="success"
+        value={row.status}
+        onChange={(event) => {
+        }}  
+    />;
     }
   }
 ]
