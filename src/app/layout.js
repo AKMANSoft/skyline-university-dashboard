@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Box } from "@mui/material";
+import Sidebar from "@/components/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +13,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} style={{backgroundColor: '#F8F7FA'}}>
+        {/* <Box sx={{width: '100%', height: 'auto'}}>
+          <Sidebar />
+        </Box> */}
+        {children}
+      </body>
     </html>
   );
 }
