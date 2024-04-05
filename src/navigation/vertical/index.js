@@ -60,17 +60,17 @@ const menuItems = [
       {
         title: 'Job Dashboard',
         icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
-        path: '/job-dashboard'
+        path: 'jobs-dashboard'
       },
       {
         title: 'Companies',
         icon: <CompaniesIcon />,
-        path: '/companies'
+        path: 'companies'
       },
       {
         title: "Alumni's",
         icon: <TbUsers fontSize="18px" />,
-        path: '/alumni'
+        path: 'alumni'
       },
       {
         title: 'Job Management',

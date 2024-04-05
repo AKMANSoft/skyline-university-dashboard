@@ -1,26 +1,14 @@
-'use client'
-import Appbar from '@/components/appbar'
 import Sidebar from '@/components/sidebar'
+import React from 'react'
+import { Box, Stack, Typography, Card, Grid } from "@mui/material"
+import Appbar from '@/components/appbar'
 import { ContentBox } from '@/components/styles/Box'
-import { Box, Stack, Typography } from '@mui/material'
-import React, { useState } from 'react'
-import Link from 'next/link'
 import { BlueButton } from '@/components/styles/Buttons'
-import Gallery from '@/components/gallery/Gallery'
-import AddNewModal from './AddNewModal'
+import MessageList from './MessageList'
 
-const Page = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const page = () => {
   return (
     <main>
-      <AddNewModal 
-        handleOpen={handleOpen}
-        handleClose={handleClose}
-        open={open}
-      />
-
       <Sidebar />
       <Box sx={{width: '100%', height: 'auto'}}>
         <Stack direction="row">
@@ -39,7 +27,7 @@ const Page = () => {
                         lineHeight: '30px',
                     }}
                 >
-                    Gallery
+                    Message-From-VC
                 </Typography>
 
                 <BlueButton 
@@ -48,12 +36,11 @@ const Page = () => {
                     textTransform: 'capitalize', 
                     bgcolor: '#00318B'
                   }}
-                  onClick={handleOpen}
                 >
                   Add New
                 </BlueButton>
             </Stack>
-            <Gallery />
+            <MessageList />
           </ContentBox>
         </Stack>
       </Box>
@@ -61,4 +48,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default page

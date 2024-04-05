@@ -6,7 +6,8 @@ export const BlueButton = styled(Button)(({ theme }) => ({
     color: 'white',
     bgcolor: '#00318B',
     height: '38px',
-    fontSize: '15px'
+    fontSize: '15px',
+    textTransform: 'capitalize',
   }));
 
 export const ResetButton = styled(Button)(({ theme }) => ({
