@@ -5,9 +5,9 @@ import Image from 'next/image';
 import logo from "@/assets/logo.png";
 import styled from '@emotion/styled';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import menuItems from '@/navigation/vertical';
+import { useRouter } from 'next/navigation'
 
 const SidebarMainBox = styled(Box)(({ theme }) => ({
     width: '25%',
@@ -26,6 +26,7 @@ const SidebarMainBox = styled(Box)(({ theme }) => ({
 
 const Sidebar = () => {
     const [openMenus, setOpenMenus] = useState({mainActive: null, subMenus: []});
+    const router = useRouter()
 
     const handleMenuClick = (type, index) => {
         if(type==="main"){
@@ -49,6 +50,8 @@ const Sidebar = () => {
                             handleMenuClick('sub', parentIndex + '.' + subIndex)
                         }else{
                             handleMenuClick('sub', parentIndex + '.' + subIndex)
+                            console.log("submenu?.path ", submenu?.path)
+                            router.push(`/${submenu?.path}`, { scroll: false })
                         }
                     }}
                     sx={{
@@ -89,6 +92,7 @@ const Sidebar = () => {
             <>
             {menuItem?.sectionTitle ? 
             <Box
+                key={index}
                 sx={{width: '100%', height: '40px', pt: '10px', pl:'16px'}}
             >
                 <Typography variant='p' component='p' 
@@ -100,7 +104,14 @@ const Sidebar = () => {
             <div key={index}>
                 <ListItem 
                     button 
-                    onClick={() => handleMenuClick('main', index)} 
+                    onClick={() =>{
+                        if(menuItem?.children?.length > 0) {
+                            handleMenuClick('main', index)
+                        }else{
+                            handleMenuClick('main', index)
+                            router.push(`/${menuItem?.path}`, { scroll: false })
+                        }
+                    }}
                     sx={{
                         pl:'16px',
                         height: '40px',

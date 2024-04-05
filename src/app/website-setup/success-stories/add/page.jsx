@@ -4,6 +4,7 @@ import Sidebar from '@/components/sidebar'
 import { ContentBox } from '@/components/styles/Box'
 import { Box, Card, Grid, Stack, Typography } from '@mui/material'
 import React from 'react'
+import AddStory from './addStory'
 
 const page = () => {
   return (
@@ -16,7 +17,7 @@ const page = () => {
 
           >
             <Appbar />
-            <addStory />
+            <AddStory />
           </ContentBox>
         </Stack>
       </Box>

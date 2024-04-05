@@ -6,6 +6,7 @@ import { Box, Stack, Typography, Button } from '@mui/material'
 import React from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import Link from 'next/link'
+import { BlueButton } from '@/components/styles/Buttons'
 
 const SuccessStories = () => {
   return (
@@ -33,18 +34,9 @@ const SuccessStories = () => {
                 </Typography>
 
                 <Link href="/website-setup/success-stories/add">
-                    <Button 
-                        variant="contained"
-                        sx={{
-                            color: 'white',
-                            bgcolor: '#00318B',
-                            height: '38px',
-                            fontSize: '15px'
-                        }}                    
-                    >
-
-                    <AddIcon sx={{color: 'white', fontSize: '22px', mr:1}} />  Add New Success Story
-                    </Button>
+                    <BlueButton variant="contained" sx={{textTransform: 'capitalize', bgcolor: '#00318B'}}>
+                      <AddIcon sx={{color: 'white', fontSize: '22px', mr:1}} />  Add New Success Story
+                    </BlueButton>
                 </Link>
             </Stack>
             <List />

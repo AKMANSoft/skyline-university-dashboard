@@ -53,7 +53,7 @@ const menuItems = [
           },
           {
             title: 'Message From VC',
-            path: '/dashboards/message-from-vc'
+            path: 'website-setup/message-from-vc'
           }
         ]
       },
