@@ -1,5 +1,6 @@
-import BreedCrumb from "@/components/mui/breedcrumbs";
+'use client'
 import { BlueButton, ResetButton } from "@/components/styles/Buttons";
+import BreedCrumb from "@/components/mui/breedcrumbs";
 import RichTextEditor from "@/components/text-editor";
 import {
   Card,
@@ -25,9 +26,9 @@ const values = {
 };
 
 const AddMessage = () => {
-  if (typeof document === 'undefined') {
-    return null; // Render nothing during server-side rendering
-}
+//   if (typeof document === 'undefined') {
+//     return null; // Render nothing during server-side rendering
+// }
   return (
     <Grid container spacing={6}>
       <Grid item xs={12}>

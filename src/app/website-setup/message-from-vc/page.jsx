@@ -6,9 +6,9 @@ import React from 'react'
 import AddMessage from './AddMessage'
 
 const page = () => {
-  if (typeof document === 'undefined') {
-    return null; // Render nothing during server-side rendering
-}
+//   if (typeof document === 'undefined') {
+//     return null; // Render nothing during server-side rendering
+// }
   return (
     <main>
       <Sidebar />
