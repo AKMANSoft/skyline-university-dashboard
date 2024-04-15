@@ -1,6 +1,6 @@
 'use client'
-import React from 'react'
-import { Box, Grid, Stack, Typography } from "@mui/material"
+import React, { useState } from 'react'
+import { Box, Grid, Stack, Typography, FormControl, NativeSelect, } from "@mui/material"
 import styled from "@emotion/styled";
 import bgImg from "@/assets/bg-dashboard.png"
 import img from "@/assets/images/img6.png"
@@ -10,6 +10,106 @@ import vectorImg from "@/assets/images/vector-img.png"
 import { FiUsers } from "react-icons/fi";
 import img2 from "@/assets/images/img7.png"
 import Image from "next/image"
+import ReactApexcharts from '@/components/react-apexcharts';
+import { hexToRGBA } from '@/utils/hex-to-rgba';
+import { TextField } from '@mui/material';
+import { DatePicker } from '@mui/lab';
+import { DropdownIcon } from '@mui/icons-material';
+import { ListIcon } from '@/utils/svg-icons';
+import ActivityItem from '@/components/jobs-dashboard/ActivityItem';
+import { activities } from '@/components/jobs-dashboard/ActivityData';
+
+const currentYear = new Date().getFullYear();
+
+const colors = Array(9).fill(hexToRGBA('#2C549E', 0.16))
+
+const options = {
+    chart: {
+      parentHeightOffset: 0,
+      toolbar: { show: false }
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 6,
+        distributed: true,
+        columnWidth: '35.8px',
+        startingShape: 'rounded',
+        dataLabels: { position: 'top' }
+      }
+    },
+    legend: { show: false },
+    tooltip: { enabled: false },
+    dataLabels: {
+      offsetY: -30,
+      formatter: val => `${val}`,
+      style: {
+        fontWeight: 500,
+        colors: ['grey'],
+        fontSize: '18px',
+      }
+    },
+    colors,
+    states: {
+      hover: {
+        filter: { type: 'none' }
+      },
+      active: {
+        filter: { type: 'none' }
+      }
+    },
+    grid: {
+      show: false,
+      padding: {
+        top: 20,
+        left: -5,
+        right: -8,
+        bottom: -12
+      }
+    },
+    xaxis: {
+      axisTicks: { show: false },
+    //   axisBorder: { color: theme.palette.divider },
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      labels: {
+        style: {
+          colors: '#4B465C', //theme.palette.text.disabled,
+        //   fontFamily:  '', //theme.typography.fontFamily,
+          fontSize: '13px',  //theme.typography.body2.fontSize
+        }
+      }
+    },
+    yaxis: {
+      labels: {
+        offsetX: -15,
+        formatter: val => `${val}`,
+        style: {
+            colors: '#4B465C', //theme.palette.text.disabled,
+            //   fontFamily:  '', //theme.typography.fontFamily,
+              fontSize: '13px'  //theme.typography.body2.fontSize
+        }
+      }
+    },
+    responsive: [
+      {
+        // breakpoint: theme.breakpoints.values.sm,
+        options: {
+          plotOptions: {
+            bar: { columnWidth: '35.8px' }
+          },
+          grid: {
+            padding: { right: 20 }
+          }
+        }
+      }
+    ]
+  }
+
+const tabData = [
+{
+    type: 'orders',
+    series: [{ data: [22, 42, 16, 34, 58, 28, 36, 28, 52, 16, 28, 42] }]
+}
+]
 
 const BackgroundImageGrid = styled(Grid)({
     width: '100%',
@@ -38,6 +138,11 @@ const Text2 = styled(Typography)({
 })
 
 const Dashboard = () => {
+    const [selectedYear, setSelectedYear] = useState(currentYear); // Default selected year is current year
+
+  const handleYearChange = (date) => {
+    setSelectedYear(date.getFullYear()); // Update selected year
+  };
   return (
     <Grid xs={12} sx={{mt:'90px'}}>
       <Grid container columnGap="26px">
@@ -290,6 +395,119 @@ const Dashboard = () => {
                 </Stack>
             </Grid>
       </Grid>
+      <Stack direction="row" columnGap="26px" sx={{mt: '26px'}}>
+        <Box 
+        sx={{
+            boxShadow: '0px 2px 10px 0px rgba(76, 78, 100, 0.22)',
+            p: '20px',
+            borderRadius: '10px',
+            bgcolor: 'white',
+            width: '47.2%'
+        }}
+        >
+            <Stack direction='row' justifyContent='space-between'>
+                <Box>
+                    <Typography
+                    component='div'
+                    variant='p'
+                    sx={{
+                        fontSize: '18px',
+                        fontWeight: 700,
+                        lineHeight: '24px',
+                        color: '#4B465C'
+                    }}
+                    >
+                        Jobs Analytics
+                    </Typography>
+                    <Typography
+                    component='div'
+                    variant='p'
+                    sx={{
+                        fontSize: '13px',
+                        fontWeight: 700,
+                        lineHeight: '20px',
+                        color: 'var(--Light-Typography-Color-Muted-Text, #4B465C)'
+                    }}
+                    >
+                        Jobs Posted Monthly
+                    </Typography>
+                </Box>
+                <Box>
+                 <DatePicker
+                    views={['year']}
+                    label="Select Year"
+                    value={new Date(selectedYear, 0, 1)}
+                    onChange={handleYearChange}
+                    renderInput={(params) => (
+                        <TextField
+                        {...params}
+                        InputProps={{
+                            ...params.InputProps,
+                            endAdornment: <DropdownIcon />,
+                        }}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        style={{ border: 'none', color: 'grey' }}
+                        />
+                    )}
+                    />
+                </Box>
+            </Stack>
+            {tabData.map((item, index) => {
+                return (
+                    <ReactApexcharts 
+                        key={index} 
+                        type='bar' 
+                        height={299} 
+                        options={{ ...options }} 
+                        series={item.series} 
+                    />
+                )
+            })}
+        </Box>
+
+        <Box
+         sx={{
+            boxShadow: '0px 2px 10px 0px rgba(76, 78, 100, 0.22)',
+            p: '20px',
+            borderRadius: '10px',
+            bgcolor: 'white',
+            width: '50%',
+            maxHeight: '550px',
+            overflow: 'auto'
+         }}
+        >
+            <Stack
+            direction='row' 
+            gap="12px" 
+            alignItems='center'
+            >
+                <ListIcon />
+                <Typography
+                variant='p'
+                component='p'
+                sx={{
+                    fontSize: '18px',
+                    fontWeight: 700,
+                    lineHeight: '24px',
+                    color: '#4B465C',
+                    ml: '12px'
+                }}>
+                    Activity Timeline
+                </Typography>
+            </Stack>
+            <Box 
+             sx={{
+                mt: '24px'  
+            }}
+            >
+                {activities?.map((activity, index) => (
+                    <ActivityItem key={index} isLastItem={index+1 === activities?.length} activity={activity} />
+                ))}
+            </Box>
+        </Box>
+      </Stack>
     </Grid>
   )
 }

@@ -109,4 +109,23 @@ export const DarkMode = () => {
     )
 }
 
+export const ListIcon = () => {
+    return (
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.834 4.16667H17.5007" stroke="#4B465C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.834 4.16667H17.5007" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.834 7.50004H15.0007" stroke="#4B465C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.834 7.50004H15.0007" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.834 12.5H17.5007" stroke="#4B465C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.834 12.5H17.5007" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.834 15.8333H15.0007" stroke="#4B465C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10.834 15.8333H15.0007" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="2.5" y="3.33337" width="5" height="5" rx="1" stroke="#4B465C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="2.5" y="3.33337" width="5" height="5" rx="1" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="2.5" y="11.6666" width="5" height="5" rx="1" stroke="#4B465C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="2.5" y="11.6666" width="5" height="5" rx="1" stroke="white" strokeOpacity="0.1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+            )
+}
+
 export default CompaniesIcon;

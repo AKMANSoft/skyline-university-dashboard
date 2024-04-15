@@ -27,6 +27,7 @@ import OptionsMenu from './OptionMenu'
 import TableHeader from './TableHeader'
 import { Avatar, Switch } from '@mui/material'
 import img from "@/assets/images/img1.png"
+import { CustomSwitch } from '../styles/Switch'
 
 // ** renders client column
 const renderClient = row => {
@@ -145,12 +146,10 @@ const defaultColumns = [
     field: 'status',
     headerName: 'status',
     renderCell: ({ row }) => {
-      return <Switch 
-        color="success"
-        value={row.status}
-        onChange={(event) => {
-        }}  
-    />;
+      return <CustomSwitch 
+      label="Status"
+      defaultChecked
+  />
     }
   }
 ]
