@@ -1,4 +1,3 @@
-'use client'
 import Appbar from '@/components/appbar'
 import Sidebar from '@/components/sidebar'
 import { ContentBox } from '@/components/styles/Box'
@@ -7,6 +6,9 @@ import React from 'react'
 import AddMessage from './AddMessage'
 
 const page = () => {
+  if (typeof document === 'undefined') {
+    return null; // Render nothing during server-side rendering
+}
   return (
     <main>
       <Sidebar />
@@ -15,8 +17,7 @@ const page = () => {
           <Box sx={{width: '260px'}}></Box>
           <ContentBox>
             <Appbar />
-
-            <AddMessage />            
+            <AddMessage />
           </ContentBox>
         </Stack>
       </Box>
