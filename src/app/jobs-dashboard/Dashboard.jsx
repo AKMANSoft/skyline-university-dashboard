@@ -122,9 +122,11 @@ const options = {
   ],
 };
 
+console.log("options ", options)
+
 const tabData = [
   {
-    type: "orders",
+    type: "bars",
     series: [{ data: [22, 42, 16, 34, 58, 28, 36, 28, 52, 16, 28, 42] }],
   },
 ];
@@ -162,7 +164,7 @@ const Dashboard = () => {
     setSelectedYear(date.getFullYear()); // Update selected year
   };
   return (
-    <Grid xs={12} sx={{ mt: "90px" }}>
+    <Grid sx={{ mt: "90px" }}>
       <Grid container columnGap="26px">
         <BackgroundImageGrid item xs={12} lg={12} xl={5.7}>
           <Stack direction="row" gap="20px">
@@ -273,6 +275,7 @@ const Dashboard = () => {
             >
               <Image
                 src={img}
+                alt="image"
                 style={{
                   width: "100%",
                   // height: '100%',
@@ -307,7 +310,8 @@ const Dashboard = () => {
           >
             <Box>
               <Stack direction="row" gap="8px">
-                <Image src={useIcon} />
+                <Image src={useIcon}
+                alt="image" />
                 <Text2 sx={{ fontSize: "15px", lineHeight: "22px" }}>
                   In UAE
                 </Text2>
@@ -352,7 +356,8 @@ const Dashboard = () => {
 
             <Box sx={{ textAlign: "end" }}>
               <Stack direction="row" gap="8px">
-                <Image src={fliteIcon} />
+                <Image src={fliteIcon}
+                alt="image" />
                 <Text2 sx={{ fontSize: "15px", lineHeight: "22px" }}>
                   F Companies
                 </Text2>
@@ -410,7 +415,7 @@ const Dashboard = () => {
               left: 0,
             }}
           >
-            <Image src={vectorImg} />
+            <Image src={vectorImg} alt="image"/>
           </Box>
           <Stack
             direction="row"
@@ -447,7 +452,7 @@ const Dashboard = () => {
               </Text2>
             </Box>
             <Box>
-              <Image src={img2} />
+              <Image src={img2} alt="image" />
             </Box>
           </Stack>
         </Grid>
@@ -517,7 +522,7 @@ const Dashboard = () => {
                 key={index}
                 type="bar"
                 height={299}
-                options={{ ...options }}
+                options={options}
                 series={item.series}
               />
             );

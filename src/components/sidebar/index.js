@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   List,
@@ -15,7 +15,7 @@ import styled from "@emotion/styled";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import menuItems from "@/navigation/vertical";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const SidebarMainBox = styled(Box)(({ theme }) => ({
   width: "25%",
@@ -37,7 +37,32 @@ const Sidebar = () => {
     mainActive: null,
     subMenus: [],
   });
+  const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    let activeInd = 0
+    let activeSubIndexes = []
+    menuItems?.map((menuItem, index) => {
+        if(menuItem?.path) {
+            if(pathname?.split("/")?.[1] === menuItem?.path?.split("/")?.[0]) {
+                activeInd = index
+            }
+        }
+        if(menuItem?.children?.length > 0) {
+            menuItem.children.map((child, childIndex) => {
+                if(pathname?.split("/")?.[1] === child?.path?.split("/")?.[0]) {
+                    activeInd = index
+                    activeSubIndexes.push(index + "." + childIndex)
+                }
+            })
+        }
+    })
+  
+    if (activeInd !== -1) {
+      setOpenMenus({ ...openMenus, mainActive: activeInd, subMenus: [...openMenus?.subMenus, ...activeSubIndexes] });
+    }
+  }, [pathname]);
 
   const handleMenuClick = (type, index) => {
     if (type === "main") {
@@ -61,13 +86,13 @@ const Sidebar = () => {
     return submenus?.map((submenu, subIndex) => (
       <div key={subIndex}>
         <ListItem
+          key={subIndex}
           button
           onClick={() => {
             if (submenu?.children?.length > 0) {
               handleMenuClick("sub", parentIndex + "." + subIndex);
             } else {
               handleMenuClick("sub", parentIndex + "." + subIndex);
-              console.log("submenu?.path ", submenu?.path);
               router.push(`/${submenu?.path}`, { scroll: false });
             }
           }}
@@ -80,7 +105,7 @@ const Sidebar = () => {
           <ListItemText
             primary={submenu.title}
             sx={{
-              "& .css-10hburv-MuiTypography-root": {
+              ".css-10hburv-MuiTypography-root, & .css-yb0lig": {
                 fontSize: "15px",
                 color: "#696969",
                 lineHeight: "22px",
@@ -138,6 +163,7 @@ const Sidebar = () => {
         ) : (
           <div key={index}>
             <ListItem
+              key={index}
               button
               onClick={() => {
                 if (menuItem?.children?.length > 0) {
@@ -170,13 +196,13 @@ const Sidebar = () => {
                   minWidth: "1px",
                   pr: "8px",
                   "& .css-1vbwjd7-MuiSvgIcon-root, &": {
-                    color: openMenus.mainActive === index ? "white !important" : "#696969 !important",
+                    color: openMenus.mainActive === index ? "white" : "#696969",
                   },
                   "& .sidebar-icon": {
                     color:
                       openMenus.mainActive === index
-                        ? "white !important"
-                        : "#696969 !important",
+                        ? "white"
+                        : "#696969",
                   },
                 }}
               >
@@ -186,8 +212,8 @@ const Sidebar = () => {
                 primary={menuItem.title}
                 sx={{
                   " .css-10hburv-MuiTypography-root, & .css-yb0lig": {
-                    fontSize: "15px !important",
-                    color: openMenus.mainActive === index ? "white !important" : "#696969 !important",
+                    fontSize: "15px",
+                    color: openMenus.mainActive === index ? "white" : "#696969",
                     lineHeight: "22px",
                     fontWeight: 400,
                   },
@@ -198,14 +224,14 @@ const Sidebar = () => {
                   <ExpandMore
                     sx={{
                       color:
-                        openMenus.mainActive === index ? "white !important" : "#696969 !important",
+                        openMenus.mainActive === index ? "white" : "#696969",
                     }}
                   />
                 ) : (
                   <ChevronRightIcon
                     sx={{
                       color:
-                        openMenus.mainActive === index ? "white !important" : "#696969 !important",
+                        openMenus.mainActive === index ? "white" : "#696969",
                     }}
                   />
                 ))}

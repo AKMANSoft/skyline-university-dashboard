@@ -20,7 +20,7 @@ const Appbar = () => {
           <Stack direction="row" gap="1rem" alignItems="center" justifyContent="end" sx={{width: '100%'}}>
             <DarkMode />
             <IoIosNotificationsOutline fontSize="30px" color="#4B465C" cursor="pointer" />
-            <Avatar alt="Remy Sharp" sx={{width: '38px', height: '38px', cursor: 'pointer'}} src={img} />
+            <Avatar alt="Remy Sharp" sx={{width: '38px', height: '38px', cursor: 'pointer'}} src={img.src} />
           </Stack>
         </Toolbar>
       </AppBar>
