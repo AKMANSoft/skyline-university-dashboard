@@ -155,7 +155,7 @@ const Sidebar = () => {
                 background:
                   openMenus.mainActive === index
                     ? "linear-gradient(72deg, #00318B 22.16%, #2C549E 76.47%)"
-                    : "inherit",
+                    : "transparent",
                 borderRadius: "6px",
                 "&:hover": {
                   background:
@@ -185,7 +185,7 @@ const Sidebar = () => {
               <ListItemText
                 primary={menuItem.title}
                 sx={{
-                  "& .css-10hburv-MuiTypography-root": {
+                  "& .css-10hburv-MuiTypography-root, .css-yb0lig": {
                     fontSize: "15px !important",
                     color: openMenus.mainActive === index ? "white !important" : "#696969 !important",
                     lineHeight: "22px",
