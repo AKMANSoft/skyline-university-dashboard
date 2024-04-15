@@ -185,7 +185,7 @@ const Sidebar = () => {
               <ListItemText
                 primary={menuItem.title}
                 sx={{
-                  "& .css-10hburv-MuiTypography-root, .css-yb0lig": {
+                  " .css-10hburv-MuiTypography-root, & .css-yb0lig": {
                     fontSize: "15px !important",
                     color: openMenus.mainActive === index ? "white !important" : "#696969 !important",
                     lineHeight: "22px",
