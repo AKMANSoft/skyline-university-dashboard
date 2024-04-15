@@ -1,8 +1,8 @@
+'use client'
 import Appbar from '@/components/appbar'
-import BreedCrumb from '@/components/mui/breedcrumbs'
 import Sidebar from '@/components/sidebar'
 import { ContentBox } from '@/components/styles/Box'
-import { Box, Stack, Card } from "@mui/material"
+import { Box, Stack } from "@mui/material"
 import React from 'react'
 import AddMessage from './AddMessage'
 
