@@ -18,9 +18,6 @@ import menuItems from "@/navigation/vertical";
 import { usePathname, useRouter } from "next/navigation";
 
 const SidebarMainBox = styled(Box)(({ theme }) => ({
-  width: "25%",
-  maxWidth: "260px",
-  minWidth: "260px",
   height: "100vh",
   backgroundColor: "white",
   position: "fixed",
@@ -29,7 +26,9 @@ const SidebarMainBox = styled(Box)(({ theme }) => ({
   zIndex: 1000,
   bottom: 0,
   overflowY: "auto",
+  overflowX: 'hidden',
   boxShadow: "0px 2px 4px 0px rgba(165, 163, 174, 0.30)",
+  transition: 'all .3s ease-in-out',
 }));
 
 const Sidebar = () => {
@@ -252,7 +251,13 @@ const Sidebar = () => {
   };
 
   return (
-    <SidebarMainBox>
+    <SidebarMainBox
+    sx={{
+      width: "25%",
+      maxWidth: {xs: '0px', md: '0px', lg:"260px"},
+      minWidth: {xs: '0px', md: '0px', lg:"260px"},
+    }}
+    >
       <Box
         sx={{
           height: "76px",

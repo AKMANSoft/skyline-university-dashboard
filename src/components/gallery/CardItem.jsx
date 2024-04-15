@@ -45,7 +45,7 @@ const CardItem = ({item}) => {
                     objectFit: 'cover',
                     aspectRatio: "1.002",
                 }}
-                src={item.img} 
+                src={item?.img} 
                 layout="responsive"
             />
 

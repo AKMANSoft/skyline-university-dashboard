@@ -44,7 +44,7 @@ const Page = () => {
       <Box sx={{ width: "100%", height: "auto", pb: 5 }}>
         <Stack direction="row">
           <Box sx={{ width: "260px" }}></Box>
-          <ContentBox>
+          <ContentBox sx={{width: {xs: '100%', md: '100%', lg: 'calc(100% - 260px)'}}}>
             <Appbar />
 
             <Stack

@@ -6,16 +6,14 @@ import { Box, Stack } from '@mui/material'
 import React from 'react'
 import Dashboard from './Dashboard'
 
-const page = () => {
+const Page = () => {
   return (
     <main>
       <Sidebar />
       <Box sx={{width: '100%', height: 'auto'}}>
         <Stack direction="row">
-          <Box sx={{width: '260px'}}></Box>
-          <ContentBox
-
-          >
+         <Box sx={{width: {md: '0px', lg:'260px'}}}></Box>
+          <ContentBox sx={{width: {xs: '100%', md: '100%', lg: 'calc(100% - 260px)'}}}>
             <Appbar />
             <Dashboard />
           </ContentBox>
@@ -25,4 +23,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

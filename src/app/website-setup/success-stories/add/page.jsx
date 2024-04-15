@@ -12,7 +12,7 @@ const page = () => {
       <Sidebar />
       <Box sx={{width: '100%', height: 'auto'}}>
         <Stack direction="row">
-          <Box sx={{width: '260px'}}></Box>
+         <Box sx={{width: {md: '0px', lg:'260px'}}}></Box>
           <ContentBox
 
           >

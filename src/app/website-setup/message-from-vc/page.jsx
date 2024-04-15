@@ -14,8 +14,8 @@ const page = () => {
       <Sidebar />
       <Box sx={{width: '100%', height: 'auto'}}>
         <Stack direction="row">
-          <Box sx={{width: '260px'}}></Box>
-          <ContentBox>
+         <Box sx={{width: {md: '0px', lg:'260px'}}}></Box>
+          <ContentBox sx={{width: {xs: '100%', md: '100%', lg: 'calc(100% - 260px)'}}}>
             <Appbar />
             <AddMessage />
           </ContentBox>
