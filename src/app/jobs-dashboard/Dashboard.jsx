@@ -386,7 +386,7 @@ const Dashboard = () => {
                         >
                             <FiUsers fontSize='22px' color="#7CBD5B" />
                         </Box>
-                        <Text2 sx={{fontSize: '16px', lineHeight: '20px', mt: '5px'}}>Total Alumni's</Text2>
+                        <Text2 sx={{fontSize: '16px', lineHeight: '20px', mt: '5px'}}>Total Alumni&apos;s</Text2>
                         <Text2 sx={{fontSize: '25px', lineHeight: '20px', mt: '5px', color: '#7CBD5B !important', mt: '8px'}}>529</Text2>
                     </Box>
                     <Box>

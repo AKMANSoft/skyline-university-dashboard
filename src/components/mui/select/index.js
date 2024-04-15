@@ -170,4 +170,6 @@ const CustomTextField = forwardRef((props, ref) => {
   )
 })
 
+CustomTextField.displayName = 'CustomTextField';
+
 export default CustomTextField
