@@ -1,10 +1,8 @@
 'use client'
-import { Stack, Box, Typography, TextField, InputLabel, MenuItem, Select, TextareaAutosize } from '@mui/material'
+import { Stack, Box, Typography, TextField, InputLabel, MenuItem, Select } from '@mui/material'
 import React from 'react'
 import { AddCompanyCard } from '../styles/Card'
 import styled from '@emotion/styled'
-import { BsUpload } from "react-icons/bs";
-import { BlueButton } from '../styles/Buttons'
 
 const styles = {
     maxWidth: '622px',
@@ -48,7 +46,7 @@ const AddCardTwo = () => {
                     </CustomLabel>
                     <TextField
                         id="outlined-basic"
-                        placeholder="John@gmail.com"
+                        placeholder="John"
                         variant="outlined"
                         InputLabelProps={{
                         shrink: true,
@@ -72,7 +70,7 @@ const AddCardTwo = () => {
                     </CustomLabel>
                     <TextField
                         id="outlined-basic"
-                        placeholder="000 0000 0000"
+                        placeholder="Matt"
                         variant="outlined"
                         InputLabelProps={{
                         shrink: true,
@@ -92,27 +90,22 @@ const AddCardTwo = () => {
                     sx={{ mt: '20px' }}
                 >
                     <CustomLabel id="demo-simple-select-label" sx={{mb: {xs: '7px', sm: '0px'}}}>
-                    Country
+                    Description
                     </CustomLabel>
-                    <Select
+                    <TextField
                         id="outlined-basic"
-                        placeholder="Select Status"
+                        placeholder="Description will come here this is an example description"
                         variant="outlined"
-                        value="UAE"
-                        sx={{
-                        width: { xs: "100%", sm: "70%", lg: "75%", xl: "82%" },
-                        height: "38px",
-                        borderRadius: "6px",
-                        color: "#757575",
-                        borderColor: '#DBDADE',
-                        bgcolor: '#F6F6F6',
-                        "& .MuiSelect-root": {
-                            color: "#757575",
+                        InputLabelProps={{
+                        shrink: true,
+                        }}
+                        InputProps={{
+                        sx: {
+                            height: "38px !important",
                         },
                         }}
-                    >
-                        <MenuItem value="UAE">UAE</MenuItem>
-                    </Select>
+                        sx={{...styles, width: {xs:'100%', sm: '70%', lg: '75%', xl: "82%"}}}
+                    />
                 </Stack>
                 <Stack
                     direction={{xs: 'column', sm:'row'}} 
@@ -120,82 +113,87 @@ const AddCardTwo = () => {
                     alignItems={{xs: 'start', sm:'center'}} 
                     sx={{ mt: '20px' }}
                 >
-                    <CustomLabel id="demo-simple-select-label" sx={{mb: {xs: '7px', sm: '0px'}}}>
-                    State
-                    </CustomLabel>
+                    <CustomLabel id="demo-simple-select-label" sx={{mb: {xs: '7px', sm: '0px'}}}>Country</CustomLabel>
                     <Select
                         id="outlined-basic"
-                        placeholder="Select Status"
+                        placeholder="Select a Country"
                         variant="outlined"
-                        value="Sharjah"
+                        value='UAE'
+                        disabled
                         sx={{
-                        width: { xs: "100%", sm: "70%", lg: "75%", xl: "82%" },
-                        height: "38px",
-                        borderRadius: "6px",
-                        color: "#757575",
-                        borderColor: '#DBDADE',
-                        bgcolor: '#F6F6F6',
-                        "& .MuiSelect-root": {
-                            color: "#757575",
-                        },
+                            width: {xs:'100%', sm: '70%', lg: '75%', xl: "82%"},
+                            maxWidth: '622px',
+                            height: '38px',
+                            borderRadius: '6px',
+                            color: '#4B465C',
+                            '& .MuiOutlinedInput-notchedOutline': {
+                                // borderColor: '#DBDADE',
+                            },
+                            '& .MuiSelect-root': {
+                                color: '#4B465C',
+                            },
                         }}
                     >
-                        <MenuItem value="Sharjah">Sharjah</MenuItem>
+                        <MenuItem value="UAE" selected>UAE</MenuItem>
+                        <MenuItem value="KSA">KSA</MenuItem>
                     </Select>
                 </Stack>
-                <Stack
+                <Stack 
                     direction={{xs: 'column', sm:'row'}} 
                     justifyContent='space-between' 
-                    alignItems="start" 
+                    alignItems={{xs: 'start', sm:'center'}} 
+                    sx={{ mt: '20px' }}
+                >
+                    <CustomLabel id="demo-simple-select-label" sx={{mb: {xs: '7px', sm: '0px'}}}>State</CustomLabel>
+                    <Select
+                        id="outlined-basic"
+                        placeholder="Select a State"
+                        variant="outlined"
+                        value="Sharjah"
+                        disabled
+                        sx={{
+                            width: {xs:'100%', sm: '70%', lg: '75%', xl: "82%"},
+                            maxWidth: '622px',
+                            height: '38px',
+                            borderRadius: '6px',
+                            color: '#4B465C',
+                            '& .MuiOutlinedInput-notchedOutline': {
+                                // borderColor: '#DBDADE',
+                            },
+                            '& .MuiSelect-root': {
+                                color: '#757575',
+                            },
+                        }}
+                    >
+                        <MenuItem value="Sharjah" selected>Sharjah</MenuItem>
+                    </Select>
+                </Stack>
+                <Stack 
+                    direction={{xs: 'column', sm:'row'}} 
+                    justifyContent='space-between' 
+                    alignItems={{xs: 'start', sm:'center'}} 
                     sx={{ mt: '20px' }}
                 >
                     <CustomLabel id="demo-simple-select-label" sx={{mb: {xs: '7px', sm: '0px'}}}>
-                    Description
+                    Address
                     </CustomLabel>
-                    <Box
-                        sx={{
-                            width: { xs: "100%", sm: "70%", lg: "75%", xl: "82%" },
-                            height: "101px",
+                    <TextField
+                        id="outlined-basic"
+                        placeholder="dummy address #3 street, town, City"
+                        variant="outlined"
+                        InputLabelProps={{
+                        shrink: true,
                         }}
-                    >
-                        <TextareaAutosize
-                            id="outlined-basic"
-                            placeholder="dummy address #3 street, town, City"
-                            style={{ 
-                                width: "95.5%",
-                                height: '101px', 
-                                resize: 'vertical' ,
-                                borderRadius: '6px',
-                                borderColor: '#DBDADE',
-                                padding:"12px",
-                                fontSize: '16px',
-                                fontFamily: 'sans-serif',
-                                marginBottom: '20px'
-                            }}
-                        />
-                    </Box>
+                        InputProps={{
+                        sx: {
+                            height: "38px !important",
+                        },
+                        }}
+                        sx={{...styles, width: {xs:'100%', sm: '70%', lg: '75%', xl: "82%"}}}
+                    />
                 </Stack>
             </form>
           </Box>
-
-          <Stack direction='row' alignItems='center' gap='19px' sx={{mt: '41px'}}>
-                <Box
-                    sx={{
-                        width: '81px',
-                        height: '73px',
-                        bgcolor: 'rgba(46, 49, 146, 0.17)',
-                        borderRadius: '6px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}
-                >
-                    <BsUpload color='#2E3192' fontSize='40px' />
-                </Box>
-                <BlueButton sx={{bgcolor: '#2E3192'}}>
-                    Upload Resume
-                </BlueButton>
-          </Stack>
     </AddCompanyCard>
   )
 }
