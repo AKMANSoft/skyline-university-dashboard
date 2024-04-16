@@ -2,7 +2,7 @@ import Appbar from '@/components/appbar'
 import Sidebar from '@/components/sidebar'
 import { ContentBox } from '@/components/styles/Box'
 import List from '@/components/success-stories/List'
-import { Box, Stack, Typography, Button } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import React from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import Link from 'next/link'

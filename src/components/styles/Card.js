@@ -12,3 +12,10 @@ export const CompanyCard = styled(Card)(({ theme }) => ({
     boxshadow: '0px 4px 18px 0px rgba(75, 70, 92, 0.10)',
     padding: '24px 0px'
 }));
+
+
+export const AddCompanyCard = styled(Card)(({ theme }) => ({
+    borderRadius: '10px',
+    background: '#fff',
+    boxShadow: '0px 4px 18px 0px rgba(75, 70, 92, 0.10)',
+})) 

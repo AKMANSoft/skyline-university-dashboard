@@ -26,9 +26,7 @@ const values = {
 };
 
 const AddMessage = () => {
-//   if (typeof document === 'undefined') {
-//     return null; // Render nothing during server-side rendering
-// }
+
   return (
     <Grid container spacing={6}>
       <Grid item xs={12}>

@@ -5,6 +5,7 @@ import { ContentBox } from '@/components/styles/Box'
 import Appbar from '@/components/appbar'
 import BreedCrumb from '@/components/mui/breedcrumbs'
 import CompanyDetail from '@/components/companies/CompanyDetail'
+import PostJobDetails from '@/components/companies/PostJobDetails'
 
 const values = {
   title: "Social Company",
@@ -13,6 +14,10 @@ const values = {
       title: "Companies",
       path: "/companies",
     },
+    {
+        title: "Social Company",
+        path: "/companies/social-company",
+      },
   ],
 };
 
@@ -30,7 +35,7 @@ const Page = () => {
               <BreedCrumb values={values} />
             </Grid>
             
-            <CompanyDetail />
+            <PostJobDetails />
           </ContentBox>
         </Stack>
       </Box>

@@ -122,8 +122,6 @@ const options = {
   ],
 };
 
-console.log("options ", options)
-
 const tabData = [
   {
     type: "bars",

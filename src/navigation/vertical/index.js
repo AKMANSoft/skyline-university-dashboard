@@ -83,16 +83,16 @@ const menuItems = [
       {
         title: "Add Alumni",
         icon: <AddAluminiIcon />,
-        path: '/add-alumni'
+        path: 'add-alumni'
       },
       {
         title: 'Add Company',
         icon: <AddCompanyIcon />,
-        path: '/add-company'
+        path: 'add-company'
       },
       {
         title: 'Events',
-        path: '/events',
+        path: 'events',
         icon: <EventIcon />,
       },
       {
