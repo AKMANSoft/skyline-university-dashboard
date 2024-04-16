@@ -1,5 +1,5 @@
 "use client";
-import { Stack, Box, Typography, TextField, InputLabel, MenuItem } from "@mui/material";
+import { Stack, Box, Typography, TextField, InputLabel, MenuItem, Select } from "@mui/material";
 import React from "react";
 import { AddCompanyCard } from "../styles/Card";
 import { BlueButton, ResetButton } from "../styles/Buttons";
