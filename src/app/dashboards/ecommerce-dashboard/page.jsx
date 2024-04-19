@@ -9,7 +9,6 @@ import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import SalesCard from "@/components/dashboards/ecommerce-dashboard/SalesCard";
 import RevenueCard from "@/components/dashboards/ecommerce-dashboard/RevenueCard";
-import VerticalCustomersCard from "@/components/dashboards/ecommerce-dashboard/VerticalCustomersCard";
 import icon1 from "@/assets/icons/rc-icon1.png"
 import icon2 from "@/assets/icons/rc-icon2.png"
 import icon3 from "@/assets/icons/rc-icon3.png"

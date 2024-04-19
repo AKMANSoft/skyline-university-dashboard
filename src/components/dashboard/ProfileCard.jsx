@@ -2,9 +2,7 @@
 import {
   Avatar,
   Box,
-  Button,
   Card,
-  InputLabel,
   Stack,
   Typography,
 } from "@mui/material";
@@ -17,7 +15,6 @@ import {
   EmailIcon
 } from "@/utils/svg-icons";
 import styled from "@emotion/styled";
-import { BlueButton } from "../styles/Buttons";
 
 const ListText = styled(Typography)(({ theme }) => ({
   fontSize: "15px",

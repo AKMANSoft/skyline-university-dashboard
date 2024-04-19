@@ -142,6 +142,7 @@ const CardText = styled(Typography)(({ theme }) => ({
 }));
 
 const JobPostingChart = () => {
+  if (typeof window !== "undefined")
   return (
     <Card
       sx={{
