@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import img from "@/assets/images/avatar6.png";
+import img from "@/assets/images/Avatar6.png";
 import { CustomDivider } from "../styles/CustomDivider";
 import {
   CallIcon,
