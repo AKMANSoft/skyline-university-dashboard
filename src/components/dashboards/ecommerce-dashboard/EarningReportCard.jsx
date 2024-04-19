@@ -208,7 +208,7 @@ const EarningReportCard = () => {
     ],
   };
 
-  if (typeof window !== "undefined") return null
+  if (typeof window === "undefined") return null
   return (
     <CustomCard sx={{ p: "24px" }}>
       <Typography
