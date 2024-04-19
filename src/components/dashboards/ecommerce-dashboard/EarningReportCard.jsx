@@ -109,7 +109,6 @@ const renderTabPanels = (value, theme, options, colors) => {
 };
 
 const EarningReportCard = () => {
-  if (typeof window !== "undefined") return null
   // ** State
   const [value, setValue] = useState("orders");
 
@@ -209,6 +208,7 @@ const EarningReportCard = () => {
     ],
   };
 
+  if (typeof window !== "undefined") return null
   return (
     <CustomCard sx={{ p: "24px" }}>
       <Typography
