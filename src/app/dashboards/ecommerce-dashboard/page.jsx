@@ -19,6 +19,7 @@ import ProductsList from "@/components/dashboards/ecommerce-dashboard/ProductsLi
 import OrderList from "@/components/dashboards/ecommerce-dashboard/OrderList";
 
 const Page = () => {
+  
   return (
     <main>
       <Sidebar />

@@ -109,6 +109,7 @@ const renderTabPanels = (value, theme, options, colors) => {
 };
 
 const EarningReportCard = () => {
+  if (typeof window !== "undefined") return null
   // ** State
   const [value, setValue] = useState("orders");
 
