@@ -16,7 +16,6 @@ import Image from "next/image";
 import React from "react";
 import { MdOutlineFileUpload } from "react-icons/md";
 import img1 from "@/assets/images/img2.png";
-import img2 from "@/assets/images/img3.png";
 
 const AddNewModal = (props) => {
   if (!props) return null; // Handle the case where props are undefined
@@ -36,10 +35,26 @@ const AddNewModal = (props) => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 690,
+            width: {xs:'94%',sm:'90%',md:690},
             bgcolor: "background.paper",
             boxShadow: 24,
             p: 3,
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            "&::-webkit-scrollbar": {
+              width: "4px",
+              height: "4px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#888",
+              width: '3px',
+              height: '3px',
+              borderRadius: "4px",
+            },
+            "&::-webkit-scrollbar-track": {
+              backgroundColor: "transparent",
+              borderRadius: "4px",
+            }, 
           }}
         >
           <Box>
@@ -120,10 +135,9 @@ const AddNewModal = (props) => {
               </FileUploadBox>
             </label>
 
-            <Stack direction="row" gap="1rem" sx={{ mt: "22px" }}>
+            <Stack direction={{xs:'column',sm:"row"}} gap="1rem" sx={{ mt: "22px" }}>
               <Card
                 sx={{
-                  // boxShadow: ''
                   width: "200px",
                   display: "flex",
                   alignItems: "center",

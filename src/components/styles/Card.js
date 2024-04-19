@@ -19,3 +19,9 @@ export const AddCompanyCard = styled(Card)(({ theme }) => ({
     background: '#fff',
     boxShadow: '0px 4px 18px 0px rgba(75, 70, 92, 0.10)',
 })) 
+
+export const CustomCard = styled(Card)(({ theme }) => ({
+    borderRadius: '6px',
+    background: '#fff',
+    boxShadow: '0px 4px 18px 0px rgba(75, 70, 92, 0.10)',
+})) 

@@ -9,12 +9,17 @@ const menuItems = [
         icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
         children: [
           {
+            title: 'Dashboard',
+            icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
+            path: 'dashboards/ecommerce-dashboard'
+          },
+          {
             title: 'Orders',
             icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
             children: [
                 {
                     title: 'Order List',
-                    path: '/dashboards/orders/order-list'
+                    path: 'dashboards/orders/order-list'
                 }
             ]
           },
@@ -24,18 +29,18 @@ const menuItems = [
             children: [
                 {
                     title: 'Product List',
-                    path: '/dashboards/product/product-list'
+                    path: 'dashboards/product/product-list'
                 },
                 {
                     title: 'Add Product',
-                    path: '/dashboards/product/add-product'
+                    path: 'dashboards/product/add-product'
                 }
             ]
           },
           {
             title: 'Category',
             icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
-            path: '/dashboards/category'
+            path: 'dashboards/category'
           }
         ]
       },
