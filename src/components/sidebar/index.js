@@ -16,6 +16,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import menuItems from "@/navigation/vertical";
 import { usePathname, useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleHamburger } from "@/redux/slices/hamburger";
 
 const SidebarMainBox = styled(Box)(({ theme }) => ({
   height: "100vh",
@@ -32,12 +34,14 @@ const SidebarMainBox = styled(Box)(({ theme }) => ({
 }));
 
 const Sidebar = () => {
+  const dispatch = useDispatch()
   const [openMenus, setOpenMenus] = useState({
     mainActive: null,
     subMenus: [],
   });
   const pathname = usePathname();
   const router = useRouter();
+  const showSidebar = useSelector((state) => state.hamburger.show)
 
   useEffect(() => {
     let activeInd = 0
@@ -209,9 +213,10 @@ const Sidebar = () => {
               </ListItemIcon>
               <ListItemText
                 primary={menuItem.title}
+                className="listItemText"
                 sx={{
-                  " .css-10hburv-MuiTypography-root, & .css-yb0lig": {
-                    fontSize: "15px",
+                  "& .css-10hburv-MuiTypography-root, &": {
+                    fontSize: "15px !important",
                     color: openMenus.mainActive === index ? "white" : "#696969",
                     lineHeight: "22px",
                     fontWeight: 400,
@@ -251,11 +256,40 @@ const Sidebar = () => {
   };
 
   return (
-    <SidebarMainBox
+    <>
+    {showSidebar &&
+      <Box
+      onClick={() => dispatch(toggleHamburger(false))}
+      sx={{
+        position:'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        bgcolor: 'rgba(0,0,0,0.3)',
+        zIndex: 999,
+      }}
+      ></Box>
+    }
+    <SidebarMainBox 
     sx={{
       width: "25%",
-      maxWidth: {xs: '0px', md: '0px', lg:"260px"},
-      minWidth: {xs: '0px', md: '0px', lg:"260px"},
+      maxWidth: showSidebar ? '265px' : {xs: '0px', md: '0px', lg:"265px"},
+      minWidth: showSidebar ? '265px' : {xs: '0px', md: '0px', lg:"265px"},
+      "&::-webkit-scrollbar": {
+        width: "4px",
+        height: "4px",
+      },
+      "&::-webkit-scrollbar-thumb": {
+        backgroundColor: "#888",
+        width: '3px',
+        height: '3px',
+        borderRadius: "4px",
+      },
+      "&::-webkit-scrollbar-track": {
+        backgroundColor: "transparent",
+        borderRadius: "4px",
+      },
     }}
     >
       <Box
@@ -273,6 +307,7 @@ const Sidebar = () => {
         <List>{renderMenuItems(menuItems)}</List>
       </Box>
     </SidebarMainBox>
+    </>
   );
 };
 

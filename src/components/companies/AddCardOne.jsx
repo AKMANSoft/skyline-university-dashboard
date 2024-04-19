@@ -146,27 +146,6 @@ const AddCardOne = () => {
                 borderRadius: "6px",
               }}
             />
-              <Select
-              id="outlined-basic"
-              placeholder="Select Status"
-              variant="outlined"
-              value="Sharjah"
-              sx={{
-                  width: '155px',
-                  height: '38px',
-                  borderRadius: '6px',
-                  color: '#4B465C',
-                  '& .MuiOutlinedInput-notchedOutline': {
-                      // borderColor: '#DBDADE',
-                  },
-                  '& .MuiSelect-root': {
-                      color: '#757575',
-                  },
-              }}
-          >
-              <MenuItem value="" selected>Select Status</MenuItem>
-              <MenuItem value="Active" selected>Active</MenuItem>
-          </Select>
           </Stack>
           <Stack
             direction={{ xs: "column", sm: "row" }}

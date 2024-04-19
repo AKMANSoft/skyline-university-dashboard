@@ -15,7 +15,6 @@ import Sidebar from "@/components/sidebar";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import BreedCrumb from "@/components/mui/breedcrumbs";
-import ApplicantTable from "@/components/companies/applicants/ApplicantTable";
 import { BlueButton } from "@/components/styles/Buttons";
 import AddIcon from "@mui/icons-material/Add";
 import AlumniTable from "@/components/alumni/AlumniTable";

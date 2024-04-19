@@ -17,3 +17,11 @@ export const ResetButton = styled(Button)(({ theme }) => ({
     fontSize: '15px',
     letterSpacing: '0.43px',
   }));
+
+export const SuspendButton = styled(Button)(({ theme }) => ({
+  bgcolor: "rgba(243, 16, 60, 0.15)",
+  color: "#EA5455",
+  fontSize: "15px",
+  letterSpacing: "0.43px",
+  textTransform: "capitalize",
+}))

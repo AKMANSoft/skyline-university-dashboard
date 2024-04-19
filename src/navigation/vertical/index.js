@@ -75,7 +75,7 @@ const menuItems = [
       {
         title: 'Job Management',
         icon: <WorkOutlineIcon />,
-        path: '/job-management'
+        path: 'job-management'
       },
       {
         sectionTitle: 'Create & Add'
@@ -101,27 +101,27 @@ const menuItems = [
         children: [
           {
             title: 'Country',
-            path: '/configuration/country'
+            path: 'configuration/country'
           },
           {
             title: 'State',
-            path: '/configuration/state'
+            path: 'configuration/state'
           },
           {
             title: 'Employment Type',
-            path: '/configuration/employement-type'
+            path: 'configuration/employment-type'
           },
           {
             title: 'Location',
-            path: '/configuration/location'
+            path: 'configuration/location'
           },
           {
             title: 'Upload Resume Option',
-            path: '/configuration/upload-resume'
+            path: 'configuration/upload-resume-option'
           },
           {
             title: 'Application Deadline',
-            path: '/configuration/application-deadline'
+            path: 'configuration/application-deadline'
           },
         ]
       }
