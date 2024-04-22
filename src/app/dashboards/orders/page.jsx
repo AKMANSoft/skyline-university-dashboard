@@ -9,6 +9,7 @@ import icon3 from "@/assets/icons/or-icon3.png";
 import icon4 from "@/assets/icons/or-icon4.png";
 import Item from "@/components/dashboards/orders/Item";
 import BreedCrumb from "@/components/mui/breedcrumbs";
+import OrderList from "@/components/dashboards/orders/OrderList";
 
 const values = {
     title: "Orders",
@@ -57,6 +58,9 @@ const Page = () => {
               <Grid item xs={12} md={3} xl={3}>
                 <Item icon={icon4} orders="32" status="Refunded" isHideBorder={true} />
               </Grid>
+            </Grid>
+            <Grid xs={12} sx={{mt: '27px'}}>
+              <OrderList />
             </Grid>
           </ContentBox>
         </Stack>

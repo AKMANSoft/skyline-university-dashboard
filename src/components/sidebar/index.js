@@ -18,6 +18,7 @@ import menuItems from "@/navigation/vertical";
 import { usePathname, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleHamburger } from "@/redux/slices/hamburger";
+import SectionTitle from "../common/SectionTitle";
 
 const SidebarMainBox = styled(Box)(({ theme }) => ({
   height: "100vh",
@@ -28,42 +29,46 @@ const SidebarMainBox = styled(Box)(({ theme }) => ({
   zIndex: 1000,
   bottom: 0,
   overflowY: "auto",
-  overflowX: 'hidden',
+  overflowX: "hidden",
   boxShadow: "0px 2px 4px 0px rgba(165, 163, 174, 0.30)",
-  transition: 'all .3s ease-in-out',
+  transition: "all .3s ease-in-out",
 }));
 
 const Sidebar = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [openMenus, setOpenMenus] = useState({
     mainActive: null,
     subMenus: [],
   });
   const pathname = usePathname();
   const router = useRouter();
-  const showSidebar = useSelector((state) => state.hamburger.show)
+  const showSidebar = useSelector((state) => state.hamburger.show);
 
   useEffect(() => {
-    let activeInd = 0
-    let activeSubIndexes = []
+    let activeInd = 0;
+    let activeSubIndexes = [];
     menuItems?.map((menuItem, index) => {
-        if(menuItem?.path) {
-            if(pathname?.split("/")?.[1] === menuItem?.path?.split("/")?.[0]) {
-                activeInd = index
-            }
+      if (menuItem?.path) {
+        if (pathname?.split("/")?.[1] === menuItem?.path?.split("/")?.[0]) {
+          activeInd = index;
         }
-        if(menuItem?.children?.length > 0) {
-            menuItem.children.map((child, childIndex) => {
-                if(pathname?.split("/")?.[1] === child?.path?.split("/")?.[0]) {
-                    activeInd = index
-                    activeSubIndexes.push(index + "." + childIndex)
-                }
-            })
-        }
-    })
-  
+      }
+      if (menuItem?.children?.length > 0) {
+        menuItem.children.map((child, childIndex) => {
+          if (pathname?.split("/")?.[1] === child?.path?.split("/")?.[0]) {
+            activeInd = index;
+            activeSubIndexes.push(index + "." + childIndex);
+          }
+        });
+      }
+    });
+
     if (activeInd !== -1) {
-      setOpenMenus({ ...openMenus, mainActive: activeInd, subMenus: [...openMenus?.subMenus, ...activeSubIndexes] });
+      setOpenMenus({
+        ...openMenus,
+        mainActive: activeInd,
+        subMenus: [...openMenus?.subMenus, ...activeSubIndexes],
+      });
     }
   }, [pathname]);
 
@@ -87,58 +92,65 @@ const Sidebar = () => {
 
   const renderSubMenuItems = (submenus, depth, parentIndex) => {
     return submenus?.map((submenu, subIndex) => (
-      <div key={subIndex}>
-        <ListItem
-          key={subIndex}
-          button
-          onClick={() => {
-            if (submenu?.children?.length > 0) {
-              handleMenuClick("sub", parentIndex + "." + subIndex);
-            } else {
-              handleMenuClick("sub", parentIndex + "." + subIndex);
-              router.push(`/${submenu?.path}`, { scroll: false });
-            }
-          }}
-          sx={{
-            pl: "16px",
-            height: "40px",
-            pr: "4px",
-          }}
-        >
-          <ListItemText
-            primary={submenu.title}
-            sx={{
-              ".css-10hburv-MuiTypography-root, & .css-yb0lig": {
-                fontSize: "15px",
-                color: "#696969",
-                lineHeight: "22px",
-                fontWeight: 400,
-              },
-            }}
-          />
-          {submenu.children &&
-            (openMenus?.subMenus?.includes(parentIndex + "." + subIndex) ? (
-              <ExpandMore sx={{ color: "#696969" }} />
-            ) : (
-              <ChevronRightIcon sx={{ color: "#696969" }} />
-            ))}
-        </ListItem>
-        {submenu.children && (
-          <Collapse
-            in={openMenus?.subMenus?.includes(parentIndex + "." + subIndex)}
-            timeout="auto"
-            unmountOnExit
-          >
-            <List component="div" disablePadding>
-              {renderSubMenuItems(
-                submenu.children,
-                depth + 1,
-                parentIndex + "." + subIndex
-              )}
-            </List>
-          </Collapse>
+      <>
+        {submenu?.sectionTitle ? (
+          <SectionTitle title={submenu?.sectionTitle} />
+        ) : (
+          <div key={subIndex}>
+            <ListItem
+              key={subIndex}
+              button
+              onClick={() => {
+                if (submenu?.children?.length > 0) {
+                  handleMenuClick("sub", parentIndex + "." + subIndex);
+                } else {
+                  handleMenuClick("sub", parentIndex + "." + subIndex);
+                  router.push(`/${submenu?.path}`, { scroll: false });
+                }
+              }}
+              sx={{
+                pl: "16px",
+                height: "40px",
+                pr: "4px",
+              }}
+            >
+              {submenu.icon && <ListItemIcon sx={{minWidth: '30px'}}>{submenu.icon}</ListItemIcon>}
+              <ListItemText
+                primary={submenu.title}
+                sx={{
+                  fontSize: "15px",
+                  fontWeight: 400,
+                  ".css-10hburv-MuiTypography-root, & .css-yb0lig": {
+                    color: "#696969",
+                    lineHeight: "22px",
+                  },
+                }}
+              />
+              {submenu.children &&
+                (openMenus?.subMenus?.includes(parentIndex + "." + subIndex) ? (
+                  <ExpandMore sx={{ color: "#696969" }} />
+                ) : (
+                  <ChevronRightIcon sx={{ color: "#696969" }} />
+                ))}
+            </ListItem>
+            {submenu.children && (
+              <Collapse
+                in={openMenus?.subMenus?.includes(parentIndex + "." + subIndex)}
+                timeout="auto"
+                unmountOnExit
+              >
+                <List component="div" disablePadding>
+                  {renderSubMenuItems(
+                    submenu.children,
+                    depth + 1,
+                    parentIndex + "." + subIndex
+                  )}
+                </List>
+              </Collapse>
+            )}
+          </div>
         )}
-      </div>
+      </>
     ));
   };
 
@@ -146,23 +158,7 @@ const Sidebar = () => {
     return menuItems?.map((menuItem, index) => (
       <>
         {menuItem?.sectionTitle ? (
-          <Box
-            key={index}
-            sx={{ width: "100%", height: "40px", pt: "10px", pl: "16px" }}
-          >
-            <Typography
-              variant="p"
-              component="p"
-              sx={{
-                fontSize: "11px",
-                clor: "#4B465C",
-                lineHeight: "14px",
-                mb: 1,
-              }}
-            >
-              Create & Add
-            </Typography>
-          </Box>
+          <SectionTitle title="Create & Add" />
         ) : (
           <div key={index}>
             <ListItem
@@ -202,10 +198,7 @@ const Sidebar = () => {
                     color: openMenus.mainActive === index ? "white" : "#696969",
                   },
                   "& .sidebar-icon": {
-                    color:
-                      openMenus.mainActive === index
-                        ? "white"
-                        : "#696969",
+                    color: openMenus.mainActive === index ? "white" : "#696969",
                   },
                 }}
               >
@@ -257,56 +250,60 @@ const Sidebar = () => {
 
   return (
     <>
-    {showSidebar &&
-      <Box
-      onClick={() => dispatch(toggleHamburger(false))}
-      sx={{
-        position:'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        bgcolor: 'rgba(0,0,0,0.3)',
-        zIndex: 999,
-      }}
-      ></Box>
-    }
-    <SidebarMainBox 
-    sx={{
-      width: "25%",
-      maxWidth: showSidebar ? '265px' : {xs: '0px', md: '0px', lg:"265px"},
-      minWidth: showSidebar ? '265px' : {xs: '0px', md: '0px', lg:"265px"},
-      "&::-webkit-scrollbar": {
-        width: "4px",
-        height: "4px",
-      },
-      "&::-webkit-scrollbar-thumb": {
-        backgroundColor: "#888",
-        width: '3px',
-        height: '3px',
-        borderRadius: "4px",
-      },
-      "&::-webkit-scrollbar-track": {
-        backgroundColor: "transparent",
-        borderRadius: "4px",
-      },
-    }}
-    >
-      <Box
+      {showSidebar && (
+        <Box
+          onClick={() => dispatch(toggleHamburger(false))}
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bgcolor: "rgba(0,0,0,0.3)",
+            zIndex: 999,
+          }}
+        ></Box>
+      )}
+      <SidebarMainBox
         sx={{
-          height: "76px",
-          py: "20px",
-          mb: "10px",
-          pl: "18px",
-          pr: "14px",
+          width: "25%",
+          maxWidth: showSidebar
+            ? "265px"
+            : { xs: "0px", md: "0px", lg: "265px" },
+          minWidth: showSidebar
+            ? "265px"
+            : { xs: "0px", md: "0px", lg: "265px" },
+          "&::-webkit-scrollbar": {
+            width: "4px",
+            height: "4px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#888",
+            width: "3px",
+            height: "3px",
+            borderRadius: "4px",
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "transparent",
+            borderRadius: "4px",
+          },
         }}
       >
-        <Image src={logo} alt="logo" />
-      </Box>
-      <Box sx={{ width: "100%", px: "14px" }}>
-        <List>{renderMenuItems(menuItems)}</List>
-      </Box>
-    </SidebarMainBox>
+        <Box
+          sx={{
+            height: "76px",
+            py: "20px",
+            mb: "10px",
+            pl: "18px",
+            pr: "14px",
+          }}
+        >
+          <Image src={logo} alt="logo" />
+        </Box>
+        <Box sx={{ width: "100%", px: "14px" }}>
+          <List>{renderMenuItems(menuItems)}</List>
+        </Box>
+      </SidebarMainBox>
     </>
   );
 };

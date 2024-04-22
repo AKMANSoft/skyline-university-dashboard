@@ -67,9 +67,9 @@ const SalesCard = () => {
     },
     yaxis: { show: false },
   };
-
+  const isSSR = typeof window === undefined;
   return (
-    <CustomCard sx={{ padding: "0px", maxHeight: '218px' }}>
+    <CustomCard sx={{ padding: "0px", maxHeight: "218px" }}>
       <CardContent sx={{ p: "24px", pb: 0 }}>
         <Typography
           component="div"
@@ -97,15 +97,17 @@ const SalesCard = () => {
           Weekly Report
         </Typography>
       </CardContent>
-      <Chart
-        options={options}
-        series={series}
-        type="area"
-        width="105%"
-        style={{ marginLeft: "-20px" }}
-        height={96}
-      />
-      <CardContent sx={{p:'24px', pt: 0 }}>
+      {!isSSR && (
+        <Chart
+          options={options}
+          series={series}
+          type="area"
+          width="105%"
+          style={{ marginLeft: "-20px" }}
+          height={96}
+        />
+      )}
+      <CardContent sx={{ p: "24px", pt: 0 }}>
         <Box
           sx={{
             gap: 2,

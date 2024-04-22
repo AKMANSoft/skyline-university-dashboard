@@ -17,7 +17,7 @@ const Item = ({ icon, orders, status, isHideBorder }) => {
         pl: { xs: "25px", md: "32px" },
         py: { xs: "25px", md: "0px" },
         bgcolor: "white",
-        mb: "20px",
+        mb: { xs: "20px", md: "0px" },
       }}
     >
       <Box>

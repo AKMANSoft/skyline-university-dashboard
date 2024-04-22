@@ -233,6 +233,7 @@ const JobPostingChart = () => {
               },
           }}
         >
+          {typeof window !== "undefined" && 
           <Chart
             options={options}
             series={series}
@@ -240,6 +241,7 @@ const JobPostingChart = () => {
             width={635}
             height="100%"
           />
+          }
         </Box>
       </Stack>
     </Card>

@@ -1,6 +1,6 @@
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-import CompaniesIcon, { AddAluminiIcon, AddCompanyIcon, ConfigurationIcon, EventIcon } from "@/utils/svg-icons"
+import CompaniesIcon, { AccessoriesIcon, AddAluminiIcon, AddCompanyIcon, AlumniStoreIcon, ApparelIcon, BooksIcon, ConfigurationIcon, EventIcon, SportsIcon, TechAccessoriesIcon } from "@/utils/svg-icons"
 import { TbUsers } from "react-icons/tb";
 
 const menuItems = [
@@ -19,7 +19,7 @@ const menuItems = [
             children: [
                 {
                     title: 'Order List',
-                    path: 'dashboards/orders/order-list'
+                    path: 'dashboards/orders'
                 }
             ]
           },
@@ -99,6 +99,40 @@ const menuItems = [
         title: 'Events',
         path: 'events',
         icon: <EventIcon />,
+      },
+      {
+        title: 'Alumni Store',
+        icon: <AlumniStoreIcon color="#00318B" />,
+        children: [
+          {
+            sectionTitle: "Categories"
+          },
+          {
+            title: 'Apparel',
+            icon: <ApparelIcon color="#6F6B7D" />,
+            path: 'alumni-store/apparel'
+          },
+          {
+            title: 'Accessories',
+            icon: <AccessoriesIcon color="#6F6B7D" />,
+            path: 'alumni-store/accessories'
+          },
+          {
+            title: 'Books & Media',
+            icon: <BooksIcon color="#6F6B7D" />,
+            path: 'alumni-store/books-and-media'
+          },
+          {
+            title: 'Technology Accessories',
+            icon: <TechAccessoriesIcon color="#6F6B7D" />,
+            path: 'alumni-store/technology-accessories'
+          },
+          {
+            title: 'Sporting Goods',
+            icon: <SportsIcon color="#6F6B7D" />,
+            path: 'alumni-store/sporting-goods'
+          }
+        ]
       },
       {
         title: 'Configuration',
