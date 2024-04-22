@@ -2,26 +2,12 @@
 import React from "react";
 import {
   Box,
-  Card,
   Grid,
-  MenuItem,
-  Pagination,
-  Select,
   Stack,
-  TextField,
-  Typography,
 } from "@mui/material";
 import Sidebar from "@/components/sidebar";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
-import JobPostingChart from "@/components/job-management/JobPostingChart";
-import ReviewCard from "@/components/job-management/ReviewCard";
-import TopCompanyCard from "@/components/job-management/TopCompanyCard";
-import { BlueButton } from "@/components/styles/Buttons";
-import AddIcon from "@mui/icons-material/Add";
-import Link from "next/link";
-import ManagementTable from "@/components/job-management/ManagementTable";
-import ManagementTableMobile from "@/components/job-management/ManagementTableMobile";
 import BreedCrumb from "@/components/mui/breedcrumbs";
 import CompanyDetails from "@/components/job-management/slug/CompanyDetails";
 

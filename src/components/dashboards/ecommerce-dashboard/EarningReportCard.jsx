@@ -7,21 +7,17 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import Avatar from "@mui/material/Avatar";
 import TabContext from "@mui/lab/TabContext";
-import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
-import Chart from "react-apexcharts";
+import dynamic from "next/dynamic";
+const Chart = dynamic(
+  () => import('react-apexcharts'),
+  { ssr: false }
+);
 
 import icon1 from "@/assets/icons/er-icon1.png";
 import icon2 from "@/assets/icons/er-icon2.png";
-
-// ** Custom Components Import
-// import Icon from 'src/@core/components/icon'
-// import OptionsMenu from 'src/@core/components/option-menu'
-// import CustomAvatar from 'src/@core/components/mui/avatar'
-// import ReactApexcharts from 'src/@core/components/react-apexcharts'
 
 // ** Util Import
 import Image from "next/image";
@@ -88,6 +84,7 @@ const renderTabs = (value, theme) => {
 };
 
 const renderTabPanels = (value, theme, options, colors) => {
+  if (typeof window === "undefined") return null
   const isSSR = typeof window === undefined;
   return tabData.map((item, index) => {
     const max = Math.max(...item.series[0].data);

@@ -1,9 +1,10 @@
 'use client'
 import { Box, Button, Card, CardContent, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import logoImg from "@/assets/images/logoImg.png";
 import styled from "@emotion/styled";
+import AddToCard from "./modals/AddToCard";
 
 const DiscountText = styled(Box)(({ theme }) => ({
     width: "48px",
@@ -23,7 +24,13 @@ const DiscountText = styled(Box)(({ theme }) => ({
   }));
 
 const ApparelCard = ({values}) => {
+  const[open, setOpen] = useState(false)
+
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
   return (
+    <>
+    <AddToCard open={open} handleClose={handleClose} />
     <Card
       sx={{
         p: "30px",
@@ -95,12 +102,14 @@ const ApparelCard = ({values}) => {
               padding: '10px 0px',
               textTransform: 'capitalize',
             }}
+            onClick={handleOpen}
           >
             Add To Cart
           </Button>
         </CardContent>
       </Stack>
     </Card>
+    </>
   );
 };
 

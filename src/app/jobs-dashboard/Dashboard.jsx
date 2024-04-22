@@ -514,7 +514,7 @@ const Dashboard = () => {
               />
             </Box>
           </Stack>
-          {tabData.map((item, index) => {
+          {/* {tabData.map((item, index) => {
             return (
               <ReactApexcharts
                 key={index}
@@ -524,7 +524,7 @@ const Dashboard = () => {
                 series={item.series}
               />
             );
-          })}
+          })} */}
         </Box>
 
         <Box

@@ -17,7 +17,20 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CustomDivider } from "@/components/styles/CustomDivider";
 import ApparelCard from "@/components/alumni-store/ApparelCard";
 
-const cards = [{discount: '20%'}, {}, {discount: '20%'}, {}, {discount: '20%'}, {}, {}, {}, {}, {}, {}, {}];
+const cards = [
+  { discount: "20%" },
+  {},
+  { discount: "20%" },
+  {},
+  { discount: "20%" },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+];
 
 const Apparel = () => {
   return (
@@ -106,7 +119,15 @@ const Apparel = () => {
                   sx={{ mt: "60px", px: "24px" }}
                 >
                   {cards?.map((card, index) => (
-                    <Grid key={index} item xs={12} sm={6} md={4} lg={3} xl={2.4}>
+                    <Grid
+                      key={index}
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      lg={3}
+                      xl={2.4}
+                    >
                       <ApparelCard values={card} />
                     </Grid>
                   ))}

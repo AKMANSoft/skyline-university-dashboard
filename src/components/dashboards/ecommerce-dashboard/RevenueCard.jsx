@@ -1,20 +1,22 @@
 "use client";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import Chart from "react-apexcharts";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 
-// ** Custom Components Imports
-// import CustomChip from 'src/@core/components/mui/chip'
 import { hexToRGBA } from "@/utils/hex-to-rgba";
 import { CustomCard } from "@/components/styles/Card";
 import { Chip } from "@mui/material";
-// ** Util Import
+import dynamic from "next/dynamic";
+
+const Chart = dynamic(
+  () => import('react-apexcharts'),
+  { ssr: false }
+);
 
 const series = [{ data: [32, 52, 72, 94, 116, 94, 72] }];
 
 const RevenueCard = () => {
+  if (typeof window === "undefined") return null
   const options = {
     chart: {
       parentHeightOffset: 0,

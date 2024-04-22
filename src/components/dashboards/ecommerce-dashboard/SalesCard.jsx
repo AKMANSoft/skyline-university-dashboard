@@ -1,12 +1,17 @@
 "use client";
 import { CustomCard } from "@/components/styles/Card";
 import { Box, CardContent, Typography } from "@mui/material";
-import Chart from "react-apexcharts";
+import dynamic from "next/dynamic";
+const Chart = dynamic(
+  () => import('react-apexcharts'),
+  { ssr: false }
+);
 import React from "react";
 
 const series = [{ data: [40, 20, 65, 50] }];
 
 const SalesCard = () => {
+  if (typeof window === "undefined") return null
   const options = {
     chart: {
       parentHeightOffset: 0,
@@ -67,7 +72,7 @@ const SalesCard = () => {
     },
     yaxis: { show: false },
   };
-  const isSSR = typeof window === undefined;
+
   return (
     <CustomCard sx={{ padding: "0px", maxHeight: "218px" }}>
       <CardContent sx={{ p: "24px", pb: 0 }}>

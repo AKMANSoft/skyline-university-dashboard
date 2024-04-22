@@ -2,8 +2,12 @@
 import { hexToRGBA } from "@/utils/hex-to-rgba";
 import styled from "@emotion/styled";
 import { Box, Card, Stack, Typography } from "@mui/material";
+import dynamic from "next/dynamic";
 import React from "react";
-import Chart from "react-apexcharts";
+const Chart = dynamic(
+  () => import('react-apexcharts'),
+  { ssr: false }
+);
 
 const colors = Array(9).fill(hexToRGBA("#2C549E", 0.16));
 const options = {
@@ -142,7 +146,7 @@ const CardText = styled(Typography)(({ theme }) => ({
 }));
 
 const JobPostingChart = () => {
-  if (typeof window !== "undefined") return null
+  if (typeof window === "undefined") return null
   return (
     <Card
       sx={{
@@ -233,7 +237,6 @@ const JobPostingChart = () => {
               },
           }}
         >
-          {typeof window !== "undefined" && 
           <Chart
             options={options}
             series={series}
@@ -241,7 +244,6 @@ const JobPostingChart = () => {
             width={635}
             height="100%"
           />
-          }
         </Box>
       </Stack>
     </Card>
