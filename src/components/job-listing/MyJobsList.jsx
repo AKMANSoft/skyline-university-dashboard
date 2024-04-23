@@ -5,17 +5,17 @@ import {
   Typography,
   MenuItem,
   TextField,
-  Select,
   Box,
   Pagination,
-  Button,
-  Menu,
+  Select,
 } from "@mui/material";
 import { CustomCard } from "@/components/styles/Card";
-import { IoIosArrowDown } from "react-icons/io";
-import MyOrderListTable from "./MyOrderTable";
+import AddIcon from "@mui/icons-material/Add";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { BlueButton } from "../styles/Buttons";
+import MyJobListTable from "./MyJobsListTable";
 
-const MyOrderList = () => {
+const MyJobsList = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -25,10 +25,6 @@ const MyOrderList = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-    handleClose();
-  };
 
   return (
     <CustomCard sx={{ py: "24px" }}>
@@ -36,25 +32,13 @@ const MyOrderList = () => {
         direction="row"
         alignItems="center"
         justifyContent="space-between"
-        sx={{ px: "24px", mb: "14px" }}
+        sx={{ px: "24px" }}
       >
-        <Typography
-          component="div"
-          variant="h5"
-          sx={{
-            fontSize: "18px",
-            fontWeight: 600,
-            lineHeight: "24px",
-            color: "#4B465C",
-          }}
-        >
-          Order List
-        </Typography>
         <Stack
           direction="row"
           alignItems="center"
           justifyContent="center"
-          gap={{ xs: "10px", sm: "21px" }}
+          gap={{ xs: "10px", sm: "16px" }}
         >
           <TextField
             id="outlined-basic"
@@ -65,12 +49,12 @@ const MyOrderList = () => {
             }}
             InputProps={{
               inputProps: {
-                style: { fontSize: "14px" },
+                style: { fontSize: "12px" },
               },
               sx: {
                 height: "38px !important",
                 "&::placeholder": {
-                  fontSize: { xs: "12px", sm: "16px" },
+                  fontSize: "12px",
                 },
               },
             }}
@@ -81,48 +65,58 @@ const MyOrderList = () => {
             }}
           />
 
-          <div>
-            <Button
-              onClick={handleClick}
-              sx={{
-                color: "#A8AAAE",
-                fontSize: "15px",
-                height: "24px",
-                borderRadius: "6px",
-                width: {xs:'92px', sm:"126px"},
-                height: "38px",
-                bgcolor: "#F1F1F2",
-                textTransform: "capitalize",
-              }}
-            >
-              Export
-              <IoIosArrowDown
-                fontSize="15px"
-                style={{ marginLeft: "10px" }}
-                color="#A8AAAE"
-              />
-            </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-              PaperProps={{
-                sx: {
-                  boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                },
-              }}
-            >
-              <MenuItem onClick={() => handleOptionSelect("Export")}>
-                Export
-              </MenuItem>
-            </Menu>
-          </div>
+          <Select
+            id="outlined-basic"
+            placeholder="Select Status"
+            variant="outlined"
+            value=""
+            displayEmpty
+            IconComponent={RiArrowDropDownLine}
+            sx={{
+              width: { xs: "111px", sm: "120px", md: "155px" },
+              height: "38px",
+              borderRadius: "6px",
+              color: "#4B465C",
+              fontSize: { xs: "12px", sm: "16px" },
+              px: "0px",
+              "& .MuiSelect-root": {
+                color: "#757575",
+              },
+            }}
+          >
+            <MenuItem value="" disabled>
+              Select Status
+            </MenuItem>
+            <MenuItem value="Active">Active</MenuItem>
+          </Select>
         </Stack>
+        <BlueButton
+          variant="contained"
+          sx={{
+            minWidth: { xs: "60px", sm: "120px" },
+            textTransform: "capitalize",
+            bgcolor: "#00318B",
+            ml: { xs: "10px", sm: "16px" },
+            fontSize: { xs: "12px", sm: "16px" },
+            px: { xs: "6px", sm: "10px" },
+          }}
+        //   onClick={handleOpenAdd}
+        >
+          <AddIcon
+            sx={{
+              color: "white",
+              fontSize: { xs: "10px", sm: "14px", md: "22px" },
+              mr: { xs: 0, sm: 1 },
+            }}
+          />{" "}
+          Post a Job
+        </BlueButton>
       </Stack>
 
       <Box
         sx={{
           width: "100%",
+          mt: '17px',
           overflowX: "auto",
           "&::-webkit-scrollbar": {
             width: "4px",
@@ -140,7 +134,7 @@ const MyOrderList = () => {
           },
         }}
       >
-        <MyOrderListTable />
+        <MyJobListTable />
       </Box>
       <Stack
         direction="row"
@@ -179,4 +173,4 @@ const MyOrderList = () => {
   );
 };
 
-export default MyOrderList;
+export default MyJobsList;

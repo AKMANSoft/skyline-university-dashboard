@@ -30,11 +30,11 @@ const styles = {
     borderRadius: '6px',
 }
 
-const PostJobDetails = () => {
+const PostJobDetails = ({hideCompanyCard}) => {
 
   return (
     <Stack direction={{xs: 'column-reverse', sm: 'column-reverse', md: "row"}} alignItems="start" gap="23px">
-      <CompanyDetailCard />
+      {!hideCompanyCard && <CompanyDetailCard />}
         <Box sx={{ width: "100%" }}>
             <Card
             sx={{

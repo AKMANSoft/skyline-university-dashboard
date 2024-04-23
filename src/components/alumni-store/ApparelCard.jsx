@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import logoImg from "@/assets/images/logoImg.png";
 import styled from "@emotion/styled";
 import AddToCard from "./modals/AddToCard";
+import ShopingCartModal from "./modals/ShopingCartModal";
 
 const DiscountText = styled(Box)(({ theme }) => ({
     width: "48px",
@@ -28,6 +29,7 @@ const ApparelCard = ({values}) => {
 
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
+
   return (
     <>
     <AddToCard open={open} handleClose={handleClose} />

@@ -60,14 +60,14 @@ const Bullet = styled(Box)(({ theme }) => ({
   opacity: ".5",
 }));
 
-const CompanyDetails = () => {
+const CompanyDetails = ({hideCompanyCard}) => {
   return (
     <Stack
       direction={{ xs: "column-reverse", sm: "column-reverse", md: "row" }}
       alignItems="start"
       gap="23px"
     >
-      <DetailsCard />
+      {!hideCompanyCard && <DetailsCard />}
       <Box sx={{ width: "100%" }}>
         <Card
           sx={{

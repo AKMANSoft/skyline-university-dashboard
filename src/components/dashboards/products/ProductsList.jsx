@@ -5,17 +5,19 @@ import {
   Typography,
   MenuItem,
   TextField,
-  Select,
   Box,
   Pagination,
   Button,
   Menu,
+  Select,
 } from "@mui/material";
 import { CustomCard } from "@/components/styles/Card";
 import { IoIosArrowDown } from "react-icons/io";
-import MyOrderListTable from "./MyOrderTable";
+import ProductTable from "./ProductTable";
+import ProductTableMobile from "./ProductMobileTable";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
-const MyOrderList = () => {
+const ProductsList = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -33,8 +35,8 @@ const MyOrderList = () => {
   return (
     <CustomCard sx={{ py: "24px" }}>
       <Stack
-        direction="row"
-        alignItems="center"
+        direction={{xs:'row',sm:'column',xl:"row"}}
+        alignItems={{xs:'center',sm:'start',xl:"center"}}
         justifyContent="space-between"
         sx={{ px: "24px", mb: "14px" }}
       >
@@ -46,9 +48,10 @@ const MyOrderList = () => {
             fontWeight: 600,
             lineHeight: "24px",
             color: "#4B465C",
+            mb:{xs: 2,xl:0}
           }}
         >
-          Order List
+          Product List
         </Typography>
         <Stack
           direction="row"
@@ -56,42 +59,97 @@ const MyOrderList = () => {
           justifyContent="center"
           gap={{ xs: "10px", sm: "21px" }}
         >
-          <TextField
+          <Select
             id="outlined-basic"
-            placeholder="Search"
+            placeholder="Select Status"
             variant="outlined"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              inputProps: {
-                style: { fontSize: "14px" },
-              },
-              sx: {
-                height: "38px !important",
-                "&::placeholder": {
-                  fontSize: { xs: "12px", sm: "16px" },
-                },
-              },
-            }}
+            value=""
+            displayEmpty
+            IconComponent={RiArrowDropDownLine}
             sx={{
-              fontSize: { xs: "12px", sm: "16px" },
-              width: { xs: "107px", sm: "107px", md: "200px" },
+              width: { xs:'92px', sm: "170px", lg: "270px" },
+              height: "38px",
               borderRadius: "6px",
+              color: "#4B465C",
+              bgcolor: '#F6F6F6',
+              fontSize: { xs: "12px", sm: "16px" },
+              px: "0px",
+              "& .MuiSelect-root": {
+                color: "#757575",
+              },
             }}
-          />
+          >
+            <MenuItem value="" disabled>
+              Status
+            </MenuItem>
+            <MenuItem value="Active">Active</MenuItem>
+          </Select>
+
+          <Select
+            id="outlined-basic"
+            placeholder="Select Status"
+            variant="outlined"
+            value=""
+            displayEmpty
+            IconComponent={RiArrowDropDownLine}
+            sx={{
+              width: { xs: "170px", lg: "270px" },
+              height: "38px",
+              borderRadius: "6px",
+              color: "#4B465C",
+              display: {xs:'none',sm: 'block'},
+              bgcolor: '#F6F6F6',
+              fontSize: { xs: "12px", sm: "16px" },
+              px: "0px",
+              "& .MuiSelect-root": {
+                color: "#757575",
+              },
+            }}
+          >
+            <MenuItem value="" disabled>
+            Category
+            </MenuItem>
+            <MenuItem value="Active">Active</MenuItem>
+          </Select>
+
+          <Select
+            id="outlined-basic"
+            placeholder="Select Status"
+            variant="outlined"
+            value=""
+            displayEmpty
+            IconComponent={RiArrowDropDownLine}
+            sx={{
+              width: { xs: "170px", lg: "270px" },
+              height: "38px",
+              borderRadius: "6px",
+              color: "#4B465C",
+              display: {xs:'none',sm: 'block'},
+              bgcolor: '#F6F6F6',
+              fontSize: { xs: "12px", sm: "16px" },
+              px: "0px",
+              "& .MuiSelect-root": {
+                color: "#757575",
+              },
+            }}
+          >
+            <MenuItem value="" disabled>
+            Stock
+            </MenuItem>
+            <MenuItem value="Active">Active</MenuItem>
+          </Select>
 
           <div>
             <Button
               onClick={handleClick}
               sx={{
-                color: "#A8AAAE",
+                color: "white",
                 fontSize: "15px",
                 height: "24px",
                 borderRadius: "6px",
-                width: {xs:'92px', sm:"126px"},
+                width: { xs: "92px", sm: "126px" },
                 height: "38px",
-                bgcolor: "#F1F1F2",
+                bgcolor: "#00318B",
                 textTransform: "capitalize",
               }}
             >
@@ -124,6 +182,7 @@ const MyOrderList = () => {
         sx={{
           width: "100%",
           overflowX: "auto",
+          display: { xs: "none", sm: "block" },
           "&::-webkit-scrollbar": {
             width: "4px",
             height: "4px",
@@ -140,7 +199,16 @@ const MyOrderList = () => {
           },
         }}
       >
-        <MyOrderListTable />
+        <ProductTable />
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          overflowX: "auto",
+          display: { xs: "block", sm: "none" },
+        }}
+      >
+        <ProductTableMobile />
       </Box>
       <Stack
         direction="row"
@@ -179,4 +247,4 @@ const MyOrderList = () => {
   );
 };
 
-export default MyOrderList;
+export default ProductsList;

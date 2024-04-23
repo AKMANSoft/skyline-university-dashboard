@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import {
   Box,
   Stack,
@@ -16,6 +17,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CustomDivider } from "@/components/styles/CustomDivider";
 import ApparelCard from "@/components/alumni-store/ApparelCard";
+import ShopingCartModal from "@/components/alumni-store/modals/ShopingCartModal";
 
 const cards = [
   { discount: "20%" },
@@ -33,8 +35,13 @@ const cards = [
 ];
 
 const Apparel = () => {
+  const [openCart, setOpenCart] = useState(false);
+  const toggleDrawer = (newOpen) => {
+    setOpenCart(newOpen);
+  };
   return (
     <main>
+      <ShopingCartModal open={openCart} toggleDrawer={toggleDrawer} />
       <Sidebar />
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
@@ -48,8 +55,9 @@ const Apparel = () => {
               <CustomCard sx={{ py: "24px" }}>
                 <Stack
                   direction="row"
-                  alignItems="center"
+                  alignItems="end"
                   justifyContent="space-between"
+                  gap='1rem'
                   sx={{ px: "24px" }}
                 >
                   <TextField
@@ -97,7 +105,9 @@ const Apparel = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        cursor: 'pointer'
                       }}
+                      onClick={() => toggleDrawer(true)}
                     >
                       <AiOutlineShoppingCart color="#00CA99" fontSize="22px" />
                     </Box>

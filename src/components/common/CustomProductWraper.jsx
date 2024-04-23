@@ -6,7 +6,7 @@ const CustomProductWraper = ({name, variant, img}) => {
     <Stack direction="row" alignItems="center" gap="8px">
     <Avatar
         alt={name}
-        src={img.src}
+        src={img?.src}
         sx={{ width: "38px", height: "38px" }}
     />
     <Box>

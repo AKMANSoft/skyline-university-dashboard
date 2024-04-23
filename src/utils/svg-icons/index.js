@@ -1050,4 +1050,45 @@ export const SportsIcon = (props) => {
   );
 };
 
+export const CrossIcon = () => {
+  return (
+    <svg
+      width="38"
+      height="38"
+      viewBox="0 0 38 38"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="18.9102"
+        cy="18.8809"
+        r="17.7437"
+        fill="#F8F7FA"
+        stroke="#D9D9D9"
+      />
+      <path
+        d="M27.269 27.2316H23.6885L18.6676 20.5787L13.7141 27.2316H10.5508L17.1196 18.7192L10.7796 10.5302H14.3332L18.9234 16.6402L23.4731 10.5302H26.596L20.4444 18.442L27.269 27.2316Z"
+        fill="#C8C8C8"
+      />
+    </svg>
+  );
+};
+
+export const CloseIcon = () => {
+  return (
+    <svg
+      width="15"
+      height="14"
+      viewBox="0 0 15 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M14.1537 13.9876H11.3188L7.34351 8.72016L3.42152 13.9876H0.916992L6.11789 7.24784L1.09817 0.76416H3.91177L7.546 5.60177L11.1483 0.76416H13.6208L8.75031 7.02837L14.1537 13.9876Z"
+        fill="#C8C8C8"
+      />
+    </svg>
+  );
+};
+
 export default CompaniesIcon;

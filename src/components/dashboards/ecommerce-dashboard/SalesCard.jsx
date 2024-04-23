@@ -102,7 +102,6 @@ const SalesCard = () => {
           Weekly Report
         </Typography>
       </CardContent>
-      {!isSSR && (
         <Chart
           options={options}
           series={series}
@@ -111,7 +110,6 @@ const SalesCard = () => {
           style={{ marginLeft: "-20px" }}
           height={96}
         />
-      )}
       <CardContent sx={{ p: "24px", pt: 0 }}>
         <Box
           sx={{

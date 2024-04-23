@@ -20,6 +20,7 @@ import { LuEye } from "react-icons/lu";
 import CustomListAvatar from "@/components/common/CustomListAvatar";
 import CustomDropdown from "@/components/common/CustomDropdown";
 import CustomProductWraper from "@/components/common/CustomProductWraper";
+import Link from "next/link";
 
 const CustomTableLabel = styled(TableSortLabel)(({ theme }) => ({
   fontSize: "13px",
@@ -255,7 +256,9 @@ const OrderListTable = () => {
                 alignItems="center"
                 justifyContent="end"
               >
+                <Link href={`/dashboards/orders/order-details`}>
                 <LuEye color="#4B465C" fontSize="20px" cursor="pointer" />
+                </Link>
                 <GoTrash color="#4B465C" fontSize="22px" cursor="pointer" />
               </Stack>
             </TableCell>

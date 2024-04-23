@@ -16,12 +16,14 @@ import {
   Checkbox,
 } from "@mui/material";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-import { TbEdit } from "react-icons/tb";
 import { GoTrash } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import styled from "@emotion/styled";
 import img from "@/assets/images/profile.png";
+import shoesImg from "@/assets/images/shoes.png";
 import { LuEye } from "react-icons/lu";
+import CustomProductWraper from "@/components/common/CustomProductWraper";
+import { AntPrimarySwitch } from "@/components/styles/Switch";
 
 const CustomTableLabel = styled(TableSortLabel)(({ theme }) => ({
   fontSize: "13px",
@@ -33,107 +35,86 @@ const CustomTableLabel = styled(TableSortLabel)(({ theme }) => ({
 
 const rows = [
   {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
+    productId: "#6979",
+    category: "Shoes",
+    categoryImg: shoesImg,
+    qty: 343,
+    sku: 343,
     name: "Cristine Easom",
     img: img,
-    payment: "Pending",
-    status: "Delivered",
+    price: 250,
+    status: "Inactive",
     amount: "250",
+    stock: true
   },
   {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
+    productId: "#6979",
+    category: "Shoes",
+    categoryImg: shoesImg,
+    qty: 343,
+    sku: 343,
     name: "Cristine Easom",
     img: img,
-    payment: "Pending",
-    status: "Delivered",
+    price: 250,
+    status: "Active",
     amount: "250",
+    stock: true
   },
   {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
+    productId: "#6979",
+    category: "Shoes",
+    categoryImg: shoesImg,
+    qty: 343,
+    sku: 343,
     name: "Cristine Easom",
     img: img,
-    payment: "Pending",
-    status: "Delivered",
+    price: 250,
+    status: "Active",
     amount: "250",
+    stock: false
   },
   {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
+    productId: "#6979",
+    category: "Shoes",
+    categoryImg: shoesImg,
+    qty: 343,
+    sku: 343,
     name: "Cristine Easom",
     img: img,
-    payment: "Pending",
-    status: "Delivered",
+    price: 250,
+    status: "Active",
     amount: "250",
+    stock: false
   },
   {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
+    productId: "#6979",
+    category: "Shoes",
+    categoryImg: shoesImg,
+    qty: 343,
+    sku: 343,
     name: "Cristine Easom",
     img: img,
-    payment: "Pending",
-    status: "Delivered",
+    price: 250,
+    status: "Active",
     amount: "250",
+    stock: false
   },
   {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
+    productId: "#6979",
+    category: "Shoes",
+    categoryImg: shoesImg,
+    qty: 343,
+    sku: 343,
     name: "Cristine Easom",
     img: img,
-    payment: "Pending",
-    status: "Delivered",
+    price: 250,
+    status: "Active",
     amount: "250",
-  },
-  {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
-    name: "Cristine Easom",
-    img: img,
-    payment: "Pending",
-    status: "Delivered",
-    amount: "250",
-  },
-  {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
-    name: "Cristine Easom",
-    img: img,
-    payment: "Pending",
-    status: "Delivered",
-    amount: "250",
-  },
-  {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
-    name: "Cristine Easom",
-    img: img,
-    payment: "Pending",
-    status: "Delivered",
-    amount: "250",
-  },
-  {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
-    name: "Cristine Easom",
-    img: img,
-    payment: "Pending",
-    status: "Delivered",
-    amount: "250",
-  },
-  {
-    order: "#6979",
-    date: "Apr 15, 2023 ( 10:21 )",
-    name: "Cristine Easom",
-    img: img,
-    payment: "Pending",
-    status: "Delivered",
-    amount: "250",
+    stock: false
   },
 ];
 
-const OrderListTable = () => {
+const ProductTable = () => {
   const [sortDirection, setSortDirection] = useState("asc");
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
@@ -168,22 +149,28 @@ const OrderListTable = () => {
             </CustomTableLabel>
           </TableCell>
           <TableCell>
-            <CustomTableLabel>order</CustomTableLabel>
+            <CustomTableLabel>Product Id</CustomTableLabel>
           </TableCell>
           <TableCell>
-            <CustomTableLabel>date & Time</CustomTableLabel>
+            <CustomTableLabel>Product</CustomTableLabel>
           </TableCell>
           <TableCell>
-            <CustomTableLabel>customers</CustomTableLabel>
+            <CustomTableLabel>Category</CustomTableLabel>
           </TableCell>
           <TableCell>
-            <CustomTableLabel>payment</CustomTableLabel>
+            <CustomTableLabel>Qty</CustomTableLabel>
           </TableCell>
           <TableCell>
-            <CustomTableLabel>Status</CustomTableLabel>
+            <CustomTableLabel>Stock</CustomTableLabel>
           </TableCell>
           <TableCell>
-            <CustomTableLabel>Amount</CustomTableLabel>
+            <CustomTableLabel>Sku</CustomTableLabel>
+          </TableCell>
+          <TableCell>
+            <CustomTableLabel>status</CustomTableLabel>
+          </TableCell>
+          <TableCell>
+            <CustomTableLabel>Price</CustomTableLabel>
           </TableCell>
           <TableCell
             sx={{
@@ -208,7 +195,7 @@ const OrderListTable = () => {
             <TableCell
               sx={{ color: "#7367F0", fontSize: "15px", fontWeight: 400 }}
             >
-              {row.order}
+              {row.productId}
             </TableCell>
             <TableCell
               sx={{
@@ -217,50 +204,65 @@ const OrderListTable = () => {
                 fontWeight: 500,
               }}
             >
-              {row.date}
+              <CustomProductWraper img={row?.img} name={row?.name} variant={row?.variant} />
             </TableCell>
             <TableCell>
               <Stack direction="row" alignItems="center" gap="8px">
                 <Avatar
-                  alt={row?.name}
-                  src={row.src}
+                  alt={row?.category}
+                  src={row?.categoryImg.src}
                   sx={{ width: "38px", height: "38px" }}
                 />
                 <Typography
                   variant="body2"
                   sx={{ color: "#6F6B7D", fontWeight: 500, fontSize: "15px" }}
                 >
-                  {row.name}
+                  {row.category}
                 </Typography>
               </Stack>
             </TableCell>
             <TableCell
               sx={{
-                color: row?.payment === "Pending" ? "#FF9F43" : "#00CA99",
+                color: "black",
                 fontSize: "15px",
                 fontWeight: 500,
               }}
             >
-              {row.payment}
+              {row.qty}
+            </TableCell>
+            <TableCell
+              sx={{
+                color: "black",
+                fontSize: "15px",
+                fontWeight: 500,
+              }}
+            >
+              <AntPrimarySwitch checked={row?.stock} />
+            </TableCell>
+            <TableCell
+              sx={{
+                color: "#6F6B7D",
+                fontSize: "15px",
+                fontWeight: 500,
+              }}
+            >
+              {row?.sku}
             </TableCell>
             <TableCell
               sx={{ color: "#28C76F", fontSize: "13px", fontWeight: 500 }}
             >
-              {row?.status === "Delivered" ? (
-                row?.status
-              ) : (
                 <div>
                   <Button
                     onClick={handleClick}
                     sx={{
-                      color: "#7367F0",
+                      color: row?.status === "Inactive" ? "#EA5455" : "#00CA99",
                       fontSize: "13px",
                       height: "24px",
                       padding: "5px 10px",
                       bgcolor:
                         row?.status === "Active"
-                          ? "rgba(40, 199, 111, 0.15)"
-                          : "rgba(243, 16, 60, 0.15)",
+                          ? "rgba(0, 202, 153, 0.10)"
+                          : "#FCE5E6",
                       textTransform: "capitalize",
                     }}
                   >
@@ -268,7 +270,7 @@ const OrderListTable = () => {
                     <IoIosArrowDown
                       fontSize="18px"
                       style={{ marginLeft: "10px" }}
-                      color="#7367F0"
+                      color={row?.status === "Inactive" ? "#EA5455" : "#00CA99"}
                     />
                   </Button>
                   <Menu
@@ -281,15 +283,14 @@ const OrderListTable = () => {
                       },
                     }}
                   >
-                    <MenuItem onClick={() => handleOptionSelect("In-Progress")}>
-                      In-Progress
+                    <MenuItem onClick={() => handleOptionSelect("Active")}>
+                      Active
                     </MenuItem>
-                    <MenuItem onClick={() => handleOptionSelect("Delivered")}>
-                      Delivered
+                    <MenuItem onClick={() => handleOptionSelect("Inactive")}>
+                      Inactive
                     </MenuItem>
                   </Menu>
                 </div>
-              )}
             </TableCell>
             <TableCell
               sx={{
@@ -318,4 +319,4 @@ const OrderListTable = () => {
   );
 };
 
-export default OrderListTable;
+export default ProductTable;

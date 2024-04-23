@@ -8,23 +8,23 @@ import Sidebar from "@/components/sidebar";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import BreedCrumb from "@/components/mui/breedcrumbs";
-import icon1 from "@/assets/icons/order-icon2.png";
+import icon1 from "@/assets/icons/print-icon.png";
 import icon2 from "@/assets/icons/order-icon3.png";
-import icon3 from "@/assets/icons/order-icon4.png";
-import icon4 from "@/assets/icons/order-icon1.png";
-import CardItem from "@/components/alumni-store/CardItem";
-import MyOrderList from "@/components/alumni-store/MyOrderList";
+import icon3 from "@/assets/icons/order-icon5.png";
+import icon4 from "@/assets/icons/order-icon5.png";
+import CardItem from "@/components/job-listing/CardItem";
+import MyJobsList from "@/components/job-listing/MyJobsList";
 
-const values = { title: "Your Job Listing" };
+const values = { title: "My Orders" };
 
 const ordercards = [
-  { title: "Total Orders", total: "08", borderColor: "#FF8A00", icon: icon1 },
-  { status: "Completed", total: "05", borderColor: "#00CA99", icon: icon2 },
-  { status: "In Pending", total: "02", borderColor: "#7367F0", icon: icon3 },
-  { status: "Cancel", total: "01", borderColor: "#F3103C", icon: icon4 },
+  { title: "Total Job Posted", total: "65", borderColor: "#00318B", icon: icon1 },
+  { status: "Jobs Listed Currently", total: "55", borderColor: "#00CA99", icon: icon2 },
+  { status: "Total Applicants", total: "100", borderColor: "#F7CA18", icon: icon3 },
+  { status: "Total Shortlist Alumni’s", total: "100", borderColor: "#F3103C", icon: icon4 },
 ];
 
-const MyOrders = () => {
+const JobsListing = () => {
 
   return (
     <main>
@@ -54,7 +54,7 @@ const MyOrders = () => {
             </Grid>
 
             <Grid xs={12} sx={{mt: {xs:'7px',md:'7px',lg:'27px'}}}>
-                <MyOrderList />
+                <MyJobsList />
             </Grid>
 
           </ContentBox>
@@ -64,4 +64,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default JobsListing;

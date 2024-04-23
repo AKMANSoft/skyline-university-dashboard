@@ -85,7 +85,6 @@ const renderTabs = (value, theme) => {
 
 const renderTabPanels = (value, theme, options, colors) => {
   if (typeof window === "undefined") return null
-  const isSSR = typeof window === undefined;
   return tabData.map((item, index) => {
     const max = Math.max(...item.series[0].data);
     const seriesIndex = item.series[0].data.indexOf(max);
@@ -95,14 +94,12 @@ const renderTabPanels = (value, theme, options, colors) => {
 
     return (
       <TabPanel key={index} value={item.type}>
-        {!isSSR &&
           <Chart
             type="bar"
             height={263}
             options={{ ...options, colors: finalColors }}
             series={item.series}
           />
-        }
       </TabPanel>
     );
   });

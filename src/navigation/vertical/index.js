@@ -5,6 +5,21 @@ import { TbUsers } from "react-icons/tb";
 
 const menuItems = [
       {
+        title: 'Dashboard',
+        icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
+        path: 'company-dashboard'
+      },
+      {
+        title: 'Job Listing',
+        icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
+        path: 'job-listing'
+      },
+      {
+        title: "Shortlisted Alumni's",
+        icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
+        path: 'shortlisted-alumni'
+      },
+      {
         title: 'E Commerce Dashboard',
         icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
         children: [
@@ -29,11 +44,11 @@ const menuItems = [
             children: [
                 {
                     title: 'Product List',
-                    path: 'dashboards/product/product-list'
+                    path: 'dashboards/products'
                 },
                 {
                     title: 'Add Product',
-                    path: 'dashboards/product/add-product'
+                    path: 'dashboards/add-products'
                 }
             ]
           },
@@ -84,6 +99,11 @@ const menuItems = [
       },
       {
         sectionTitle: 'Create & Add'
+      },
+      {
+        title: "Post a Job",
+        icon: <AddAluminiIcon />,
+        path: 'post-a-job'
       },
       {
         title: "Add Alumni",

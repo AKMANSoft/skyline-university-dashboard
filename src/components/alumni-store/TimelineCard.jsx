@@ -14,12 +14,15 @@ import styled from "@emotion/styled";
 const Timeline = styled(MuiTimeline)({
     "& .MuiTimelineItem-root": {
         width: "100%",
+        marginLeft: '-15px',
         "&:before": {
           display: "none",
         },
       },
       "& .MuiTimelineConnector-root": {
-        marginLeft: "-3px",
+        height: '100%',
+        marginTop: '-10px',
+        marginBottom: '-11px',
       },
 });
 
