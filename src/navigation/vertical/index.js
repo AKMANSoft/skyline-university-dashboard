@@ -4,6 +4,11 @@ import CompaniesIcon, { AccessoriesIcon, AddAluminiIcon, AddCompanyIcon, AlumniS
 import { TbUsers } from "react-icons/tb";
 
 const menuItems = [
+  {
+    title: 'Dashboard',
+    icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
+    path: 'alumni-student-dashboard'
+  },
       {
         title: 'Dashboard',
         icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,

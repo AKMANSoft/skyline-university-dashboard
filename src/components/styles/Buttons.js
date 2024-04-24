@@ -25,3 +25,18 @@ export const SuspendButton = styled(Button)(({ theme }) => ({
   letterSpacing: "0.43px",
   textTransform: "capitalize",
 }))
+
+
+export const CustomButton = styled(Button)(({ theme }) => ({
+  bgcolor: "rgba(0, 49, 139, 0.10)",
+  borderRadius: "6px",
+  color: "#00318B",
+  fontSize: "16px",
+  fontWeight: 600,
+  textTransform: "capitalize",
+  boxShadow: "none",
+  "&:hover": {
+    bgcolor: "rgba(0, 49, 139, 0.10)",
+    boxShadow: "none",
+  },
+}));
