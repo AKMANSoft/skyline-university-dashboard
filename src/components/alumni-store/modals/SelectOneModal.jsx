@@ -72,6 +72,7 @@ const SelectOneModal = ({ handleClose, open }) => {
 
           {options?.map((option, index) => (
             <Stack
+              key={index}
               direction="row"
               alignItems="center"
               justifyContent="space-between"
