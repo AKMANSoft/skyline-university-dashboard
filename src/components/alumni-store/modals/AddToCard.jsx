@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Stack, Box, Typography, Modal, Button } from "@mui/material";
 import logoImg from "@/assets/images/logoImg.png";
 import Image from "next/image";
 import { IoAddOutline } from "react-icons/io5";
+import { BlueButton } from "@/components/styles/Buttons";
+import { useRouter } from "next/navigation";
 
 const style = {
   position: "absolute",
@@ -18,12 +20,14 @@ const style = {
   py: "55px",
   px: "50px",
   maxHeight: "96vh",
-  overflowX: 'auto',
+  overflowX: "auto",
 };
 
 const images = [{}, {}, {}];
 
 const AddToCard = ({ handleClose, open }) => {
+  const router = useRouter();
+  const [count, setCount] = useState(0);
   return (
     <div>
       <Modal
@@ -32,8 +36,12 @@ const AddToCard = ({ handleClose, open }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={{...style, width: {xs:'auto',sm:'auto',md:'100%'}}}>
-          <Stack direction={{sm:'column',md:"row"}} alignItems="start" gap="31px">
+        <Box sx={{ ...style, width: { xs: "auto", sm: "auto", md: "100%" } }}>
+          <Stack
+            direction={{ sm: "column", md: "row" }}
+            alignItems="start"
+            gap="31px"
+          >
             <Box>
               <Box
                 sx={{
@@ -131,10 +139,10 @@ const AddToCard = ({ handleClose, open }) => {
                 It is a long established fact that a reader will be distracted
                 by the readable content of a page when looking at its layout.
                 The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using &apos;Content
-                here, content here&apos;, making it look like readable English. Many
-                desktop publishing packages and web page editors now use Lorem
-                Ipsum
+                normal distribution of letters, as opposed to using
+                &apos;Content here, content here&apos;, making it look like
+                readable English. Many desktop publishing packages and web page
+                editors now use Lorem Ipsum
               </Typography>
               <Typography
                 component="div"
@@ -150,32 +158,62 @@ const AddToCard = ({ handleClose, open }) => {
                 $23.80
               </Typography>
 
-              <Button
-                sx={{
-                  mt: "25px",
-                  color: "#4B465C",
-                  fontSize: "16px",
-                  width: "162px",
-                  height: "38px",
-                  border: "1px solid #ECECEC",
-                  textTransform: "capitalize",
-                  py: 0,
-                  pr: 0,
-                }}
+              <Stack
+                direction="row"
+                alignItems="center"
+                gap="20px"
+                sx={{ mt: "25px" }}
               >
-                Add to Cart
-                <IoAddOutline
-                  style={{
-                    paddingLeft: "6px",
-                    marginLeft: "8px",
-                    fontWeight: 600,
-                    borderLeft: "1px solid #ECECEC",
-                    height: "100%",
-                    borderRadius: "6px",
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  sx={{
+                    border: "1px solid #ECECEC",
+                    borderRadius: "4px",
+                    pl: 2,
+                    width: "162px",
+                    height: "38px",
+                    cursor: "pointer",
                   }}
-                  fontSize="32px"
-                />
-              </Button>
+                >
+                  <Typography
+                    component="div"
+                    variant="p"
+                    sx={{
+                      color: "#4B465C",
+                      textTransform: "capitalize",
+                    }}
+                    onClick={() => setCount(1)}
+                  >
+                    {count > 0
+                      ? count > 0 && count < 10
+                        ? "0" + count
+                        : count
+                      : "Add to Cart"}
+                  </Typography>
+                  <IoAddOutline
+                    style={{
+                      paddingLeft: "6px",
+                      marginLeft: "8px",
+                      fontWeight: 600,
+                      borderLeft: "1px solid #ECECEC",
+                      height: "100%",
+                      borderRadius: "6px",
+                    }}
+                    fontSize="32px"
+                    onClick={() => setCount(count + 1)}
+                  />
+                </Stack>
+                {count >= 1 && (
+                  <BlueButton
+                    sx={{ bgcolor: "#00318B", width: "190px", "&:hover": {bgcolor: '#00318B'} }}
+                    onClick={() => router.push("/alumni-store/my-orders/checkout")}
+                  >
+                    Checkout
+                  </BlueButton>
+                )}
+              </Stack>
             </Box>
           </Stack>
         </Box>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CustomCard } from "../styles/Card";
 import {
   Box,
@@ -15,6 +15,7 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { IoIosLock } from "react-icons/io";
 import styled from "@emotion/styled";
 import { BlueButton } from "../styles/Buttons";
+import OrderPlacedModal from "./modals/OrderPlacedModal";
 
 const styles = {
   width: "100%",
@@ -42,12 +43,18 @@ const CustomTabs = styled(Tabs)(({ theme }) => ({
 }));
 
 const PaymentMethodCard = () => {
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = useState("1");
+  const[openModal, setOpenModal] = useState(false)
+
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
+    <>
+    <OrderPlacedModal open={openModal} handleClose={handleCloseModal} />
     <CustomCard sx={{ p: {xs:'19px',sm:"24px"} }}>
       <Typography
         component="div"
@@ -166,10 +173,12 @@ const PaymentMethodCard = () => {
             color: 'white',
           }
         }}
+        onClick={handleOpenModal}
       >
         Pay $6450
       </BlueButton>
     </CustomCard>
+    </>
   );
 };
 

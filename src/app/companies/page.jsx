@@ -1,13 +1,13 @@
 import React from 'react'
-import { Box, Stack, Grid, Link } from "@mui/material"
-import Sidebar from '@/components/sidebar'
-import { ContentBox, GridBox } from '@/components/styles/Box'
+import { Box, Stack, Grid } from "@mui/material"
+import { ContentBox } from '@/components/styles/Box'
 import Appbar from '@/components/appbar'
 import BreedCrumb from '@/components/mui/breedcrumbs'
 import { BlueButton } from '@/components/styles/Buttons'
 import AddIcon from '@mui/icons-material/Add';
 import CardItem from '@/components/companies/CardItem'
 import { companies } from '@/components/companies/StaticData'
+import Link from 'next/link'
 
 const values = {
   title: "List",

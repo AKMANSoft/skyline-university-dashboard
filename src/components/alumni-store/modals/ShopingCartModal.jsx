@@ -8,11 +8,7 @@ import { CloseIcon, CrossIcon } from "@/utils/svg-icons";
 import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 import logoImg from "@/assets/images/logoImg.png";
-import OrderPlacedModal from "./OrderPlacedModal";
 import { useState } from "react";
-import CancelOrderModal from "./CancelOrderModal";
-import SelectOneModal from "./SelectOneModal";
-import SuccessMsgModal from "./SuccessMsgModal";
 
 const GreenText = styled(Typography)(({ theme }) => ({
   color: "#289D67",
@@ -20,18 +16,13 @@ const GreenText = styled(Typography)(({ theme }) => ({
   lineHeight: "22px",
 }));
 
-const orders = [{}, {}, {}];
+const orders = [{id:1}, {id:2}, {id:3}];
 
 const ShopingCartModal = ({ open, toggleDrawer }) => {
-  const[openModal, setOpenModal] = useState(false)
-
-  const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => setOpenModal(false);
-  
+  const[productCounter, setProductCounter] = useState({count: 1})
   return (
     <>
     {/* <CancelOrderModal open={openModal} handleClose={handleCloseModal} /> */}
-    <OrderPlacedModal open={openModal} handleClose={handleCloseModal} />
     {/* <SelectOneModal open={openModal} handleClose={handleCloseModal} /> */}
     {/* <SuccessMsgModal open={openModal} handleClose={handleCloseModal} /> */}
 
@@ -100,14 +91,16 @@ const ShopingCartModal = ({ open, toggleDrawer }) => {
                   color="#696969"
                   fontSize="20px"
                   cursor="pointer"
+                  onClick={() => setProductCounter({index: order?.id, count: productCounter.count+1})}
                 />
                 <Typography variant="body1" color="#959595">
-                  02
+                  {productCounter?.index && productCounter.index===order?.id ? productCounter?.count : 1}
                 </Typography>
                 <AiOutlineMinus
                   color="#696969"
                   fontSize="20px"
                   cursor="pointer"
+                  onClick={() => setProductCounter({index: order?.id, count: productCounter.count===1 ? 1 : productCounter.count-1})}
                 />
               </Stack>
               <Avatar
@@ -170,7 +163,7 @@ const ShopingCartModal = ({ open, toggleDrawer }) => {
               mt: "328px",
             }}
             onClick={() => {
-              handleOpenModal()
+              router.push(`/alumni-store/my-orders/checkout`)
               toggleDrawer(false)
             }}
           >

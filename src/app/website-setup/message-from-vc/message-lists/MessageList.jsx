@@ -1,9 +1,10 @@
 import React from 'react'
-import { Box, Stack, Typography, Card, Grid, Link } from "@mui/material"
+import { Box, Stack, Typography, Card, Grid } from "@mui/material"
 import Image from 'next/image';
 import img from "@/assets/images/img4.png"
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { CustomSwitch } from '@/components/styles/Switch';
+import Link from 'next/link';
 
 const MessageList = () => {
   return (
@@ -55,7 +56,7 @@ const MessageList = () => {
                     </Box>
                     <Stack direction='row' sx={{mt: '17px', mb: '10px'}}>
                         <Box sx={{width: '85%'}}>
-                            <Link href="/website-setup/message-from-vc/read-more" sx={{textDecoration: 'none'}}>
+                            <Link href="/website-setup/message-from-vc/message-lists/read-more" style={{textDecoration: 'none'}}>
                                 <Typography variant="p" 
                                 sx={{
                                     color: '#4E4E4E',

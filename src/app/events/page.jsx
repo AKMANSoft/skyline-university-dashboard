@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Stack, Grid } from "@mui/material";
-import Sidebar from "@/components/sidebar";
+import AddIcon from "@mui/icons-material/Add";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import BreedCrumb from "@/components/mui/breedcrumbs";
 import CardItem from "@/components/events/CardItem";
+import { BlueButton } from "@/components/styles/Buttons";
 
 const values = { title: "Event List" };
 const cards = [{}, {}, {}, {}];
@@ -21,9 +22,33 @@ const Events = () => {
           >
             <Appbar />
 
-            <Grid xs={12} sx={{ mt: "90px", mb:'25px' }}>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ mt: "90px", mb: "25px" }}
+            >
               <BreedCrumb values={values} />
-            </Grid>
+              <BlueButton
+                variant="contained"
+                sx={{
+                  width: "197px",
+                  textTransform: "capitalize",
+                  bgcolor: "#00318B",
+                  ml: { xs: "10px", sm: "16px" },
+                  fontSize: { xs: "12px", sm: "16px" },
+                }}
+              >
+                <AddIcon
+                  sx={{
+                    color: "white",
+                    fontSize: { sm: "8px", sm: "14px", md: "22px" },
+                    mr: { xs: 0, sm: 1 },
+                  }}
+                />{" "}
+                Create New Event
+              </BlueButton>
+            </Stack>
 
             <Grid container spacing={{ xs: 2, sm: 3 }}>
               {cards?.map((card, index) => (

@@ -17,6 +17,7 @@ import { LuEye } from "react-icons/lu";
 import avatarImg from "@/assets/images/img8.png";
 import { BorderSwitch } from "../styles/Switch";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 const CustomTableLabel = styled(TableSortLabel)(({ theme }) => ({
   fontSize: "13px",
@@ -194,9 +195,13 @@ const List = () => {
                   alignItems="center"
                   justifyContent="end"
                 >
+                  <Link href="/website-setup/success-stories/add" >
                   <TbEdit color="#4B465C" fontSize="18px" cursor="pointer" />
+                  </Link>
                   <GoTrash color="#4B465C" fontSize="18px" cursor="pointer" />
-                  <LuEye color="#4B465C" fontSize="18px" cursor="pointer" />
+                  <Link href={`/website-setup/success-stories/${row.title}`}>
+                    <LuEye color="#4B465C" fontSize="18px" cursor="pointer" />
+                  </Link>
                 </Stack>
               </TableCell>
             </TableRow>

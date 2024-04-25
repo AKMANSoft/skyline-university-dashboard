@@ -8,6 +8,7 @@ import BasicDetailCard from "@/components/alumni/alumni-cards/BasicDetailCard";
 import VolunteeringCard from "@/components/alumni/alumni-cards/VolunteeringCard";
 import ExperienceCard from "@/components/alumni/alumni-cards/ExperienceCard";
 import { BlueButton, SuspendButton } from "@/components/styles/Buttons";
+import Link from "next/link";
 
 const values = {
   title: "View Details",
@@ -108,12 +109,14 @@ const Page = () => {
               sx={{ width: "100%", mt: "90px", mb: "17px" }}
             >
               <BreedCrumb values={values} />
-              <Stack direction="row" gap="1rem" alignItems='center'>
-                <BlueButton sx={{bgcolor: '#00318B'}}>
-                    Edit
-                </BlueButton>
-                <SuspendButton sx={{width: '105px',bgcolor: 'rgba(243, 16, 60, 0.15)'}}>
-                    Suspend
+              <Stack direction="row" gap="1rem" alignItems="center">
+                <Link href={`/add-alumni`}>
+                  <BlueButton sx={{ bgcolor: "#00318B" }}>Edit</BlueButton>
+                </Link>
+                <SuspendButton
+                  sx={{ width: "105px", bgcolor: "rgba(243, 16, 60, 0.15)" }}
+                >
+                  Suspend
                 </SuspendButton>
               </Stack>
             </Stack>

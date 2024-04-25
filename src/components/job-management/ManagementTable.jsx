@@ -10,15 +10,13 @@ import {
   Stack,
   Avatar,
   Typography,
-  Link,
 } from "@mui/material";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { TbEdit } from "react-icons/tb";
 import { LuEye } from "react-icons/lu";
 import { GoTrash } from "react-icons/go";
 import avatar1 from "@/assets/images/Avatar.png"
-import avatar2 from "@/assets/images/Avatar2.png"
-import avatar3 from "@/assets/images/Avatar3.png"
+import Link from "next/link";
 
 const ManagementTable = () => {
   const rows = [

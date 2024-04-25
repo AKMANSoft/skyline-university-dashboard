@@ -1,3 +1,4 @@
+'use client'
 import Sidebar from "@/components/sidebar";
 import React from "react";
 import { Box, Stack } from "@mui/material";
@@ -6,6 +7,7 @@ import { ContentBox } from "@/components/styles/Box";
 import { BlueButton } from "@/components/styles/Buttons";
 import BreedCrumb from "@/components/mui/breedcrumbs";
 import ReadMore from "./ReadMoreText";
+import { useRouter } from "next/navigation";
 
 const values = {
   title: "Read More",
@@ -17,7 +19,8 @@ const values = {
   ],
 };
 
-const page = () => {
+const Page = () => {
+  const router = useRouter()
   return (
     <main>
       {/* <Sidebar /> */}
@@ -52,6 +55,7 @@ const page = () => {
                     textTransform: "capitalize",
                     bgcolor: "#00318B",
                   }}
+                  onClick={() => router.push(`/website-setup/message-from-vc`)}
                 >
                   Edit
                 </BlueButton>
@@ -65,4 +69,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

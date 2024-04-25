@@ -3,6 +3,7 @@ import { Stack, Box, Typography, Modal, Button } from "@mui/material";
 import succImg from "@/assets/images/placed-success.png";
 import Image from "next/image";
 import { BlueButton } from "@/components/styles/Buttons";
+import Link from "next/link";
 
 const style = {
   position: "absolute",
@@ -76,6 +77,7 @@ const OrderPlacedModal = ({ handleClose, open }) => {
               libero dolores sapiente.
             </Typography>
 
+            <Link style={{width: '100%'}} href="/alumni-store/apparel">
             <BlueButton
               sx={{
                 bgcolor: "#00318B",
@@ -90,6 +92,7 @@ const OrderPlacedModal = ({ handleClose, open }) => {
             >
               Continue Shopping
             </BlueButton>
+            </Link>
           </Stack>
         </Box>
       </Modal>

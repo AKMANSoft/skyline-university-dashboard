@@ -31,7 +31,7 @@ const AddStory = () => {
             boxShadow: "0px 4px 18px 0px rgba(75, 70, 92, 0.10)",
             border: "none",
             p: "24px",
-            width: '100vw',
+            width: '100%',
             mt: '90px',
           }}
         >

@@ -23,6 +23,7 @@ import Link from "next/link";
 import avatar1 from "@/assets/images/Avatar.png"
 import avatar2 from "@/assets/images/Avatar2.png"
 import avatar3 from "@/assets/images/Avatar3.png"
+import { useRouter } from "next/navigation";
 
 const AlumniTable = () => {
   const rows = [
@@ -141,6 +142,7 @@ const AlumniTable = () => {
       status: "Active",
     },
   ];
+  const router = useRouter()
 
   const [sortBy, setSortBy] = useState(null);
   const [sortDirection, setSortDirection] = useState("asc");
@@ -313,7 +315,7 @@ const AlumniTable = () => {
       </TableHead>
       <TableBody>
         {rows.map((row) => (
-          <TableRow key={row.id}>
+          <TableRow key={row.id} sx={{cursor: 'pointer'}} onClick={() => router.push(`/alumni/view-details`)}>
             <TableCell
               sx={{ color: "#7367F0", fontSize: "15px", fontWeight: 400 }}
             >
