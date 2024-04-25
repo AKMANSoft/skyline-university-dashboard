@@ -8,7 +8,7 @@ const UpcomingEvents = () => {
   return (
     <CustomCard sx={{ py: "30px", maxHeight: '581px', overflow: 'auto' }}>
       <Box sx={{ px: "30px" }}>
-        <StackBetweenWraper title="Upcoming Events" btnText="View All Events" />
+        <StackBetweenWraper title="Upcoming Events" btnText="View All Events" link={`/events`} />
       </Box>
       <Divider sx={{ mt: "26px" }} />
       <EventsTable />

@@ -1,5 +1,6 @@
 import BreedCrumb from "@/components/mui/breedcrumbs";
 import { BlueButton, ResetButton } from "@/components/styles/Buttons";
+import RichTextEditor from "@/components/text-editor";
 import {
   Card,
   Grid,
@@ -10,6 +11,8 @@ import {
   InputLabel,
 } from "@mui/material";
 import React from "react";
+import { FiSend } from "react-icons/fi";
+import { GoTrash } from "react-icons/go";
 
 const values = {
   title: "Add New Success Stories",
@@ -23,13 +26,13 @@ const values = {
 
 const AddStory = () => {
   return (
-    <Grid container spacing={6}>
-      <Grid item xs={12}>
         <Card
           sx={{
             boxShadow: "0px 4px 18px 0px rgba(75, 70, 92, 0.10)",
             border: "none",
             p: "24px",
+            width: '100vw',
+            mt: '90px',
           }}
         >
           <BreedCrumb values={values} />
@@ -55,7 +58,7 @@ const AddStory = () => {
                   variant="contained"
                   sx={{ mr: "20px", bgcolor: "#00318B" }}
                 >
-                  Upload Successor Image*
+                  Upload Image*
                 </BlueButton>
                 <ResetButton variant="secondary">Reset</ResetButton>
               </Stack>
@@ -75,33 +78,94 @@ const AddStory = () => {
             </Stack>
           </Stack>
 
-          <Box>
-            <InputLabel
-              id="demo-simple-select-label"
-              sx={{
-                color: "#4B465C",
-                fontSize: "13px",
-                fontWeight: 400,
-                mb: "11px",
-                lineHeight: "19px",
-              }}
-            >
-              Title*
-            </InputLabel>
-            <TextField
-              id="outlined-basic"
-              label="Outlined"
-              variant="outlined"
+          <Stack direction="row" gap="104px" sx={{ mt: "30px" }}>
+            <Box sx={{ width: "100%", maxWidth: "450px" }}>
+              <InputLabel
+                id="demo-simple-select-label"
+                sx={{
+                  color: "#4B465C",
+                  fontSize: "13px",
+                  fontWeight: 400,
+                  mb: "11px",
+                  lineHeight: "19px",
+                }}
+              >
+                Title*
+              </InputLabel>
+              <TextField
+                id="outlined-basic"
+                placeholder="enter here"
+                variant="outlined"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                InputProps={{
+                  sx: {
+                    height: "36px !important",
+                  },
+                }}
+                sx={{
+                  width: "100%",
+                }}
+              />
+            </Box>
+          </Stack>
+
+          <Box sx={{ mt: "30px" }}>
+            <Box
               sx={{
                 width: "100%",
-                maxWidth: "450px",
-                height: "36px",
+                padding: "16px 20px",
+                borderRdius: "6px 6px 0px 0px",
+                background: "rgba(75, 70, 92, 0.04)",
               }}
-            />
+            >
+              <Typography
+                variant="p"
+                sx={{
+                  color: "#4B465C",
+                  fontSize: "18px",
+                  lineHeight: "24px",
+                  fontWeight: 600,
+                }}
+              >
+                Description
+              </Typography>
+            </Box>
+            <RichTextEditor />
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{
+                mt: 5,
+                width: "100%",
+                padding: "16px 20px",
+                border:
+                  "1px solid var(--Light-Solid-Color-Extra-Divider, #DBDADE)",
+                borderTop: "0px",
+              }}
+            >
+              <BlueButton
+                sx={{
+                  bgcolor: "#00318B",
+                  textTransform: "capitalize",
+                  height: "38px !important",
+                  width: "99px",
+                  "&:hover": { bgcolor: "#00318B" },
+                }}
+              >
+                <FiSend
+                  color="white"
+                  fontSize="25px"
+                  style={{ marginRight: "8px" }}
+                />
+                Post
+              </BlueButton>
+              <GoTrash color="#4B465C" />
+            </Stack>
           </Box>
         </Card>
-      </Grid>
-    </Grid>
   );
 };
 

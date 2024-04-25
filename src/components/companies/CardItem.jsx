@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { Stack, Box, Avatar } from "@mui/material";
 import { CompanyCard } from "../styles/Card";
@@ -13,10 +14,12 @@ import {
 } from "../styles/Typography";
 import { CustomDivider } from "../styles/CustomDivider";
 import { CustomDot } from "../styles/CustomDot";
+import { useRouter } from 'next/navigation'
 
 const CardItem = ({ company }) => {
+  const router = useRouter()
   return (
-    <CompanyCard>
+    <CompanyCard sx={{cursor: 'pointer'}} onClick={() => router.push(`/companies/social-company`)}>
       <CustomRowStack
         sx={{
           padding: {

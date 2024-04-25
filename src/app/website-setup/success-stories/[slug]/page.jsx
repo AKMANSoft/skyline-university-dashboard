@@ -40,7 +40,7 @@ const Page = () => {
   };
   return (
     <main>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto", pb: 5 }}>
         <Stack direction="row">
           <Box sx={{ width: "260px" }}></Box>

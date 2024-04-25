@@ -8,6 +8,8 @@ import BasicDetailCard from "@/components/alumni/alumni-cards/BasicDetailCard";
 import VolunteeringCard from "@/components/alumni/alumni-cards/VolunteeringCard";
 import ExperienceCard from "@/components/alumni/alumni-cards/ExperienceCard";
 import { BlueButton, SuspendButton } from "@/components/styles/Buttons";
+import HobbiesCard from "@/components/alumni/alumni-cards/HobbiesCard";
+import ResumeCard from "@/components/alumni/alumni-cards/ResumeCard";
 
 const values = {
   title: "View Profile",
@@ -65,11 +67,6 @@ const details = [
         title2: "International Trade Council",
         title3: "Credential ID 52690899034568",
       },
-      {
-        title1: "Pakistan Embassy School Jeddah",
-        title2: "SSC, Science",
-        title3: "1990-2002",
-      },
     ],
   },
   {
@@ -87,12 +84,25 @@ const details = [
       },
     ],
   },
+  {
+    cardTitle: "Laanguages",
+    data: [
+      {
+        title1: "Arabic",
+        title2: "Elementry Proficiency",
+      },
+      {
+        title1: "English",
+        title2: "Full professional proficiency",
+      },
+    ],
+  },
 ];
 
 const Page = () => {
   return (
     <main>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>
@@ -102,20 +112,9 @@ const Page = () => {
             <Appbar />
 
             <Stack
-              direction="row"
-              alignItems="center"
-              justifyContent="space-between"
               sx={{ width: "100%", mt: "90px", mb: "17px" }}
             >
               <BreedCrumb values={values} />
-              <Stack direction="row" gap="1rem" alignItems='center'>
-                <BlueButton sx={{bgcolor: '#00318B'}}>
-                    Edit
-                </BlueButton>
-                <SuspendButton sx={{width: '105px',bgcolor: 'rgba(243, 16, 60, 0.15)'}}>
-                    Suspend
-                </SuspendButton>
-              </Stack>
             </Stack>
 
             <Stack
@@ -127,11 +126,14 @@ const Page = () => {
               <Box sx={{ width: "100%" }}>
                 <BasicDetailCard />
                 <VolunteeringCard data={details[3]} />
+                <HobbiesCard />
               </Box>
               <Box sx={{ width: "100%" }}>
                 <ExperienceCard data={details[0]} />
                 <ExperienceCard data={details[1]} />
-                <ExperienceCard data={details[2]} />
+                <ExperienceCard data={details[2]} isLicenseCard={true} />
+                <ExperienceCard data={details[4]} />
+                <ResumeCard />
               </Box>
             </Stack>
           </ContentBox>

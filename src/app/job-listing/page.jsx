@@ -15,7 +15,7 @@ import icon4 from "@/assets/icons/order-icon5.png";
 import CardItem from "@/components/job-listing/CardItem";
 import MyJobsList from "@/components/job-listing/MyJobsList";
 
-const values = { title: "My Orders" };
+const values = { title: "Your Job Listing" };
 
 const ordercards = [
   { title: "Total Job Posted", total: "65", borderColor: "#00318B", icon: icon1 },
@@ -28,7 +28,7 @@ const JobsListing = () => {
 
   return (
     <main>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>

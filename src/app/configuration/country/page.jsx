@@ -31,7 +31,7 @@ const Page = () => {
   return (
     <main>
         <EditCountryModal modalType="Add" open={openAdd} handleClose={handleCloseAdd} />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{width: '100%', height: 'auto'}}>
         <Stack direction="row">
           <Box sx={{width: {md: '0px', lg:'260px'}}}></Box>

@@ -20,7 +20,7 @@ const values = {
 const page = () => {
   return (
     <main>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: "260px" }}></Box>

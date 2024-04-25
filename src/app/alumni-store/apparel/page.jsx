@@ -42,7 +42,7 @@ const Apparel = () => {
   return (
     <main>
       <ShopingCartModal open={openCart} toggleDrawer={toggleDrawer} />
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>

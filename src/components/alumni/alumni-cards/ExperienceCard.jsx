@@ -1,7 +1,7 @@
 "use client";
 import { CustomDivider } from "@/components/styles/CustomDivider";
 import styled from "@emotion/styled";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Button, Card, Typography } from "@mui/material";
 import React from "react";
 
 
@@ -27,7 +27,7 @@ const ListText = styled(Typography)(({ theme }) => ({
     lineHeight: "20px",
   }));
 
-const ExperienceCard = ({data}) => {
+const ExperienceCard = ({data, isLicenseCard}) => {
   return (
     <Card
       sx={{
@@ -50,8 +50,24 @@ const ExperienceCard = ({data}) => {
             <HeadText sx={{opacity: '.7', marginTop: "5px"}}>
             {val?.title3}
             </HeadText>
+            {isLicenseCard &&
+              <Button variant="outlined" sx={{
+                width: '150px',
+                height: '30px',
+                border: '1px solid #00318B',
+                color: '#00318B',
+                bgcolor: 'transparent',
+                fontSize: '13px',
+                fontWeight: 600,
+                borderRadius: '20px',
+                textTransform: 'capitalize',
+                mt:'10px'
+              }}>
+                Show credentials
+              </Button>
+            }
         </Box>
-        <CustomDivider sx={{my: '20px '}} />
+        {!isLicenseCard && <CustomDivider sx={{my: '20px '}} /> }
         </>
       ))}
     </Card>

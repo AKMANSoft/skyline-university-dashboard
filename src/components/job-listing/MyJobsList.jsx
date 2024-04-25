@@ -14,6 +14,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { BlueButton } from "../styles/Buttons";
 import MyJobListTable from "./MyJobsListTable";
+import Link from "next/link";
 
 const MyJobsList = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -90,6 +91,7 @@ const MyJobsList = () => {
             <MenuItem value="Active">Active</MenuItem>
           </Select>
         </Stack>
+        <Link href='/post-a-job'>
         <BlueButton
           variant="contained"
           sx={{
@@ -100,7 +102,6 @@ const MyJobsList = () => {
             fontSize: { xs: "12px", sm: "16px" },
             px: { xs: "6px", sm: "10px" },
           }}
-        //   onClick={handleOpenAdd}
         >
           <AddIcon
             sx={{
@@ -111,6 +112,7 @@ const MyJobsList = () => {
           />{" "}
           Post a Job
         </BlueButton>
+        </Link>
       </Stack>
 
       <Box

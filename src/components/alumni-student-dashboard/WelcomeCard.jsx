@@ -25,8 +25,8 @@ const AbsoluteBox2 = styled(Box)(({theme}) => ({
 const WelcomeCard = () => {
   return (
     <CustomCard sx={{position: 'relative', height: '251px', p:0}}>
-        <AbsoluteBox1 sx={{width: {xs:'80%', sm:'100%'}}}>
-            <Image 
+        <AbsoluteBox1>
+            <Image
                 src={img2}
                 alt='img'
                 style={{height: '100%'}}

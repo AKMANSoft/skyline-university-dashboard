@@ -20,7 +20,7 @@ const JobsForYouCard = () => {
       }}
     >
       <Box sx={{mb:'18px'}}>
-      <StackBetweenWraper title="Jobs For You" btnText="View All Jobs" />
+      <StackBetweenWraper title="Jobs For You" btnText="View All Jobs" link={`/job-portal`} />
       </Box>
 
       {jobs?.map((job, index) => (

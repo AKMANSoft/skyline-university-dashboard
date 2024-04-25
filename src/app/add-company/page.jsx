@@ -20,7 +20,7 @@ const AddCompany = () => {
     }
   return (
     <main>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{width: '100%', height: 'auto'}}>
         <Stack direction="row">
          <Box sx={{width: {md: '0px', lg:'260px'}}}></Box>

@@ -5,7 +5,6 @@ import styled from "@emotion/styled";
 import bgImg from "@/assets/bg-dashboard.png";
 import img from "@/assets/images/img6.png";
 import Image from "next/image";
-import { CustomCard } from "../styles/Card";
 
 const BackgroundImageGrid = styled(Box)({
   width: "100%",

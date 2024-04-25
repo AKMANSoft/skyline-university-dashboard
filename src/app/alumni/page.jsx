@@ -3,7 +3,6 @@ import {
   Box,
   Stack,
   Grid,
-  Link,
   Typography,
   Pagination,
   Card,
@@ -18,6 +17,7 @@ import BreedCrumb from "@/components/mui/breedcrumbs";
 import { BlueButton } from "@/components/styles/Buttons";
 import AddIcon from "@mui/icons-material/Add";
 import AlumniTable from "@/components/alumni/AlumniTable";
+import Link from "next/link";
 
 const values = {
   title: "List",
@@ -32,7 +32,7 @@ const values = {
 const Alumnis = () => {
   return (
     <main>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>
@@ -110,7 +110,7 @@ const Alumnis = () => {
                         <MenuItem value="Active">Active</MenuItem>
                     </Select>
                     </Stack>
-                    <Link href="/companies/social-company/post-a-job">
+                    <Link href="/add-alumni">
                     <BlueButton
                         variant="contained"
                         sx={{

@@ -5,6 +5,7 @@
 import Providers from "@/redux/provider";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Sidebar from "@/components/sidebar";
 
 
   const inter = Inter({ subsets: ["latin"] });
@@ -22,6 +23,7 @@ import Loading from "./loading";
           <body className={inter.className} style={{backgroundColor: '#F8F7FA'}}>
             <Suspense fallback={<Loading />}>
               <Providers>
+                <Sidebar />
                 {children}
               </Providers>
             </Suspense>

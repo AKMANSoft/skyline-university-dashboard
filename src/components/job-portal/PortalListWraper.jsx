@@ -5,18 +5,16 @@ import {
   Typography,
   MenuItem,
   TextField,
-  Select,
   Box,
   Pagination,
   Button,
   Menu,
 } from "@mui/material";
 import { CustomCard } from "@/components/styles/Card";
-import OrderListTable from "./OrderListTable";
-import { IoIosArrowDown } from "react-icons/io";
-import OrderListTableMobile from "./OrderListTableMobile";
+import { FilterIcon } from "@/utils/svg-icons";
+import JobsListTable from "./JobsListTable";
 
-const OrderList = () => {
+const PortalListWraper = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -49,7 +47,7 @@ const OrderList = () => {
             color: "#4B465C",
           }}
         >
-          Order List
+          Jobs List
         </Typography>
         <Stack
           direction="row"
@@ -86,22 +84,21 @@ const OrderList = () => {
             <Button
               onClick={handleClick}
               sx={{
-                color: "#A8AAAE",
-                fontSize: "15px",
+                color: "#00318B",
+                fontSize: "18px",
                 height: "24px",
                 borderRadius: "6px",
                 width: {xs:'92px', sm:"126px"},
                 height: "38px",
-                bgcolor: "#F1F1F2",
+                bgcolor: "#D9E0EE",
                 textTransform: "capitalize",
+                border: "1px sold rgba(0, 49, 139, 0.05)"
               }}
             >
-              Export
-              <IoIosArrowDown
-                fontSize="15px"
-                style={{ marginLeft: "10px" }}
-                color="#A8AAAE"
-              />
+              Filter
+              <span style={{marginLeft: '10px', paddingTop:"10px"}}>
+                <FilterIcon />
+              </span>
             </Button>
             <Menu
               anchorEl={anchorEl}
@@ -113,8 +110,8 @@ const OrderList = () => {
                 },
               }}
             >
-              <MenuItem onClick={() => handleOptionSelect("Export")}>
-                Export
+              <MenuItem onClick={() => handleOptionSelect("Name")}>
+                Name
               </MenuItem>
             </Menu>
           </div>
@@ -125,7 +122,6 @@ const OrderList = () => {
         sx={{
           width: "100%",
           overflowX: "auto",
-          display: {xs:'none',sm:'block'},
           "&::-webkit-scrollbar": {
             width: "4px",
             height: "4px",
@@ -142,16 +138,7 @@ const OrderList = () => {
           },
         }}
       >
-        <OrderListTable />
-      </Box>
-      <Box
-        sx={{
-          width: "100%",
-          overflowX: "auto",
-          display: {xs:'block',sm:'none'}
-        }}
-      >
-        <OrderListTableMobile />
+        <JobsListTable />
       </Box>
       <Stack
         direction="row"
@@ -190,4 +177,4 @@ const OrderList = () => {
   );
 };
 
-export default OrderList;
+export default PortalListWraper;

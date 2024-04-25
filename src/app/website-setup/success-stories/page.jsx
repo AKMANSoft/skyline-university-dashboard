@@ -1,17 +1,16 @@
 "use client";
 import React from "react";
-import { Box, Stack, Link, Typography, Card, Pagination } from "@mui/material";
-import Sidebar from "@/components/sidebar";
+import { Box, Stack, Typography, Card, Pagination } from "@mui/material";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import { BlueButton } from "@/components/styles/Buttons";
 import AddIcon from "@mui/icons-material/Add";
 import List from "@/components/success-stories/List";
+import Link from "next/link";
 
 const Page = () => {
   return (
     <main>
-      <Sidebar />
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>

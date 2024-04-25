@@ -229,7 +229,7 @@ const MyJobListTable = () => {
                 <TbEdit color="#4B465C" fontSize='22px' cursor='pointer' />
                 <GoTrash color="#4B465C" fontSize='22px' cursor='pointer' />
                 <Link href={`/job-listing/view-details`}>
-                <LuEye color="#4B465C" fontSize='22px' cursor='pointer' />
+                  <LuEye color="#4B465C" fontSize='22px' cursor='pointer' />
                 </Link>
               </Stack>
             </TableCell>
