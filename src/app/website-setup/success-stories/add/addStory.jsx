@@ -1,6 +1,11 @@
 import BreedCrumb from "@/components/mui/breedcrumbs";
 import { BlueButton, ResetButton } from "@/components/styles/Buttons";
-import RichTextEditor from "@/components/text-editor";
+// import RichTextEditor from "@/components/text-editor";
+import dynamic from "next/dynamic";
+const RichTextEditor = dynamic(
+  () => import('@/components/text-editor'),
+  { ssr: false }
+);
 import {
   Card,
   Grid,

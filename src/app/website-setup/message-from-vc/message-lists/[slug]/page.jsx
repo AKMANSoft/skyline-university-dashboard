@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Sidebar from "@/components/sidebar";
 import React from "react";
 import { Box, Stack } from "@mui/material";
@@ -8,6 +8,7 @@ import { BlueButton } from "@/components/styles/Buttons";
 import BreedCrumb from "@/components/mui/breedcrumbs";
 import ReadMore from "./ReadMoreText";
 import { useRouter } from "next/navigation";
+import { CustomCard } from "@/components/styles/Card";
 
 const values = {
   title: "Read More",
@@ -20,48 +21,53 @@ const values = {
 };
 
 const Page = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <main>
       {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: "260px" }}></Box>
-          <ContentBox sx={{width: {xs: '100%', md: '100%', lg: 'calc(100% - 260px)'}}}>
+          <ContentBox
+            sx={{ width: { xs: "100%", md: "100%", lg: "calc(100% - 260px)" } }}
+          >
             <Appbar />
+            <CustomCard sx={{ p: "20px", mt: "90px" }}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                sx={{ width: "100%", mb: "17px" }}
+              >
+                <BreedCrumb values={values} />
 
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              sx={{ width: "100%", mt: "90px", mb: "17px" }}
-            >
-              <BreedCrumb values={values} />
-
-              <Box>
-                <BlueButton
-                  variant="outlined"
-                  sx={{
-                    textTransform: "capitalize",
-                    border: "1px solid #00318B",
-                    mr: "20px",
-                    color: "#00318B !important",
-                  }}
-                >
-                  Delete
-                </BlueButton>
-                <BlueButton
-                  variant="contained"
-                  sx={{
-                    textTransform: "capitalize",
-                    bgcolor: "#00318B",
-                  }}
-                  onClick={() => router.push(`/website-setup/message-from-vc`)}
-                >
-                  Edit
-                </BlueButton>
-              </Box>
-            </Stack>
-            <ReadMore />
+                <Box>
+                  <BlueButton
+                    variant="outlined"
+                    sx={{
+                      textTransform: "capitalize",
+                      border: "1px solid #00318B",
+                      mr: "20px",
+                      color: "#00318B !important",
+                    }}
+                  >
+                    Delete
+                  </BlueButton>
+                  <BlueButton
+                    variant="contained"
+                    sx={{
+                      textTransform: "capitalize",
+                      bgcolor: "#00318B",
+                    }}
+                    onClick={() =>
+                      router.push(`/website-setup/message-from-vc`)
+                    }
+                  >
+                    Edit
+                  </BlueButton>
+                </Box>
+              </Stack>
+              <ReadMore />
+            </CustomCard>
           </ContentBox>
         </Stack>
       </Box>

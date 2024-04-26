@@ -1,10 +1,8 @@
-'use client'
+"use client";
 import React from "react";
 import { Stack, Box, Avatar } from "@mui/material";
 import { CompanyCard } from "../styles/Card";
 import { CustomRowStack } from "../styles/Stack";
-import img from "@/assets/images/company-img.png";
-import uaeImg from "@/assets/images/uae.png";
 import {
   CardText,
   CompanyJobText,
@@ -13,13 +11,24 @@ import {
   CountryTitle,
 } from "../styles/Typography";
 import { CustomDivider } from "../styles/CustomDivider";
-import { CustomDot } from "../styles/CustomDot";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
+import styled from "@emotion/styled";
+
+const CustomDot = styled(Box)(({ theme }) => ({
+  width: '7.6px',
+  height: '7.6px',
+  minHeight: '7.6px',
+  minWidth: '7.6px',
+  borderRadius: '50%'
+}));
 
 const CardItem = ({ company }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
-    <CompanyCard sx={{cursor: 'pointer'}} onClick={() => router.push(`/companies/social-company`)}>
+    <CompanyCard
+      sx={{ cursor: "pointer" }}
+      onClick={() => router.push(`/companies/social-company`)}
+    >
       <CustomRowStack
         sx={{
           padding: {
@@ -51,7 +60,16 @@ const CardItem = ({ company }) => {
             </Stack>
           </Box>
         </Stack>
-        <Stack direction="row" gap="13px" alignItems="center">
+        <Stack
+          direction="row"
+          gap="13px"
+          alignItems="start"
+          sx={{
+            bgcolor: "rgba(217, 217, 217, 0.50)",
+            p: "4px 10px",
+            borderRadius: "5px",
+          }}
+        >
           <Avatar
             sx={{ width: "22.8px", height: "22.8px" }}
             alt="Remy Sharp"
@@ -88,7 +106,7 @@ const CardItem = ({ company }) => {
         }}
       >
         <Stack direction="row" columnGap="5px" alignItems="center">
-          <CustomDot sx={{ bgcolor: "#826AF9" }} />
+          <CustomDot sx={{ bgcolor: "#826AF9 !important" }} />
           <CompanyJobText>Job Posted: {company?.posted}</CompanyJobText>
         </Stack>
         <Stack direction="row" columnGap="5px" alignItems="center">

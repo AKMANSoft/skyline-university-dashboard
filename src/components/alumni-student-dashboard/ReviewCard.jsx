@@ -48,7 +48,8 @@ const ReviewCard = () => {
           fontWeight: "700",
           lineHeight: "24px",
           color: "#4B465C",
-          opacity: '.7'
+          opacity: '.7',
+          fontFamily: "Public Sans"
         }}
       >
         Total Jobs Applied

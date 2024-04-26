@@ -16,11 +16,14 @@ import Image from "next/image";
 import React from "react";
 import { MdOutlineFileUpload } from "react-icons/md";
 import img1 from "@/assets/images/img2.png";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { useTheme } from "@emotion/react";
 
 const AddNewModal = (props) => {
-  if (!props) return null; // Handle the case where props are undefined
+  const theme = useTheme()
+  if (!props) return null;
 
-  const { open, handleClose } = props;
+  const { open, handleClose } = props;  
   return (
     <div>
       <Modal
@@ -66,10 +69,26 @@ const AddNewModal = (props) => {
             </InputLabel>
             <FormControl fullWidth>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                placeholder="Please Select"
-                sx={{ height: "38px" }}
+                id="outlined-basic"
+                placeholder="Select Status"
+                variant="outlined"
+                value=""
+                displayEmpty
+                // IconComponent={() => <RiArrowDropDownLine fontSize={'22px'} />}
+                sx={{
+                  width: "100%",
+                  height: "38px",
+                  borderRadius: "6px",
+                  color: theme?.palette.black.light,
+                  bgcolor: '#F6F6F6',
+                  fontSize: { xs: "12px", sm: "16px" },
+                  borderColor: '#DBDADE !important',
+                  opacity: '.5',
+                  px: '0px',
+                  "& .MuiSelect-root": {
+                    color: "#757575",
+                  },
+                }}
               >
                 <MenuItem value="" disabled>
                   Please Select

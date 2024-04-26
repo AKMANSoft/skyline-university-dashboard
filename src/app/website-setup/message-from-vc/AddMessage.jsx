@@ -1,7 +1,12 @@
 'use client'
 import { BlueButton, ResetButton } from "@/components/styles/Buttons";
 import BreedCrumb from "@/components/mui/breedcrumbs";
-import RichTextEditor from "@/components/text-editor";
+import dynamic from "next/dynamic";
+const RichTextEditor = dynamic(
+  () => import('@/components/text-editor'),
+  { ssr: false }
+);
+// import RichTextEditor from "@/components/text-editor";
 import {
   Card,
   Stack,
@@ -14,6 +19,7 @@ import React from "react";
 import { FiSend } from "react-icons/fi";
 import { GoTrash } from "react-icons/go";
 import { useRouter } from "next/navigation";
+import { useTheme } from "@emotion/react";
 
 const values = {
   title: "Message From VC",
@@ -26,6 +32,7 @@ const values = {
 };
 
 const AddMessage = () => {
+  const theme = useTheme()
   const router = useRouter()
   return (
       <Card
@@ -34,6 +41,7 @@ const AddMessage = () => {
           border: "none",
           p: "24px",
           pb: "52px",
+          mt:'90px',
         }}
       >
         <BreedCrumb values={values} />
@@ -69,7 +77,9 @@ const AddMessage = () => {
                 fontSize: "14px",
                 fontWeight: 400,
                 lineHeight: "20px",
-                color: "#4B465C",
+                color: theme.palette.black.light,
+                opacity: ".7",
+                fontFamily: "Public Sans !important", 
                 maxWidth: "332px",
               }}
             >

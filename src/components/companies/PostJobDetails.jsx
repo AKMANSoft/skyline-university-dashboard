@@ -16,7 +16,11 @@ import { CustomDivider } from "../styles/CustomDivider";
 import { BlueButton } from "../styles/Buttons";
 import { FiSend } from "react-icons/fi";
 import { GoTrash } from "react-icons/go";
-import RichTextEditor from "../text-editor";
+import dynamic from "next/dynamic";
+const RichTextEditor = dynamic(
+  () => import('@/components/text-editor'),
+  { ssr: false }
+);
 
 const CustomLabel = styled(InputLabel)(({ theme }) => ({
     fontSize: '16px',

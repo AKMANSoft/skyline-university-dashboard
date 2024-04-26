@@ -1,11 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {
-  Box,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Stack, Typography, Button, Menu, MenuItem } from "@mui/material";
 import styled from "@emotion/styled";
 import bgImg from "@/assets/bg-dashboard.png";
 import img from "@/assets/images/img6.png";
@@ -15,29 +10,33 @@ import vectorImg from "@/assets/images/vector-img.png";
 import { FiUsers } from "react-icons/fi";
 import img2 from "@/assets/images/img7.png";
 import Image from "next/image";
-import ReactApexcharts from "@/components/react-apexcharts";
 import { hexToRGBA } from "@/utils/hex-to-rgba";
-import { TextField } from "@mui/material";
-import { DatePicker } from "@mui/lab";
-import { DropdownIcon } from "@mui/icons-material";
 import { ListIcon } from "@/utils/svg-icons";
 import ActivityItem from "@/components/jobs-dashboard/ActivityItem";
 import { activities } from "@/components/jobs-dashboard/ActivityData";
+import { IoIosArrowDown } from "react-icons/io";
+import dynamic from "next/dynamic";
+const Chart = dynamic(
+  () => import('react-apexcharts'),
+  { ssr: false }
+);
 
 const currentYear = new Date().getFullYear();
-
 const colors = Array(9).fill(hexToRGBA("#2C549E", 0.16));
 
 const options = {
   chart: {
     parentHeightOffset: 0,
     toolbar: { show: false },
+    animations: {
+      enabled: false,
+    },
   },
   plotOptions: {
     bar: {
       borderRadius: 6,
       distributed: true,
-      columnWidth: "35.8px",
+      columnWidth: "35px",
       startingShape: "rounded",
       dataLabels: { position: "top" },
     },
@@ -74,25 +73,12 @@ const options = {
   xaxis: {
     axisTicks: { show: false },
     //   axisBorder: { color: theme.palette.divider },
-    categories: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
+    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     labels: {
       style: {
         colors: "#4B465C", //theme.palette.text.disabled,
-        //   fontFamily:  '', //theme.typography.fontFamily,
-        fontSize: "13px", //theme.typography.body2.fontSize
+        fontFamily: "Public Sans",
+        fontSize: "14px", //theme.typography.body2.fontSize
       },
     },
   },
@@ -122,10 +108,10 @@ const options = {
   ],
 };
 
-const tabData = [
+const series = [
   {
-    type: "bars",
-    series: [{ data: [22, 42, 16, 34, 58, 28, 36, 28, 52, 16, 28, 42] }],
+    name: "series-1",
+    data: [22, 42, 16, 34, 58, 28, 36, 28, 52, 16, 28, 42]
   },
 ];
 
@@ -156,10 +142,23 @@ const Text2 = styled(Typography)({
 });
 
 const Dashboard = () => {
-  const [selectedYear, setSelectedYear] = useState(currentYear); // Default selected year is current year
+  const [selectedYear, setSelectedYear] = useState(currentYear);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    handleClose();
+  };
 
   const handleYearChange = (date) => {
-    setSelectedYear(date.getFullYear()); // Update selected year
+    setSelectedYear(date.getFullYear()); 
   };
   return (
     <Grid sx={{ mt: "90px" }}>
@@ -294,7 +293,7 @@ const Dashboard = () => {
             bgcolor: "white",
           }}
         >
-          <Text2 sx={{ fontSize: "13px" }}>Total Companies</Text2>
+          <Text2 sx={{ fontSize: "13px",opacity: '.7' }}>Total Companies</Text2>
           <Text2 sx={{ fontSize: "22px", lineHeight: "30px!important" }}>
             210
           </Text2>
@@ -308,8 +307,7 @@ const Dashboard = () => {
           >
             <Box>
               <Stack direction="row" gap="8px">
-                <Image src={useIcon}
-                alt="image" />
+                <Image src={useIcon} alt="image" />
                 <Text2 sx={{ fontSize: "15px", lineHeight: "22px" }}>
                   In UAE
                 </Text2>
@@ -317,7 +315,7 @@ const Dashboard = () => {
               <Text2 sx={{ fontSize: "18px", mt: "11px", lineHeight: "24px" }}>
                 60%
               </Text2>
-              <Text2 sx={{ fontSize: "13px", mt: "11px", lineHeight: "24px" }}>
+              <Text2 sx={{ fontSize: "13px", mt: "11px", lineHeight: "24px",opacity: '.7' }}>
                 110
               </Text2>
             </Box>
@@ -354,8 +352,7 @@ const Dashboard = () => {
 
             <Box sx={{ textAlign: "end" }}>
               <Stack direction="row" gap="8px">
-                <Image src={fliteIcon}
-                alt="image" />
+                <Image src={fliteIcon} alt="image" />
                 <Text2 sx={{ fontSize: "15px", lineHeight: "22px" }}>
                   F Companies
                 </Text2>
@@ -363,7 +360,7 @@ const Dashboard = () => {
               <Text2 sx={{ fontSize: "18px", mt: "11px", lineHeight: "24px" }}>
                 40%
               </Text2>
-              <Text2 sx={{ fontSize: "13px", mt: "11px", lineHeight: "24px" }}>
+              <Text2 sx={{ fontSize: "13px", mt: "11px", lineHeight: "24px",opacity: '.7' }}>
                 100
               </Text2>
             </Box>
@@ -413,7 +410,7 @@ const Dashboard = () => {
               left: 0,
             }}
           >
-            <Image src={vectorImg} alt="image"/>
+            <Image src={vectorImg} alt="image" />
           </Box>
           <Stack
             direction="row"
@@ -465,7 +462,11 @@ const Dashboard = () => {
             width: "47.2%",
           }}
         >
-          <Stack direction="row" justifyContent="space-between">
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <Box>
               <Typography
                 component="div"
@@ -475,6 +476,7 @@ const Dashboard = () => {
                   fontWeight: 700,
                   lineHeight: "24px",
                   color: "#4B465C",
+                  fontFamily: 'Public Sans'
                 }}
               >
                 Jobs Analytics
@@ -487,44 +489,55 @@ const Dashboard = () => {
                   fontWeight: 700,
                   lineHeight: "20px",
                   color: "var(--Light-Typography-Color-Muted-Text, #4B465C)",
+                  fontFamily: 'Public Sans'
                 }}
               >
                 Jobs Posted Monthly
               </Typography>
             </Box>
-            <Box>
-              <DatePicker
-                views={["year"]}
-                label="Select Year"
-                value={new Date(selectedYear, 0, 1)}
-                onChange={handleYearChange}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    InputProps={{
-                      ...params.InputProps,
-                      endAdornment: <DropdownIcon />,
-                    }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    style={{ border: "none", color: "grey" }}
-                  />
-                )}
-              />
-            </Box>
+            <div>
+              <Button
+                onClick={handleClick}
+                sx={{
+                  color: "#A8AAAE",
+                  fontSize: "15px",
+                  height: "24px",
+                  borderRadius: "6px",
+                  width: "100px",
+                  height: "38px",
+                  bgcolor: "rgba(168, 170, 174, 0.16)",
+                }}
+              >
+                2022
+                <IoIosArrowDown
+                  fontSize="15px"
+                  style={{ marginLeft: "10px" }}
+                  color="#A8AAAE"
+                />
+              </Button>
+              <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                PaperProps={{
+                  sx: {
+                    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                  },
+                }}
+              >
+                <MenuItem onClick={() => handleOptionSelect("Export")}>
+                  2022
+                </MenuItem>
+              </Menu>
+            </div>
           </Stack>
-          {/* {tabData.map((item, index) => {
-            return (
-              <ReactApexcharts
-                key={index}
-                type="bar"
-                height={299}
+              <Chart
                 options={options}
-                series={item.series}
+                series={series}
+                type="bar"
+                width="100%"
+                height={399}
               />
-            );
-          })} */}
         </Box>
 
         <Box
@@ -549,6 +562,7 @@ const Dashboard = () => {
                 lineHeight: "24px",
                 color: "#4B465C",
                 ml: "12px",
+                fontFamily: 'Public Sans'
               }}
             >
               Activity Timeline

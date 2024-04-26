@@ -5,6 +5,16 @@ import { TbUsers } from "react-icons/tb";
 
 const menuItems = [
   {
+    title: 'Job Portal',
+    icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
+    path: 'job-portal'
+  },
+  {
+    title: 'Resume Builder',
+    icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
+    path: 'resume-builder'
+  },
+  {
     title: 'Dashboard',
     icon: <RadioButtonUncheckedIcon sx={{fontSize: '10px'}} />,
     path: 'alumni-student-dashboard'

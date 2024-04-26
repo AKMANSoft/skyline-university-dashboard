@@ -33,6 +33,7 @@ const ActivityItem = ({ activity, isLastItem }) => {
                         color: 'var(--Light-Typography-Color-Heading-Text, #4B465C)',
                         fontWeight: 700,
                         lineHeight: '21px',
+                        fontFamily: 'Public Sans'
                     }}
                 >
                     {activity?.title}
@@ -45,6 +46,8 @@ const ActivityItem = ({ activity, isLastItem }) => {
                         color: 'var(--Light-Typography-Color-Muted-Text, #4B465C)',
                         fontWeight: 700,
                         lineHeight: '20px',
+                        opacity: '.7',
+                        fontFamily: 'Public Sans'
                     }}
                 >
                     {activity?.date}
@@ -58,6 +61,7 @@ const ActivityItem = ({ activity, isLastItem }) => {
                     color: 'var(--Light-Typography-Color-Heading-Text, #4B465C)',
                     fontWeight: 700,
                     lineHeight: '21px',
+                    fontFamily: 'Public Sans'
                 }}
             >
                 {activity?.text}

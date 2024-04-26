@@ -19,6 +19,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleHamburger } from "@/redux/slices/hamburger";
 import SectionTitle from "../common/SectionTitle";
+import { useTheme } from "@emotion/react";
 
 const SidebarMainBox = styled(Box)(({ theme }) => ({
   height: "100vh",
@@ -35,6 +36,7 @@ const SidebarMainBox = styled(Box)(({ theme }) => ({
 }));
 
 const Sidebar = () => {
+  const theme = useTheme()
   const dispatch = useDispatch();
   const [openMenus, setOpenMenus] = useState({
     mainActive: null,
@@ -74,12 +76,16 @@ const Sidebar = () => {
 
   const handleMenuClick = (type, index) => {
     if (type === "main") {
-      setOpenMenus({ ...openMenus, mainActive: index });
+      if(openMenus?.mainActive === index) {
+        setOpenMenus({ ...openMenus, mainActive: null });
+      }else{
+        setOpenMenus({ ...openMenus, mainActive: index });
+      }
     } else {
       if (openMenus.subMenus.includes(index)) {
         setOpenMenus({
           ...openMenus,
-          subMenus: openMenus.subMenus.filter((item) => item !== index),
+          subMenus: openMenus?.subMenus?.filter((item) => item !== index),
         });
       } else {
         setOpenMenus({

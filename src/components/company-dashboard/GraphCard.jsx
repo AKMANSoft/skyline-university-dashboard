@@ -1,7 +1,10 @@
 "use client";
 import Typography from "@mui/material/Typography";
 import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const Chart = dynamic(
+  () => import('react-apexcharts'),
+  { ssr: false }
+);
 
 import { hexToRGBA } from "@/utils/hex-to-rgba";
 import { CustomCard } from "@/components/styles/Card";
@@ -12,20 +15,7 @@ import { useState } from "react";
 const series = [
   {
     name: "series-1",
-    data: [
-      "Jan",
-      "Fab",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
+    data: [22, 42, 16, 34, 58, 28, 36, 28, 52, 16, 28, 42],
   },
 ];
 
@@ -35,12 +25,15 @@ const options = {
   chart: {
     parentHeightOffset: 0,
     toolbar: { show: false },
+    animations: {
+      enabled: false,
+    },
   },
   plotOptions: {
     bar: {
       borderRadius: 6,
       distributed: true,
-      columnWidth: "8px",
+      columnWidth: "35px",
       startingShape: "rounded",
       dataLabels: { position: "top" },
     },
@@ -52,7 +45,7 @@ const options = {
     formatter: (val) => `${val}k`,
     style: {
       fontWeight: 500,
-      colors: ["gray"],
+      colors: ["grey"],
       fontSize: "14px",
     },
   },
@@ -76,11 +69,11 @@ const options = {
   },
   xaxis: {
     axisTicks: { show: false },
-    axisBorder: { color: "gray" },
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+    // axisBorder: { color: "gray" },
+    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     labels: {
       style: {
-        colors: "gray",
+        colors: "#4B465C",
         fontFamily: "Public Sans",
         fontSize: "14px",
       },
@@ -89,9 +82,9 @@ const options = {
   yaxis: {
     labels: {
       offsetX: -15,
-      formatter: (val) => `$${val}k`,
+      formatter: (val) => `${val}`,
       style: {
-        colors: "gray",
+        colors: "#4B465C",
         fontFamily: "Public Sans",
         fontSize: "14px",
       },
@@ -99,7 +92,6 @@ const options = {
   },
   responsive: [
     {
-      breakpoint: "768px",
       options: {
         plotOptions: {
           bar: { columnWidth: "60%" },
@@ -197,7 +189,7 @@ const GraphCard = () => {
             options={options}
             series={series}
             type="bar"
-            width={635}
+            width="100%"
             height={225}
           />
         </Box>

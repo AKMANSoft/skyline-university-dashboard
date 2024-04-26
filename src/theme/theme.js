@@ -5,11 +5,15 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#3f51b5',
+      main: '#00318B',
+      light: "rgba(0, 202, 153, 0.10)"
     },
     secondary: {
       main: '#f50057',
     },
+    black: {
+      light: "#4B465C"
+    }
   },
   typography: {
     fontFamily: 'Public Sans',

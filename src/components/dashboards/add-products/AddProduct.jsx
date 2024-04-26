@@ -1,6 +1,10 @@
 "use client";
 import { CustomCard } from "@/components/styles/Card";
-import RichTextEditor from "@/components/text-editor";
+import dynamic from "next/dynamic";
+const RichTextEditor = dynamic(
+  () => import('@/components/text-editor'),
+  { ssr: false }
+);
 import styled from "@emotion/styled";
 import {
   InputLabel,

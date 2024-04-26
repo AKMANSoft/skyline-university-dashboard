@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import bgImg from "@/assets/read-more.png";
 
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { Paragraph } from "@/components/styles/Typography";
 import img from "@/assets/images/img4.png";
 import Image from "next/image";
+import { CustomCard } from "@/components/styles/Card";
 
 const ReadMore = () => {
   return (
@@ -54,6 +54,7 @@ const ReadMore = () => {
               letterSpacing: "1px",
               textTransform: "capitalize",
               mb: "11px",
+              fontFamily: "Montserrat !important",
             }}
           >
             Welcome to Skyline University College (SUC) in Sharjah.
@@ -65,6 +66,7 @@ const ReadMore = () => {
               letterSpacing: "1px",
               lineHeight: "25px",
               textTransform: "capitalize",
+              fontFamily: "Montserrat !important",
             }}
           >
             In preparation to upgrade its status into a fully-fledged
@@ -147,6 +149,7 @@ const ReadMore = () => {
             letterSpacing: "1px",
             fontWeight: 600,
             textTransform: "capitalize",
+            fontFamily: "Montserrat !important",
           }}
         >
           Prof. Mohammad Inairat
