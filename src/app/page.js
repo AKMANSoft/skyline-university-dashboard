@@ -1,9 +1,7 @@
 import Appbar from "@/components/appbar";
-import Sidebar from "@/components/sidebar";
 import { ContentBox } from "@/components/styles/Box";
 import { Box, Stack } from "@mui/material";
 import RootLayout from "./layout";
-import { useEffect } from "react";
 
 export default function Home() {
   return (

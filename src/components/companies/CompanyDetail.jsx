@@ -57,6 +57,7 @@ const CompanyDetail = () => {
         >
           {cardItems?.map((item, index) => (
             <JobCardItem 
+              key={index}
               title={item?.title}
               status={item?.status}
               total={item.total}
