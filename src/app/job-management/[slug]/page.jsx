@@ -16,13 +16,13 @@ const Page = () => {
         title: "View Details",
         links: [
           {
-            title: "List",
-            path: "/job-management",
-          },
-          {
               title: "Job Management",
               path: "/job-management",
             },
+          {
+            title: "List",
+            path: "/job-management",
+          },
         ],
       };
   return (

@@ -65,7 +65,6 @@ const ProductsList = () => {
             variant="outlined"
             value=""
             displayEmpty
-            IconComponent={RiArrowDropDownLine}
             sx={{
               width: { xs:'92px', sm: "170px", lg: "270px" },
               height: "38px",
@@ -91,13 +90,12 @@ const ProductsList = () => {
             variant="outlined"
             value=""
             displayEmpty
-            IconComponent={RiArrowDropDownLine}
             sx={{
-              width: { xs: "170px", lg: "270px" },
+              width: { xs:'92px', sm: "170px", lg: "270px" },
               height: "38px",
+              display: {xs:'none',sm: 'flex'},
               borderRadius: "6px",
               color: "#4B465C",
-              display: {xs:'none',sm: 'block'},
               bgcolor: '#F6F6F6',
               fontSize: { xs: "12px", sm: "16px" },
               px: "0px",
@@ -118,13 +116,12 @@ const ProductsList = () => {
             variant="outlined"
             value=""
             displayEmpty
-            IconComponent={RiArrowDropDownLine}
             sx={{
-              width: { xs: "170px", lg: "270px" },
+              width: { xs:'92px', sm: "170px", lg: "270px" },
               height: "38px",
+              display: {xs:'none',sm: 'flex'},
               borderRadius: "6px",
               color: "#4B465C",
-              display: {xs:'none',sm: 'block'},
               bgcolor: '#F6F6F6',
               fontSize: { xs: "12px", sm: "16px" },
               px: "0px",

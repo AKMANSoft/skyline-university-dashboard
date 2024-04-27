@@ -26,12 +26,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import styled from "@emotion/styled";
 
 const CustomTableLabel = styled(TableSortLabel)(({ theme }) => ({
-    fontSize: "13px",
-    fontWeight: 600,
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-    color: "#5D596C",
-  }));
+  fontWeight: 600,
+  textTransform: "uppercase",
+  letterSpacing: "1px",
+  color: "#4B465C",
+  fontSize: "13px",
+}));
 
 const ApplicantTable = () => {
   const rows = [

@@ -65,7 +65,7 @@ const AddMessage = () => {
             <Stack direction="row" sx={{ mb: "10px" }}>
               <BlueButton
                 variant="contained"
-                sx={{ mr: "20px", bgcolor: "#00318B" }}
+                sx={{ mr: "20px", bgcolor: "#00318B", fontSize: {xs:'12px',sm:'16px'}, padding: {xs:'3px 5px',sm:'5px 10px'} }}
               >
                 Upload Image*
               </BlueButton>
@@ -89,7 +89,7 @@ const AddMessage = () => {
           </Stack>
         </Stack>
 
-        <Stack direction="row" gap="104px" sx={{ mt: "30px" }}>
+        <Stack direction="row" gap={{xs:'20px',md:"104px"}} sx={{ mt: "30px" }}>
           <Box sx={{ width: "100%", maxWidth: "450px" }}>
             <InputLabel
               id="demo-simple-select-label"
@@ -179,7 +179,7 @@ const AddMessage = () => {
             justifyContent="space-between"
             alignItems="center"
             sx={{
-              mt: 5,
+              mt: {xs:'60px',sm:5},
               width: "100%",
               padding: "16px 20px",
               border:

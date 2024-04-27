@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Grid, Stack } from "@mui/material";
-import Sidebar from "@/components/sidebar";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import BreedCrumb from "@/components/mui/breedcrumbs";

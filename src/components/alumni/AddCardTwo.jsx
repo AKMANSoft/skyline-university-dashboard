@@ -192,7 +192,9 @@ const AddCardTwo = () => {
                 >
                     <BsUpload color='#2E3192' fontSize='40px' />
                 </Box>
-                <BlueButton sx={{bgcolor: '#2E3192'}}>
+                <BlueButton sx={{bgcolor: '#2E3192', "&:hover": {
+                    bgcolor: '#2E3192',
+                }}}>
                     Upload Resume
                 </BlueButton>
           </Stack>

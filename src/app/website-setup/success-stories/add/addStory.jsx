@@ -32,6 +32,7 @@ const values = {
 const AddStory = () => {
   return (
         <Card
+          className="add-story-card"
           sx={{
             boxShadow: "0px 4px 18px 0px rgba(75, 70, 92, 0.10)",
             border: "none",
@@ -61,7 +62,7 @@ const AddStory = () => {
               <Stack direction="row" sx={{ mb: "10px" }}>
                 <BlueButton
                   variant="contained"
-                  sx={{ mr: "20px", bgcolor: "#00318B" }}
+                  sx={{ mr: "20px", bgcolor: "#00318B", padding: {xs:'4px 5px',sm:'5px 10px'}, fontSize: {xs:'12px',sm:'16px'} }}
                 >
                   Upload Image*
                 </BlueButton>

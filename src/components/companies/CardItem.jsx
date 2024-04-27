@@ -26,7 +26,7 @@ const CardItem = ({ company }) => {
   const router = useRouter();
   return (
     <CompanyCard
-      sx={{ cursor: "pointer" }}
+      sx={{ cursor: "pointer", minWidth: '200px' }}
       onClick={() => router.push(`/companies/social-company`)}
     >
       <CustomRowStack
@@ -47,14 +47,14 @@ const CardItem = ({ company }) => {
             src={company?.logo?.src}
           />
           <Box>
-            <CompanyTitle>{company?.title}</CompanyTitle>
+            <CompanyTitle sx={{fontSize: {xs:'14px',sm:'18px'}}}>{company?.title}</CompanyTitle>
             <Stack direction="row">
               <CompanySubTitle
-                sx={{ color: "#4B465C", fontWeight: "600 !important" }}
+                sx={{ color: "#4B465C",fontSize: {xs:'12px',sm:'15px'}, fontWeight: "600 !important" }}
               >
                 Industry:
               </CompanySubTitle>
-              <CompanySubTitle sx={{ color: "#4B465C" }}>
+              <CompanySubTitle sx={{ color: "#4B465C",fontSize: {xs:'12px',sm:'15px'} }}>
                 {company?.subTitle}
               </CompanySubTitle>
             </Stack>
@@ -91,7 +91,7 @@ const CardItem = ({ company }) => {
           },
         }}
       >
-        <CardText>{company?.text}</CardText>
+        <CardText sx={{fontSize: {xs:'12px',sm:'16px'}}}>{company?.text}</CardText>
       </Box>
       <CustomDivider />
       <CustomRowStack
@@ -107,15 +107,15 @@ const CardItem = ({ company }) => {
       >
         <Stack direction="row" columnGap="5px" alignItems="center">
           <CustomDot sx={{ bgcolor: "#826AF9 !important" }} />
-          <CompanyJobText>Job Posted: {company?.posted}</CompanyJobText>
+          <CompanyJobText sx={{fontSize: {xs:'12px',sm:'14px'}}}>Job Posted: {company?.posted}</CompanyJobText>
         </Stack>
         <Stack direction="row" columnGap="5px" alignItems="center">
           <CustomDot sx={{ bgcolor: "#3CCACE" }} />
-          <CompanyJobText>Applied: {company?.applied}</CompanyJobText>
+          <CompanyJobText sx={{fontSize: {xs:'12px',sm:'14px'}}}>Applied: {company?.applied}</CompanyJobText>
         </Stack>
         <Stack direction="row" columnGap="5px" alignItems="center">
           <CustomDot sx={{ bgcolor: "#46B6AF" }} />
-          <CompanyJobText>Shortlisted: {company?.shortlisted}</CompanyJobText>
+          <CompanyJobText sx={{fontSize: {xs:'12px',sm:'14px'}}}>Shortlisted: {company?.shortlisted}</CompanyJobText>
         </Stack>
       </CustomRowStack>
       <CustomDivider />

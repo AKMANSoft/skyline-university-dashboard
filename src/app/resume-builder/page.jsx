@@ -18,6 +18,7 @@ import AreaOfExpCard from "@/components/resume-builder/AreaOfExpCard";
 import Certifications from "@/components/resume-builder/Certifications";
 import ReferenceCard from "@/components/resume-builder/ReferenceCard";
 import ResumeDesign from "@/components/resume-builder/ResumeDesign";
+import AddResumeModal from "@/components/resume-builder/modals/AddResumeModal";
 
 const values = {
     title: "Build Resume",
@@ -25,8 +26,13 @@ const values = {
 
 const ResumeBuilder = () => {
     const[active, setActive] = useState(1)
+    const[show, setShow] = useState(true)
+
+    const handleOpen = () => setShow(true);
+    const handleClose = () => setShow(false);
   return (
     <main>
+      <AddResumeModal open={show} handleClose={handleClose} />
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>
@@ -43,7 +49,7 @@ const ResumeBuilder = () => {
                 <Grid item lg={3} sx={{zIndex:999}}>
                     <OptionsCard active={active} setActive={setActive} />
                 </Grid>
-                <Grid item lg={5}>
+                <Grid item lg={5} sx={{mt:{xs:'25px',lg:'0px'}}}>
                     {active===1 && <PersonalInfo />}
                     {active===2 && <Summary />}
                     {active===3 && <EducationCard />}
@@ -53,7 +59,7 @@ const ResumeBuilder = () => {
                     {active===7 && <Certifications />}
                     {active===8 && <ReferenceCard />}
                 </Grid>
-                <Grid item lg={4}>
+                <Grid item lg={4} sx={{mt:{xs:'25px',lg:'0px'}}}>
                   <ResumeDesign />
                 </Grid>
             </Grid>

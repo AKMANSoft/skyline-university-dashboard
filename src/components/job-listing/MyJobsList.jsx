@@ -17,16 +17,6 @@ import MyJobListTable from "./MyJobsListTable";
 import Link from "next/link";
 
 const MyJobsList = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <CustomCard sx={{ py: "24px" }}>
       <Stack

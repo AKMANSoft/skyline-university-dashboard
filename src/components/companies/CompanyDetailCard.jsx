@@ -77,14 +77,12 @@ const CompanyDetailCard = () => {
     <Card
         sx={{
           p: "24px",
-          width: {xs: '100%', sm: '100%', md: "386px"},
-          minWidth: "386px",
+          width: "100%",
           minHeight: "826px",
           bgcolor: "white",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          //   justifyContent: "center",
           boxShadow: "0px 4px 18px 0px rgba(75, 70, 92, 0.10)",
         }}
       >
@@ -113,6 +111,7 @@ const CompanyDetailCard = () => {
             fontWeight: "600",
             lineHeight: "30px",
             color: "#4B465C",
+            fontFamily: 'Public Sans'
           }}
         >
           Social Company
@@ -167,7 +166,9 @@ const CompanyDetailCard = () => {
               fontWeight: "400",
               lineHeight: "20px",
               color: "#4B465C",
+              opacity: ".7",
               textTransform: "uppercase",
+              fontFamily: 'Public Sans'
             }}
           >
             Details
@@ -224,6 +225,9 @@ const CompanyDetailCard = () => {
             <BlueButton
               sx={{
                 bgcolor: "#00318B",
+                "&:hover":{
+                  bgcolor: '#00318B',
+                }
               }}
             >
               Edit
@@ -236,6 +240,9 @@ const CompanyDetailCard = () => {
                 letterSpacing: "0.43px",
                 width: "105px",
                 textTransform: "capitalize",
+                "&:hover":{
+                  bgcolor: 'rgba(243, 16, 60, 0.15)',
+                }
               }}
             >
               Suspend

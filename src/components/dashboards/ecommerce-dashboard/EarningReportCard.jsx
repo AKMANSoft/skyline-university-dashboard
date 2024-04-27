@@ -1,50 +1,54 @@
 "use client";
 import { useState } from "react";
 
-// ** MUI Imports
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import dynamic from "next/dynamic";
-const Chart = dynamic(
-  () => import('react-apexcharts'),
-  { ssr: false }
-);
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 import icon1 from "@/assets/icons/er-icon1.png";
 import icon2 from "@/assets/icons/er-icon2.png";
 
-// ** Util Import
 import Image from "next/image";
 import { hexToRGBA } from "@/utils/hex-to-rgba";
 import { CustomCard } from "@/components/styles/Card";
+import { Button, Menu, MenuItem, Stack } from "@mui/material";
+import { IoIosArrowDown } from "react-icons/io";
 
 const tabData = [
   {
     type: "orders",
     avatarIcon: icon1,
-    series: [{ data: [28, 10, 45, 38, 15, 30, 35, 28, 8] }],
+    series: [
+      {
+        name: "series-1",
+        data: [28, 10, 45, 38, 15, 30, 35, 28, 8, 10, 11, 12],
+      },
+    ],
   },
   {
     type: "sales",
     avatarIcon: icon2,
-    series: [{ data: [35, 25, 15, 40, 42, 25, 48, 8, 30] }],
+    series: [
+      {
+        name: "series-2",
+        data: [35, 25, 15, 40, 42, 25, 48, 8, 30, 10, 11, 12],
+      },
+    ],
   },
 ];
 
 const renderTabs = (value, theme) => {
   return tabData.map((item, index) => {
-    // const RenderAvatar = item.type === value ? CustomAvatar : Avatar
-
     return (
       <Tab
         key={index}
-        value={item.type}
+        value={item?.type}
         label={
           <Box
             sx={{
@@ -56,17 +60,11 @@ const renderTabs = (value, theme) => {
               borderRadius: "10px",
               flexDirection: "column",
               justifyContent: "center",
-              borderStyle: item.type === value ? "solid" : "dashed",
-              borderColor: item.type === value ? "#00318B" : "#00318B",
+              borderStyle: item?.type === value ? "solid" : "dashed",
+              borderColor: item?.type === value ? "#00318B" : "#DBDADE",
             }}
           >
-            {/* <RenderAvatar
-              variant='rounded'
-              {...(item.type === value && { skin: 'light' })}
-              sx={{ mb: 2, width: 34, height: 34, ...(item.type !== value && { backgroundColor: 'action.selected' }) }}
-            >
-            </RenderAvatar> */}
-            <Image src={item.avatarIcon} alt="icon" />
+            <Image src={item?.avatarIcon} alt="icon" />
             <Typography
               sx={{
                 fontWeight: 500,
@@ -74,7 +72,7 @@ const renderTabs = (value, theme) => {
                 textTransform: "capitalize",
               }}
             >
-              {item.type}
+              {item?.type}
             </Typography>
           </Box>
         }
@@ -84,30 +82,42 @@ const renderTabs = (value, theme) => {
 };
 
 const renderTabPanels = (value, theme, options, colors) => {
-  if (typeof window === "undefined") return null
   return tabData.map((item, index) => {
-    const max = Math.max(...item.series[0].data);
-    const seriesIndex = item.series[0].data.indexOf(max);
-    const finalColors = colors?.map((color, i) =>
-      seriesIndex === i ? hexToRGBA("#00318B", 1) : color
-    );
+    // const max = Math.max(...item.series[0].data);
+    // const seriesIndex = item.series[0].data.indexOf(max);
+    // const finalColors = colors?.map((color, i) =>
+    //   seriesIndex === i ? hexToRGBA("#00318B", 1) : color
+    // );
 
     return (
-      <TabPanel key={index} value={item.type}>
-          <Chart
-            type="bar"
-            height={263}
-            options={{ ...options, colors: finalColors }}
-            series={item.series}
-          />
+      <TabPanel key={index} value={item?.type}>
+        <Chart
+          options={options}
+          series={item?.series}
+          type="bar"
+          width="100%"
+          height={263}
+        />
       </TabPanel>
     );
   });
 };
 
 const EarningReportCard = () => {
-  // ** State
   const [value, setValue] = useState("orders");
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    handleClose();
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -118,12 +128,15 @@ const EarningReportCard = () => {
     chart: {
       parentHeightOffset: 0,
       toolbar: { show: false },
+      animations: {
+        enabled: false,
+      },
     },
     plotOptions: {
       bar: {
         borderRadius: 6,
         distributed: true,
-        columnWidth: "8px",
+        columnWidth: "35%",
         startingShape: "rounded",
         dataLabels: { position: "top" },
       },
@@ -131,12 +144,12 @@ const EarningReportCard = () => {
     legend: { show: false },
     tooltip: { enabled: false },
     dataLabels: {
-      offsetY: -15,
+      offsetY: -30,
       formatter: (val) => `${val}k`,
       style: {
         fontWeight: 500,
-        colors: ["gray"],
-        fontSize: "14px",
+        colors: ["grey"],
+        fontSize: "18px",
       },
     },
     colors,
@@ -159,7 +172,7 @@ const EarningReportCard = () => {
     },
     xaxis: {
       axisTicks: { show: false },
-      axisBorder: { color: "gray" },
+      //   axisBorder: { color: theme.palette.divider },
       categories: [
         "Jan",
         "Feb",
@@ -170,32 +183,38 @@ const EarningReportCard = () => {
         "Jul",
         "Aug",
         "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
       ],
       labels: {
         style: {
-          colors: "gray",
+          colors: "#4B465C", //theme.palette.text.disabled,
           fontFamily: "Public Sans",
-          fontSize: "14px",
+          fontSize: "14px", //theme.typography.body2.fontSize
         },
       },
     },
     yaxis: {
+      min: 0,
+      max: 50,
+      tickAmount: 5,
       labels: {
+        formatter: (val) => `${val}k`,
         offsetX: -15,
-        formatter: (val) => `$${val}k`,
         style: {
-          colors: "gray",
-          fontFamily: "Public Sans",
-          fontSize: "14px",
+          colors: "#4B465C", //theme.palette.text.disabled,
+          //   fontFamily:  '', //theme.typography.fontFamily,
+          fontSize: "13px", //theme.typography.body2.fontSize
         },
       },
     },
     responsive: [
       {
-        breakpoint: "768px",
+        // breakpoint: theme.breakpoints.values.sm,
         options: {
           plotOptions: {
-            bar: { columnWidth: "60%" },
+            bar: { columnWidth: "35.8px" },
           },
           grid: {
             padding: { right: 20 },
@@ -207,6 +226,8 @@ const EarningReportCard = () => {
 
   return (
     <CustomCard sx={{ p: "24px" }}>
+      <Stack direction='row' justifyContent='space-between'>
+      <Box>
       <Typography
         component="div"
         variant="h5"
@@ -232,6 +253,41 @@ const EarningReportCard = () => {
       >
         Yearly Earnings Overview
       </Typography>
+      </Box>
+      <div>
+        <Button
+          onClick={handleClick}
+          sx={{
+            color: "#A8AAAE",
+            fontSize: "15px",
+            height: "24px",
+            borderRadius: "6px",
+            width: "100px",
+            height: "38px",
+            bgcolor: "rgba(168, 170, 174, 0.16)",
+          }}
+        >
+          2022
+          <IoIosArrowDown
+            fontSize="15px"
+            style={{ marginLeft: "10px" }}
+            color="#A8AAAE"
+          />
+        </Button>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+          PaperProps={{
+            sx: {
+              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+            },
+          }}
+        >
+          <MenuItem onClick={() => handleOptionSelect("Export")}>2022</MenuItem>
+        </Menu>
+      </div>
+      </Stack>
       <CardContent sx={{ "& .MuiTabPanel-root": { p: 0 } }}>
         <TabContext value={value}>
           <TabList
@@ -252,7 +308,20 @@ const EarningReportCard = () => {
           >
             {renderTabs(value)}
           </TabList>
-          {renderTabPanels(value, options, colors)}
+          {/* {renderTabPanels(value, options, colors)} */}
+          {tabData.map((item, index) => {
+            return (
+              <TabPanel key={index} value={item?.type}>
+                <Chart
+                  options={options}
+                  series={item?.series}
+                  type="bar"
+                  width="100%"
+                  height={263}
+                />
+              </TabPanel>
+            );
+          })}
         </TabContext>
       </CardContent>
     </CustomCard>

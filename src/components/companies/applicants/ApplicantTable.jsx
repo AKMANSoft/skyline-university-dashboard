@@ -13,271 +13,152 @@ import {
   Avatar,
 } from "@mui/material";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-import pdfImg from "@/assets/images/pdf-img.png"
+import pdfImg from "@/assets/images/pdf-img.png";
 import Link from "next/link";
-import avatar1 from "@/assets/images/Avatar.png"
-import avatar2 from "@/assets/images/Avatar2.png"
-import avatar3 from "@/assets/images/Avatar3.png"
+import avatar1 from "@/assets/images/Avatar.png";
+import avatar2 from "@/assets/images/Avatar2.png";
+import avatar3 from "@/assets/images/Avatar3.png";
+import styled from "@emotion/styled";
+import Tablecell from "@/components/common/Tablecell";
+
+const rows = [
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    resume: "My Resumes CS",
+    appliedDate: "09 May 2022",
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    resume: "My Resumes CS",
+    appliedDate: "09 May 2022",
+    img: avatar1,
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    appliedDate: "09 May 2022",
+    img: avatar2,
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    resume: "My Resumes CS",
+    appliedDate: "09 May 2022",
+    img: avatar3,
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    resume: "My Resumes CS",
+    appliedDate: "09 May 2022",
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    appliedDate: "09 May 2022",
+    img: avatar3,
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    resume: "My Resumes CS",
+    appliedDate: "09 May 2022",
+    img: avatar1,
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    appliedDate: "09 May 2022",
+    img: avatar2,
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    resume: "My Resumes CS",
+    appliedDate: "09 May 2022",
+    img: avatar3,
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    resume: "My Resumes CS",
+    appliedDate: "09 May 2022",
+  },
+  {
+    id: "#5089",
+    name: "Jamal Kerrod",
+    email: "Marge.Jacobson@gmail.com",
+    education: "Bachelor in CS",
+    graduation: "09 May 2022",
+    appliedDate: "09 May 2022",
+    img: avatar3,
+  },
+];
+
 
 const ApplicantTable = () => {
-  const rows = [
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      resume: "My Resumes CS",
-      appliedDate: "09 May 2022",
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      resume: "My Resumes CS",
-      appliedDate: "09 May 2022",
-      img: avatar1
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      appliedDate: "09 May 2022",
-      img: avatar2
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      resume: "My Resumes CS",
-      appliedDate: "09 May 2022",
-      img: avatar3
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      resume: "My Resumes CS",
-      appliedDate: "09 May 2022",
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      appliedDate: "09 May 2022",
-      img: avatar3
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      resume: "My Resumes CS",
-      appliedDate: "09 May 2022",
-      img: avatar1
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      appliedDate: "09 May 2022",
-      img: avatar2
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      resume: "My Resumes CS",
-      appliedDate: "09 May 2022",
-      img: avatar3
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      resume: "My Resumes CS",
-      appliedDate: "09 May 2022",
-    },
-    {
-      id: "#5089",
-      name: "Jamal Kerrod",
-      email: "Marge.Jacobson@gmail.com",
-      education: "Bachelor in CS",
-      graduation: "09 May 2022",
-      appliedDate: "09 May 2022",
-      img: avatar3
-    },
-  ];
-
-  const [sortBy, setSortBy] = useState(null);
-  const [sortDirection, setSortDirection] = useState("asc");
-
-  const handleSort = (property) => {
-    const isAsc = sortBy === property && sortDirection === "asc";
-    setSortDirection(isAsc ? "desc" : "asc");
-    setSortBy(property);
-    // Implement sorting logic here
-  };
-
-  const SortIcon = ({ active, direction }) => {
-    if (!active) return null;
-
-    if (sortDirection === "asc") {
-      return <FiChevronUp />;
-    } else {
-      return <FiChevronDown />;
-    }
-  };
 
   return (
     <Table sx={{ borderTop: "1px solid #DBDADE", minWidth: "1100px" }}>
       <TableHead>
         <TableRow>
-          <TableCell>
-            <TableSortLabel
-              active={sortBy === "id"}
-              direction={sortBy === "id" ? sortDirection : "asc"}
-              onClick={() => handleSort("id")}
-              IconComponent={() => (
-                <SortIcon active={sortBy === "id"} direction={sortDirection} />
-              )}
-              sx={{
-                fontSize: "13px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-              }}
+          <Tablecell title="Student ID" />
+          {/* <TableCell>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
             >
-              Student ID
-            </TableSortLabel>
-          </TableCell>
-          <TableCell>
-            <TableSortLabel
-              active={sortBy === "jobTitle"}
-              direction={sortBy === "jobTitle" ? sortDirection : "asc"}
-              onClick={() => handleSort("jobTitle")}
-              IconComponent={() => (
-                <SortIcon
-                  active={sortBy === "jobTitle"}
-                  direction={sortDirection}
+              <CustomTableLabel></CustomTableLabel>
+              <Stack direction="column">
+                <FiChevronUp fontSize="18px" fontWeight="600" color="#4B465C" />
+                <FiChevronDown
+                  fontSize="18px"
+                  fontWeight="600"
+                  color="#4B465C"
+                  opacity=".7"
                 />
-              )}
-              sx={{
-                fontSize: "13px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-              }}
-            >
-              Alumni
-            </TableSortLabel>
-          </TableCell>
-          <TableCell>
-            <TableSortLabel
-              active={sortBy === "applications"}
-              direction={sortBy === "applications" ? sortDirection : "asc"}
-              onClick={() => handleSort("applications")}
-              IconComponent={() => (
-                <SortIcon
-                  active={sortBy === "jobTitle"}
-                  direction={sortDirection}
-                />
-              )}
-              sx={{
-                fontSize: "13px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-              }}
-            >
-              Education
-            </TableSortLabel>
-          </TableCell>
-          <TableCell>
-            <TableSortLabel
-              active={sortBy === "ShortListed"}
-              direction={sortBy === "ShortListed" ? sortDirection : "asc"}
-              onClick={() => handleSort("ShortListed")}
-              IconComponent={() => (
-                <SortIcon
-                  active={sortBy === "jobTitle"}
-                  direction={sortDirection}
-                />
-              )}
-              sx={{
-                fontSize: "13px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-              }}
-            >
-              Graduation Year
-            </TableSortLabel>
-          </TableCell>
-          <TableCell>
-            <TableSortLabel
-              active={sortBy === "postingDate"}
-              direction={sortBy === "postingDate" ? sortDirection : "asc"}
-              onClick={() => handleSort("postingDate")}
-              IconComponent={() => (
-                <SortIcon
-                  active={sortBy === "jobTitle"}
-                  direction={sortDirection}
-                />
-              )}
-              sx={{
-                fontSize: "13px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-              }}
-            >
-              Resume
-            </TableSortLabel>
-          </TableCell>
-          <TableCell>
-            <TableSortLabel
-              active={sortBy === "status"}
-              direction={sortBy === "status" ? sortDirection : "asc"}
-              onClick={() => handleSort("status")}
-              IconComponent={() => (
-                <SortIcon
-                  active={sortBy === "jobTitle"}
-                  direction={sortDirection}
-                />
-              )}
-              sx={{
-                fontSize: "13px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-              }}
-            >
-              Applied Date
-            </TableSortLabel>
-          </TableCell>
-          <TableCell
-            sx={{
-              fontSize: "13px",
-              fontWeight: 600,
-              textAlign: "center",
-              paddingLeft: '50px',
-              textTransform: "uppercase",
-            }}
-          >
-            View
-          </TableCell>
+              </Stack>
+            </Stack>
+          </TableCell> */}
+          <Tablecell title="Alumni" />
+          <Tablecell title="Education" />
+          <Tablecell title="Graduation Year" />
+          <Tablecell title="Resume" />
+          <Tablecell title="Applied Date" />
+          <Tablecell title="View" />
         </TableRow>
       </TableHead>
       <TableBody>
@@ -298,11 +179,12 @@ const ApplicantTable = () => {
                   sx={{
                     bgcolor: "rgba(115, 103, 240, 0.16)",
                     color: "#7367F0",
-                    width: '38px',
-                    height: '38px'
+                    width: "38px",
+                    height: "38px",
                   }}
                 >
-                {row?.name?.split(" ")?.[0]?.charAt(0) + row?.name?.split(" ")?.[1]?.charAt(0)}
+                  {row?.name?.split(" ")?.[0]?.charAt(0) +
+                    row?.name?.split(" ")?.[1]?.charAt(0)}
                 </Avatar>
                 <Box>
                   <Typography
@@ -312,7 +194,7 @@ const ApplicantTable = () => {
                       fontSize: "15px",
                       fontWeight: 600,
                       color: "#4B465C",
-                      opacity: '.7',
+                      opacity: ".7",
                       lineHeight: "22px",
                     }}
                   >
@@ -325,7 +207,7 @@ const ApplicantTable = () => {
                       fontSize: "13px",
                       fontWeight: 400,
                       color: "#4B465C",
-                      opacity: '.5',
+                      opacity: ".5",
                       lineHeight: "20px",
                     }}
                   >
@@ -335,87 +217,109 @@ const ApplicantTable = () => {
               </Stack>
             </TableCell>
             <TableCell
-              sx={{ color: "#4B465C", opacity: '.7', fontSize: "15px", fontWeight: 400 }}
+              sx={{
+                color: "#4B465C",
+                opacity: ".7",
+                fontSize: "15px",
+                fontWeight: 400,
+              }}
             >
               {row.education}
             </TableCell>
             <TableCell
-              sx={{ color: "#4B465C", opacity: '.7', fontSize: "15px", fontWeight: 400 }}
+              sx={{
+                color: "#4B465C",
+                opacity: ".7",
+                fontSize: "15px",
+                fontWeight: 400,
+              }}
             >
               {row.graduation}
             </TableCell>
             <TableCell
-              sx={{ color: "#4B465C", opacity: '.7', fontSize: "15px", fontWeight: 400 }}
-            >
-                {row?.resume ?
-                <Stack direction="row" gap="10px" alignItems="center">
-                <Avatar
-                  src={pdfImg.src}
-                  variant="rounded"
-                  sx={{
-                    width: '37px',
-                    height: '37px'
-                  }}
-                />
-                <Box>
-                  <Typography
-                    component="div"
-                    variant="p"
-                    sx={{
-                      fontSize: "15px",
-                      fontWeight: 600,
-                      color: "#4B465C",
-                      opacity: '.7',
-                      lineHeight: "22px",
-                    }}
-                  >
-                    My Resumes CS
-                  </Typography>
-                  <Link
-                  href="#"
-                  download={true}
-                  style={{
-                    textDecoration: 'none',
-                    color: '#00A3FF',
-                    fontSize: '13px'
-                  }}
-                  >
-                    Download
-                  </Link>
-                </Box>
-              </Stack>:
-              <Typography
-              component="div"
-              variant="p"
               sx={{
-                color: '#F3103C',
-                fontSize: '15px',
+                color: "#4B465C",
+                opacity: ".7",
+                fontSize: "15px",
                 fontWeight: 400,
-                lineHeight: '22px',
-                ml: '2rem',
-                opacity: '1 !important',
               }}
-              >
-                Not Available
-              </Typography>
-                }
+            >
+              {row?.resume ? (
+                <Stack direction="row" gap="10px" alignItems="center">
+                  <Avatar
+                    src={pdfImg.src}
+                    variant="rounded"
+                    sx={{
+                      width: "37px",
+                      height: "37px",
+                    }}
+                  />
+                  <Box>
+                    <Typography
+                      component="div"
+                      variant="p"
+                      sx={{
+                        fontSize: "15px",
+                        fontWeight: 600,
+                        color: "#4B465C",
+                        opacity: ".7",
+                        lineHeight: "22px",
+                      }}
+                    >
+                      My Resumes CS
+                    </Typography>
+                    <Link
+                      href="#"
+                      download={true}
+                      style={{
+                        textDecoration: "none",
+                        color: "#00A3FF",
+                        fontSize: "13px",
+                      }}
+                    >
+                      Download
+                    </Link>
+                  </Box>
+                </Stack>
+              ) : (
+                <Typography
+                  component="div"
+                  variant="p"
+                  sx={{
+                    color: "#F3103C",
+                    fontSize: "15px",
+                    fontWeight: 400,
+                    lineHeight: "22px",
+                    ml: "2rem",
+                    opacity: "1 !important",
+                  }}
+                >
+                  Not Available
+                </Typography>
+              )}
             </TableCell>
             <TableCell
-              sx={{ color: "#4B465C", opacity: '.7', fontSize: "15px", fontWeight: 400 }}
+              sx={{
+                color: "#4B465C",
+                opacity: ".7",
+                fontSize: "15px",
+                fontWeight: 400,
+              }}
             >
               {row.appliedDate}
             </TableCell>
-            <TableCell sx={{textAlign: 'right'}}>
-                <Link
-                  href="#"
-                  download={true}
-                  style={{
-                    color: '#01328B',
-                    fontSize: '14px'
-                  }}
-                  >
-                    View Profile
-                  </Link>
+            <TableCell sx={{ textAlign: "right" }}>
+              <Link
+                href="#"
+                download={true}
+                style={{
+                  color: "#01328B",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                }}
+              >
+                View Profile
+              </Link>
             </TableCell>
           </TableRow>
         ))}

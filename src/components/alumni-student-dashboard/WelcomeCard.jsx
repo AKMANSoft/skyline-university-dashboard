@@ -6,6 +6,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import img1 from "@/assets/images/vector-img.png"
 import img2 from "@/assets/images/group.png"
+import img2Mobile from "@/assets/images/group-mobile.png"
 
 const AbsoluteBox1 = styled(Box)(({theme}) => ({
     position: 'absolute',
@@ -25,9 +26,16 @@ const AbsoluteBox2 = styled(Box)(({theme}) => ({
 const WelcomeCard = () => {
   return (
     <CustomCard sx={{position: 'relative', height: '251px', p:0}}>
-        <AbsoluteBox1>
+        <AbsoluteBox1 sx={{left: {xs:'30%',sm:'auto'}, display: {xs:'none',sm:'block'}}}>
             <Image
                 src={img2}
+                alt='img'
+                style={{height: '100%'}}
+            />
+        </AbsoluteBox1>
+        <AbsoluteBox1 sx={{left: {xs:'40%',sm:'auto'}, display: {xs:'block',sm:'none'}}}>
+            <Image
+                src={img2Mobile}
                 alt='img'
                 style={{height: '100%'}}
             />
@@ -48,7 +56,7 @@ const WelcomeCard = () => {
             p:'30px'
         }}
         >
-            <Stack direction='row' gap="4px">
+            <Stack direction='row' gap="3px" sx={{minWidth: {xl:'450px'}}}>
                 <Typography variant="body1" color="#373737" sx={{fontSize: {xs:'16px',sm:'30px'}, fontWeight: 400}}>
                     Welcome Back
                 </Typography>
@@ -56,7 +64,7 @@ const WelcomeCard = () => {
                     Jimmy James!
                 </Typography>
             </Stack>
-            <Typography variant="body1" color="#373737" sx={{fontWeight: 300, mt: '12px'}}>
+            <Typography variant="body1" color="#373737" sx={{fontWeight: 300, mt: '12px', zIndex:99}}>
             Best of Luck Jimmy, Hope you will get a Job Soon
             </Typography>
         </Box>

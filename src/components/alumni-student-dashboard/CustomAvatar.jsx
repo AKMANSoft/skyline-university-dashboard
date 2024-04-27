@@ -18,7 +18,7 @@ const CustomAvatar = ({name, industry}) => {
           <Typography
             variant="body1"
             color="#4B465C"
-            sx={{ fontSize: {xs:'10px',sm:"15px"}, fontWeight: 500, opacity: ".9" }}
+            sx={{ fontSize: {xs:'10px',sm:"15px"}, fontWeight: 600, opacity: ".9" }}
           >
             Industry:
           </Typography>

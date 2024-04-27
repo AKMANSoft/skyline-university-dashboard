@@ -33,9 +33,9 @@ const MessageList = () => {
               sx={{
                 boxShadow: "0px 4.474px 20.133px 0px rgba(75, 70, 92, 0.10)",
                 width: "100%",
-                minWidth: "387px",
+                minWidth: {xs:'287px',sm:"387px"},
                 height: "482px",
-                px: "18px",
+                px: {xs:'14px',sm:"18px"},
                 py: "15px",
               }}
             >
@@ -64,7 +64,7 @@ const MessageList = () => {
                       variant="p"
                       sx={{
                         color: "#4E4E4E",
-                        fontSize: "18px",
+                        fontSize: {xs:'14px',sm:"18px"},
                         fontWeight: 500,
                         lineHeight: "25px",
                         letterSpacing: "1px",
@@ -91,9 +91,11 @@ const MessageList = () => {
                 variant="p"
                 sx={{
                   color: "#797979",
-                  fontSize: "15px",
+                  fontSize: {xs:'12px',sm:"15px"},
                   fontWeight: 400,
                   lineHeight: "22px",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
                   textTransform: "capitalize",
                   fontFamily: 'Public Sans'
                 }}
@@ -124,7 +126,7 @@ const MessageList = () => {
                     component="p"
                     sx={{
                       color: "#4B465C",
-                      fontSize: "0.8vw",
+                      fontSize: {xs:'14px',sm:"0.8vw"},
                       fontWeight: 400,
                       lineHeight: "24.703px",
                       mt: 1,
@@ -137,7 +139,7 @@ const MessageList = () => {
                     component="p"
                     sx={{
                       color: "#4B465C",
-                      fontSize: "0.8vw",
+                      fontSize: {xs:'14px',sm:"0.8vw"},
                       fontWeight: 400,
                       lineHeight: "24.703px",
                       mt: 1,
@@ -152,7 +154,7 @@ const MessageList = () => {
                     component="p"
                     sx={{
                       color: "#4B465C",
-                      fontSize: "0.8vw",
+                      fontSize: {xs:'14px',sm:"0.8vw"},
                       fontWeight: 400,
                       lineHeight: "28.703px",
                       mt: 1,

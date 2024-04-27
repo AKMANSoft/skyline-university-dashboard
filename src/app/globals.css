@@ -14,3 +14,20 @@
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{
   padding-right: 0px !important;
 }
+
+.cart-logo-image{
+  transition: all .3s ease-in-out;
+}
+.cart-logo-image:hover {
+  transform: scale(1.2);
+}
+
+.add-story-card, .css-gjs71i{
+  width: 84% !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .add-story-card, .css-gjs71i{
+    width: 100% !important;
+  }
+}

@@ -3,6 +3,7 @@ import React from "react";
 import {
   Box,
   Card,
+  Grid,
   MenuItem,
   Pagination,
   Select,
@@ -21,6 +22,10 @@ import Link from "next/link";
 import ManagementTable from "@/components/job-management/ManagementTable";
 import ManagementTableMobile from "@/components/job-management/ManagementTableMobile";
 import JobPostingChart from "@/components/job-management/JobPostingChart";
+import BreedCrumb from "@/components/mui/breedcrumbs";
+import CustomPagination from "@/components/common/CustomPagination";
+
+const values = {title: "Job Management"}
 
 const Page = () => {
   return (
@@ -34,12 +39,16 @@ const Page = () => {
           >
             <Appbar />
 
+            <Grid sx={{mt:"90px"}}>
+              <BreedCrumb values={values} />
+            </Grid>
+
             <Stack
               direction={{xs:"column",lg:"column",xl:"row"}}
               alignItems="center"
               justifyContent="space-between"
               gap="26px"
-              sx={{ width: "100%", mt: "90px", mb: "17px" }}
+              sx={{ width: "100%", mt: "20px", mb: "17px" }}
             >
               <JobPostingChart />
               <Stack
@@ -171,6 +180,7 @@ const Page = () => {
                       count={5}
                       color="primary"
                       shape="rounded"
+                      icon={<CustomPagination />}
                       sx={{
                         "& .MuiPaginationItem-root.Mui-selected": {
                           backgroundColor: "#00318B",

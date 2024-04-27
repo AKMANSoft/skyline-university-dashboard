@@ -9,11 +9,13 @@ import {
   TableBody,
   Stack,
   Checkbox,
+  Button,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 
 import { GoTrash } from "react-icons/go";
 import styled from "@emotion/styled";
-import img from "@/assets/images/profile.png";
 import productImg from "@/assets/images/product-img.png";
 import avatarImg from "@/assets/images/avatar8.png";
 import { LuEye } from "react-icons/lu";
@@ -21,6 +23,7 @@ import CustomListAvatar from "@/components/common/CustomListAvatar";
 import CustomDropdown from "@/components/common/CustomDropdown";
 import CustomProductWraper from "@/components/common/CustomProductWraper";
 import Link from "next/link";
+import { IoIosArrowDown } from "react-icons/io";
 
 const CustomTableLabel = styled(TableSortLabel)(({ theme }) => ({
   fontSize: "13px",
@@ -35,8 +38,9 @@ const rows = [
     order: "#6979",
     date: "Apr 15, 2023 ( 10:21 )",
     name: "Cristine Easom",
+    variant: "OnePlus",
     productImg: productImg,
-    productName: 'OnePlus 7Pro',
+    productName: "OnePlus 7Pro",
     productVariant: "OnePlus",
     category: "Smart Phone",
     customerImg: avatarImg,
@@ -48,8 +52,9 @@ const rows = [
     order: "#6979",
     date: "Apr 15, 2023 ( 10:21 )",
     name: "Cristine Easom",
+    variant: "OnePlus",
     productImg: productImg,
-    productName: 'OnePlus 7Pro',
+    productName: "OnePlus 7Pro",
     productVariant: "OnePlus",
     category: "Smart Phone",
     customerImg: avatarImg,
@@ -61,8 +66,9 @@ const rows = [
     order: "#6979",
     date: "Apr 15, 2023 ( 10:21 )",
     name: "Cristine Easom",
+    variant: "OnePlus",
     productImg: productImg,
-    productName: 'OnePlus 7Pro',
+    productName: "OnePlus 7Pro",
     productVariant: "OnePlus",
     category: "Smart Phone",
     customerImg: avatarImg,
@@ -74,8 +80,9 @@ const rows = [
     order: "#6979",
     date: "Apr 15, 2023 ( 10:21 )",
     name: "Cristine Easom",
+    variant: "OnePlus",
     productImg: productImg,
-    productName: 'OnePlus 7Pro',
+    productName: "OnePlus 7Pro",
     productVariant: "OnePlus",
     category: "Smart Phone",
     customerImg: avatarImg,
@@ -87,8 +94,9 @@ const rows = [
     order: "#6979",
     date: "Apr 15, 2023 ( 10:21 )",
     name: "Cristine Easom",
+    variant: "OnePlus",
     productImg: productImg,
-    productName: 'OnePlus 7Pro',
+    productName: "OnePlus 7Pro",
     productVariant: "OnePlus",
     category: "Smart Phone",
     customerImg: avatarImg,
@@ -100,8 +108,9 @@ const rows = [
     order: "#6979",
     date: "Apr 15, 2023 ( 10:21 )",
     name: "Cristine Easom",
+    variant: "OnePlus",
     productImg: productImg,
-    productName: 'OnePlus 7Pro',
+    productName: "OnePlus 7Pro",
     productVariant: "OnePlus",
     category: "Smart Phone",
     customerImg: avatarImg,
@@ -212,10 +221,7 @@ const OrderListTable = () => {
               {row.category}
             </TableCell>
             <TableCell>
-              <CustomListAvatar
-                name={row?.name}
-                img={row?.customerImg}
-              />
+              <CustomListAvatar name={row?.name} img={row?.customerImg} />
             </TableCell>
             <TableCell
               sx={{
@@ -230,14 +236,64 @@ const OrderListTable = () => {
               sx={{ color: "#28C76F", fontSize: "13px", fontWeight: 500 }}
             >
               {row?.status === "Delivered" ? (
-                row?.status
+                <Button
+                sx={{
+                  color: row?.status==="In Process" ? "#7367F0" : "#00CA99",
+                  fontSize: "13px",
+                  height: "24px",
+                  padding: "5px 10px",
+                  bgcolor:
+                    row?.status === "In Process"
+                      ? "rgba(115, 103, 240, 0.10)"
+                      : "rgba(0, 202, 153, 0.10)",
+                  textTransform: "capitalize",
+                  borderRadius: '100px',
+                }}
+              >
+                {row?.status}
+              </Button>
               ) : (
-                <CustomDropdown
-                  row={row}
-                  handleClick={handleClick}
-                  handleClose={handleClose}
-                  anchorEl={anchorEl}
-                />
+                <div>
+                  <Button
+                    onClick={handleClick}
+                    sx={{
+                      color: row?.status==="In Process" ? "#7367F0" : "#00CA99",
+                      fontSize: "13px",
+                      height: "24px",
+                      padding: "5px 10px",
+                      bgcolor:
+                        row?.status === "In Process"
+                          ? "rgba(115, 103, 240, 0.10)"
+                          : "rgba(0, 202, 153, 0.10)",
+                      textTransform: "capitalize",
+                      borderRadius: '100px',
+                    }}
+                  >
+                    {row?.status}
+                    <IoIosArrowDown
+                      fontSize="14px"
+                      style={{ marginLeft: "5px" }}
+                      color={row?.status==="In Process" ? "#7367F0" : "#00CA99"}
+                    />
+                  </Button>
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                    PaperProps={{
+                      sx: {
+                        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                      },
+                    }}
+                  >
+                    <MenuItem onClick={() => handleOptionSelect("In-Process")}>
+                      In-Process
+                    </MenuItem>
+                    <MenuItem onClick={() => handleOptionSelect("Delivered")}>
+                      Delivered
+                    </MenuItem>
+                  </Menu>
+                </div>
               )}
             </TableCell>
             <TableCell
@@ -247,7 +303,7 @@ const OrderListTable = () => {
                 fontWeight: 500,
               }}
             >
-              $${row.amount}
+              ${row.amount}
             </TableCell>
             <TableCell>
               <Stack
@@ -257,7 +313,7 @@ const OrderListTable = () => {
                 justifyContent="end"
               >
                 <Link href={`/dashboards/orders/order-details`}>
-                <LuEye color="#4B465C" fontSize="20px" cursor="pointer" />
+                  <LuEye color="#4B465C" fontSize="20px" cursor="pointer" />
                 </Link>
                 <GoTrash color="#4B465C" fontSize="22px" cursor="pointer" />
               </Stack>

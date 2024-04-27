@@ -9,7 +9,6 @@ import icon3 from "@/assets/icons/or-icon3.png";
 import icon4 from "@/assets/icons/or-icon4.png";
 import Item from "@/components/dashboards/orders/Item";
 import BreedCrumb from "@/components/mui/breedcrumbs";
-import OrderList from "@/components/dashboards/orders/OrderList";
 import ProductsList from "@/components/dashboards/products/ProductsList";
 
 const values = {

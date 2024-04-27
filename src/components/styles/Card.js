@@ -4,7 +4,7 @@ import { Card } from "@mui/material";
 
 export const CompanyCard = styled(Card)(({ theme }) => ({
     width: '10%%',
-    minWidth: '400px',
+    minWidth: {xs:'250px',sm:'400px'},
     height: 'auto',
     // aspectRatio: '2.167',
     borderRadius: '6px',

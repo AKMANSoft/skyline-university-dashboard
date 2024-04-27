@@ -27,7 +27,7 @@ const Page = () => {
       {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
-          <Box sx={{ width: "260px" }}></Box>
+          <Box sx={{ width: {xs:'0px',lg:"260px"} }}></Box>
           <ContentBox
             sx={{ width: { xs: "100%", md: "100%", lg: "calc(100% - 260px)" } }}
           >
@@ -40,14 +40,14 @@ const Page = () => {
               >
                 <BreedCrumb values={values} />
 
-                <Box>
+                <Stack direction='row' gap={{xs:'10px',sm:'20px'}}>
                   <BlueButton
                     variant="outlined"
                     sx={{
                       textTransform: "capitalize",
                       border: "1px solid #00318B",
-                      mr: "20px",
                       color: "#00318B !important",
+                      padding: {xs:'3px 4px',sm:'5px 10px'}
                     }}
                   >
                     Delete
@@ -57,6 +57,7 @@ const Page = () => {
                     sx={{
                       textTransform: "capitalize",
                       bgcolor: "#00318B",
+                      padding: {xs:'3px 4px',sm:'5px 10px'}
                     }}
                     onClick={() =>
                       router.push(`/website-setup/message-from-vc`)
@@ -64,7 +65,7 @@ const Page = () => {
                   >
                     Edit
                   </BlueButton>
-                </Box>
+                </Stack>
               </Stack>
               <ReadMore />
             </CustomCard>

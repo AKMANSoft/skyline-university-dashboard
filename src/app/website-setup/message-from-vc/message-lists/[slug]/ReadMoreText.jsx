@@ -11,7 +11,7 @@ const ReadMore = () => {
   return (
     <main>
       <Stack
-        direction="row"
+        direction={{xs:'column',md:"row"}}
         columnGap="62px"
         justifyContent="space-between"
         alignItems="center"
@@ -19,7 +19,7 @@ const ReadMore = () => {
       >
         <Box
           sx={{
-            width: "35%",
+            width: {xs:'100%',md:"35%"},
             maxWidth: "412px",
             maxHeight: "422px",
             aspectRatio: "0.976",
@@ -41,8 +41,8 @@ const ReadMore = () => {
         </Box>
         <Box
           sx={{
-            width: "65%",
-            // maxWidth: '665px',
+            width: {xs:'100%',md:"65%"},
+            mt:{xs:'45px',md:'0px'}
           }}
         >
           <Typography

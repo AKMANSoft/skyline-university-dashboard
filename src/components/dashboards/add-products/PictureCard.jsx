@@ -1,15 +1,12 @@
 import { FileUploadBox } from "@/components/styles/Box";
-import {
-  Box,
-  Card,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Card, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { MdOutlineFileUpload } from "react-icons/md";
 import img1 from "@/assets/images/img2.png";
 import { CustomCard } from "@/components/styles/Card";
+import { RxCross2 } from "react-icons/rx";
+import { TiTick } from "react-icons/ti";
 
 const PictureCard = (props) => {
   if (!props) return null;
@@ -19,7 +16,7 @@ const PictureCard = (props) => {
       <Typography variant="body1" color="#5D596C" sx={{ fontSize: "18px" }}>
         Product Pictures
       </Typography>
-      <Box sx={{ mt: '24px' }}>
+      <Box sx={{ mt: "24px" }}>
         <label>
           <input type="file" hidden />
           <FileUploadBox>
@@ -70,7 +67,7 @@ const PictureCard = (props) => {
           <Card
             sx={{
               width: "184px",
-              maxHeight: '220px',
+              maxHeight: "220px",
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
@@ -78,7 +75,36 @@ const PictureCard = (props) => {
               pb: 1,
             }}
           >
-            <Image src={img1} width={90} height={91} layout="reponsive" />
+            <Box
+              sx={{
+                position: "relative",
+                width: "90px",
+                height: "91px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  position: "absolute",
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                  bgcolor: "rgba(0,0,0,0.5)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <RxCross2 color="#EA5455" fontSize="32px" />
+              </Box>
+              <Image
+                src={img1}
+                style={{ width: "100%", height: "100%" }}
+                layout="reponsive"
+              />
+            </Box>
             <Box
               sx={{
                 width: "100%",
@@ -124,8 +150,8 @@ const PictureCard = (props) => {
           </Card>
           <Card
             sx={{
-                width: "184px",
-                maxHeight: '220px',
+              width: "184px",
+              maxHeight: "220px",
               display: "flex",
               alignItems: "center",
               flexDirection: "column",
@@ -133,7 +159,36 @@ const PictureCard = (props) => {
               pb: 1,
             }}
           >
-            <Image src={img1} width={90} height={91} layout="reponsive" />
+            <Box
+              sx={{
+                position: "relative",
+                width: "90px",
+                height: "91px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  position: "absolute",
+                  width: "50px",
+                  height: "50px",
+                  borderRadius: "50%",
+                  bgcolor: "rgba(0,0,0,0.5)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <TiTick color="#00CA99" fontSize="35px" />
+              </Box>
+              <Image
+                src={img1}
+                style={{ width: "100%", height: "100%" }}
+                layout="reponsive"
+              />
+            </Box>
             <Box
               sx={{
                 width: "100%",

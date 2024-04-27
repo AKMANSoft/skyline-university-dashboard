@@ -1,6 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { Box, Grid, Stack, Typography, Button, Menu, MenuItem } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Stack,
+  Typography,
+  Button,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import styled from "@emotion/styled";
 import bgImg from "@/assets/bg-dashboard.png";
 import img from "@/assets/images/img6.png";
@@ -16,10 +24,7 @@ import ActivityItem from "@/components/jobs-dashboard/ActivityItem";
 import { activities } from "@/components/jobs-dashboard/ActivityData";
 import { IoIosArrowDown } from "react-icons/io";
 import dynamic from "next/dynamic";
-const Chart = dynamic(
-  () => import('react-apexcharts'),
-  { ssr: false }
-);
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const currentYear = new Date().getFullYear();
 const colors = Array(9).fill(hexToRGBA("#2C549E", 0.16));
@@ -36,7 +41,7 @@ const options = {
     bar: {
       borderRadius: 6,
       distributed: true,
-      columnWidth: "35px",
+      columnWidth: "55%",
       startingShape: "rounded",
       dataLabels: { position: "top" },
     },
@@ -73,7 +78,20 @@ const options = {
   xaxis: {
     axisTicks: { show: false },
     //   axisBorder: { color: theme.palette.divider },
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    categories: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
     labels: {
       style: {
         colors: "#4B465C", //theme.palette.text.disabled,
@@ -111,20 +129,19 @@ const options = {
 const series = [
   {
     name: "series-1",
-    data: [22, 42, 16, 34, 58, 28, 36, 28, 52, 16, 28, 42]
+    data: [22, 42, 16, 34, 58, 28, 36, 28, 52, 16, 28, 42],
   },
 ];
 
 const BackgroundImageGrid = styled(Grid)({
   width: "100%",
-  height: "100%",
   background: `linear-gradient(72deg, #00318B 38.19%, #2C549E 95.26%), url(${bgImg.src}) lightgray 50% / cover no-repeat`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
   padding: "30px",
   borderRadius: "10px",
-  height: "251px",
+  height: { xs: "auto", sm: "251px" },
   aspectRatio: "3.15",
   mixBlendMode: "multiply",
 });
@@ -142,7 +159,6 @@ const Text2 = styled(Typography)({
 });
 
 const Dashboard = () => {
-  const [selectedYear, setSelectedYear] = useState(currentYear);
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
 
@@ -157,15 +173,18 @@ const Dashboard = () => {
     handleClose();
   };
 
-  const handleYearChange = (date) => {
-    setSelectedYear(date.getFullYear()); 
-  };
   return (
     <Grid sx={{ mt: "90px" }}>
       <Grid container columnGap="26px">
-        <BackgroundImageGrid item xs={12} lg={12} xl={5.7}>
+        <BackgroundImageGrid
+          item
+          xs={12}
+          lg={12}
+          xl={5.7}
+          sx={{ padding: { xs: "20px", sm: "30px" } }}
+        >
           <Stack direction="row" gap="20px">
-            <Box sx={{ width: "60%" }}>
+            <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
               <Text sx={{ fontSize: "18px" }}>Overview</Text>
               <Text sx={{ fontSize: "14px" }}>
                 Complete overview of job management
@@ -201,7 +220,12 @@ const Dashboard = () => {
                   mb: "24px",
                 }}
               ></Box>
-              <Stack direction="row" gap="59px" alignItems="center">
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                gap={{ xs: "20px", sm: "59px" }}
+                alignItems={{ xs: "start", sm: "center" }}
+                sx={{ position: "relative" }}
+              >
                 <Stack direction="row" gap="8px" alignItems="center">
                   <Box
                     sx={{
@@ -260,14 +284,34 @@ const Dashboard = () => {
                   </Box>
                   <Text sx={{ fontSize: "15px" }}>Total Shortlisted</Text>
                 </Stack>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    right: "0px",
+                    bottom: "-10px",
+                    display: {xs:'block', sm:'none'}
+                  }}
+                >
+                  <Image
+                    src={img}
+                    alt="image"
+                    style={{
+                      width: "100%",
+                      maxWidth: '146px',
+                      maxHeight: '92px',
+                      objectFit: "contain",
+                    }}
+                  />
+                </Box>
               </Stack>
             </Box>
 
             <Box
               sx={{
                 width: "40%",
-                // aspectRatio: '1.576',
                 height: "100%",
+                overflow: "hidden",
+                display: { xs: "none", sm: "block" },
               }}
             >
               <Image
@@ -275,7 +319,6 @@ const Dashboard = () => {
                 alt="image"
                 style={{
                   width: "100%",
-                  // height: '100%',
                   objectFit: "contain",
                 }}
               />
@@ -285,15 +328,18 @@ const Dashboard = () => {
         <Grid
           item
           xs={12}
-          lg={2.9}
+          xl={2.9}
           sx={{
             boxShadow: "0px 2px 10px 0px rgba(76, 78, 100, 0.22)",
             p: "20px",
             borderRadius: "10px",
             bgcolor: "white",
+            mt: { xs: "25px", xl: "0px" },
           }}
         >
-          <Text2 sx={{ fontSize: "13px",opacity: '.7' }}>Total Companies</Text2>
+          <Text2 sx={{ fontSize: "13px", opacity: ".7" }}>
+            Total Companies
+          </Text2>
           <Text2 sx={{ fontSize: "22px", lineHeight: "30px!important" }}>
             210
           </Text2>
@@ -315,7 +361,14 @@ const Dashboard = () => {
               <Text2 sx={{ fontSize: "18px", mt: "11px", lineHeight: "24px" }}>
                 60%
               </Text2>
-              <Text2 sx={{ fontSize: "13px", mt: "11px", lineHeight: "24px",opacity: '.7' }}>
+              <Text2
+                sx={{
+                  fontSize: "13px",
+                  mt: "11px",
+                  lineHeight: "24px",
+                  opacity: ".7",
+                }}
+              >
                 110
               </Text2>
             </Box>
@@ -360,7 +413,14 @@ const Dashboard = () => {
               <Text2 sx={{ fontSize: "18px", mt: "11px", lineHeight: "24px" }}>
                 40%
               </Text2>
-              <Text2 sx={{ fontSize: "13px", mt: "11px", lineHeight: "24px",opacity: '.7' }}>
+              <Text2
+                sx={{
+                  fontSize: "13px",
+                  mt: "11px",
+                  lineHeight: "24px",
+                  opacity: ".7",
+                }}
+              >
                 100
               </Text2>
             </Box>
@@ -394,13 +454,14 @@ const Dashboard = () => {
         <Grid
           item
           xs={12}
-          lg={2.9}
+          xl={2.9}
           sx={{
             boxShadow: "0px 2px 10px 0px rgba(76, 78, 100, 0.22)",
             p: "20px",
             borderRadius: "10px",
             position: "relative",
             bgcolor: "white",
+            mt: { xs: "25px", xl: "0px" },
           }}
         >
           <Box
@@ -452,14 +513,18 @@ const Dashboard = () => {
           </Stack>
         </Grid>
       </Grid>
-      <Stack direction="row" columnGap="26px" sx={{ mt: "26px" }}>
+      <Stack
+        direction={{ xs: "column", xl: "row" }}
+        columnGap="26px"
+        sx={{ mt: "26px" }}
+      >
         <Box
           sx={{
             boxShadow: "0px 2px 10px 0px rgba(76, 78, 100, 0.22)",
             p: "20px",
             borderRadius: "10px",
             bgcolor: "white",
-            width: "47.2%",
+            width: { xs: "100%", xl: "47.2%" },
           }}
         >
           <Stack
@@ -476,7 +541,7 @@ const Dashboard = () => {
                   fontWeight: 700,
                   lineHeight: "24px",
                   color: "#4B465C",
-                  fontFamily: 'Public Sans'
+                  fontFamily: "Public Sans",
                 }}
               >
                 Jobs Analytics
@@ -489,7 +554,7 @@ const Dashboard = () => {
                   fontWeight: 700,
                   lineHeight: "20px",
                   color: "var(--Light-Typography-Color-Muted-Text, #4B465C)",
-                  fontFamily: 'Public Sans'
+                  fontFamily: "Public Sans",
                 }}
               >
                 Jobs Posted Monthly
@@ -531,13 +596,13 @@ const Dashboard = () => {
               </Menu>
             </div>
           </Stack>
-              <Chart
-                options={options}
-                series={series}
-                type="bar"
-                width="100%"
-                height={399}
-              />
+          <Chart
+            options={options}
+            series={series}
+            type="bar"
+            width="100%"
+            height={399}
+          />
         </Box>
 
         <Box
@@ -546,9 +611,10 @@ const Dashboard = () => {
             p: "20px",
             borderRadius: "10px",
             bgcolor: "white",
-            width: "50%",
+            width: { xs: "100%", xl: "50%" },
             maxHeight: "550px",
             overflow: "auto",
+            mt: { xs: "25px", xl: "0px" },
           }}
         >
           <Stack direction="row" gap="12px" alignItems="center">
@@ -562,7 +628,7 @@ const Dashboard = () => {
                 lineHeight: "24px",
                 color: "#4B465C",
                 ml: "12px",
-                fontFamily: 'Public Sans'
+                fontFamily: "Public Sans",
               }}
             >
               Activity Timeline

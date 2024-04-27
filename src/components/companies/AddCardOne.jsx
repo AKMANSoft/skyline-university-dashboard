@@ -54,6 +54,7 @@ const AddCardOne = () => {
                 bgcolor: "#00318B",
                 height: { xs: "29px", sm: "38px" },
                 fontSize: { xs: "14px", sm: "15px" },
+                padding: {xs:'3px 5px',sm:'4px 10px'}
               }}
             >
               Upload Company Logo
@@ -63,6 +64,10 @@ const AddCardOne = () => {
               sx={{
                 height: { xs: "29px", sm: "38px" },
                 fontSize: { xs: "14px", sm: "15px" },
+                bgcolor: '#ededed',
+                "&:hover": {
+                  bgcolor: '#ededed'
+                }
               }}
             >
               Reset
@@ -75,7 +80,9 @@ const AddCardOne = () => {
               fontWeight: 400,
               lineHeight: "20px",
               color: "#4B465C",
+              opacity: '.7',
               maxWidth: "332px",
+              fontFamily: 'Public Sans'
             }}
           >
             Allowed JPG, GIF or PNG. Max size of 800K

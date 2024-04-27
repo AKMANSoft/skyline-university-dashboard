@@ -45,7 +45,15 @@ const ApparelCard = ({values}) => {
         minHeight: '385px',
         maxHeight: '405px',
         position: 'relative',
+        cursor: 'pointer',
+        transition: 'all .5s ease-in-out',
+        overflow: 'hidden',
+        "&:hover": {
+          bgcolor: "#DBE8FF",
+          boxShadow: "0px 4.117px 18.527px 0px rgba(75, 70, 92, 0.10)",
+        },
       }}
+      onClick={handleOpen}
     >
       {values?.discount &&
       <DiscountText>
@@ -56,6 +64,7 @@ const ApparelCard = ({values}) => {
         <Image
           src={logoImg}
           alt="logo-image"
+          className="cart-logo-image"
           style={{
             width: "100%",
             maxWidth: "153px",
@@ -103,6 +112,7 @@ const ApparelCard = ({values}) => {
               borderRadius: '50px',
               padding: '10px 0px',
               textTransform: 'capitalize',
+              bgcolor: 'white'
             }}
             onClick={handleOpen}
           >

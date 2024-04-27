@@ -12,7 +12,9 @@ const page = () => {
          <Box sx={{width: {md: '0px', lg:'260px'}}}></Box>
           <ContentBox>
             <Appbar />
-            <AddStory />
+            <Grid xs={12}>
+              <AddStory />
+            </Grid>
           </ContentBox>
         </Stack>
       </Box>

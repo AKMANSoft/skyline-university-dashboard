@@ -22,8 +22,9 @@ const DescText = styled(Typography)(({ theme }) => ({
 }));
 
 const LocText = styled(Typography)(({ theme }) => ({
-  color: "#AEAEAE",
+  color: "#4B465C",
   fontSize: "15px",
+  opacity: ".7",
   fontWeight: 400,
   lineHeight: "24px",
 }));
@@ -64,19 +65,19 @@ const CardItem = () => {
             <Typography
               variant="body1"
               color="#4B465C"
-              sx={{ opacity: ".9", fontSize: "15px" }}
+              sx={{ opacity: ".9", fontSize: "15px", fontWeight:500 }}
             >
               Event Date:
             </Typography>
             <Typography
               variant="body1"
               color="#4B465C"
-              sx={{ opacity: ".7", fontSize: "15px" }}
+              sx={{ opacity: ".7", fontSize: "15px", fontWeight:500 }}
             >
               12/05/24
             </Typography>
           </Stack>
-          <Typography variant="body1" color="#289D67" sx={{ fontSize: "15px" }}>
+          <Typography variant="body1" color="#289D67" sx={{ fontSize: "15px", fontWeight:500 }}>
             Active
           </Typography>
         </Stack>

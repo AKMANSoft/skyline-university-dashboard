@@ -11,14 +11,14 @@ export const Paragraph = styled(Typography)(({ theme }) => ({
 }))
 
 export const CompanyTitle = styled(Typography)(({ theme }) => ({
-    fontSize: '18px',
+    fontSize: {xs:'14px',sm:'18px'},
     fontWeight: 600,
     lineHeight: '24px',
     fontFamily: 'Public Sans'
 }))
 
 export const CompanySubTitle = styled(Typography)(({ theme }) => ({
-    fontSize: '15px',
+    fontSize: {xs:'12px',sm:'15px'},
     fontWeight: 400,
     lineHeight: '22px',
     fontFamily: 'Public Sans'
@@ -33,7 +33,7 @@ export const CountryTitle = styled(Typography)(({ theme }) => ({
 }))
 
 export const CardText = styled(Typography)(({ theme }) => ({
-    fontSize: '15px',
+    fontSize: {xs:'12px',sm:'15px'},
     fontFeatureSettings: "'clig' off, 'liga' off",
     fontWeight: 400,
     lineHeight: '24px',

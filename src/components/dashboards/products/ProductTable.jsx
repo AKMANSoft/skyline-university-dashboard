@@ -237,7 +237,7 @@ const ProductTable = () => {
                 fontWeight: 500,
               }}
             >
-              <AntPrimarySwitch checked={row?.stock} />
+              <AntPrimarySwitch defaultChecked={true} />
             </TableCell>
             <TableCell
               sx={{

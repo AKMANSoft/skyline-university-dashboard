@@ -2,7 +2,6 @@
 import {
   Box,
   Card,
-  Link,
   MenuItem,
   Pagination,
   Select,
@@ -19,16 +18,35 @@ import {
 } from "@/utils/svg-icons";
 import { BlueButton } from "../styles/Buttons";
 import CompanyListTable from "./CompanyListTable";
-import CompanyDetailCard from "./CompanyDetailCard";
+import JobCardItem from "./JobCardItem";
+import icon1 from "@/assets/icons/print-icon.png"
+import icon2 from "@/assets/icons/order-icon3.png"
+import icon3 from "@/assets/icons/order-icon5.png"
+import Link from "next/link";
+
+const cardItems = [
+  {
+    total: 65,
+    title: "Total Job Posted",
+    icon: icon1,
+    borderColor: '#00318B'
+  },
+  {
+    total: 55,
+    status: "Jobs Listed Currently",
+    icon: icon2,
+    borderColor: '#00CA99'
+  },
+  {
+    total: 100,
+    status: "Total Shortlist Alumni's",
+    icon: icon3,
+    borderColor: '#F7CA18'
+  }
+]
 
 const CompanyDetail = () => {
   return (
-    <Stack
-      direction={{ xs: "column-reverse", md: "column-reverse", lg: "row" }}
-      alignItems="start"
-      gap="23px"
-    >
-      <CompanyDetailCard />
       <Box sx={{ width: "100%" }}>
         <Stack
           direction={{ xs: "column", sm: "column", md: "row" }}
@@ -37,186 +55,15 @@ const CompanyDetail = () => {
           gap="24.5px"
           sx={{ width: "100%" }}
         >
-          <Box
-            sx={{
-              width: "100%",
-              height: "104px",
-              p: "24px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              bgcolor: "white",
-              borderRadius: "6px",
-              borderBottom: "2px solid #00318B",
-              boxShadow: "0px 4px 18px 0px rgba(75, 70, 92, 0.10)",
-            }}
-          >
-            <Stack direction="row" gap="10px" alignItems="center">
-              <Box
-                sx={{
-                  width: "52px",
-                  height: "52px",
-                  borderRadius: "50%",
-                  border: "4px solid #00318B",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Typography
-                  component="div"
-                  variant="p"
-                  sx={{
-                    fontSize: "20px",
-                    fontWeight: "600",
-                    lineHeight: "22px",
-                    color: "#00318B",
-                  }}
-                >
-                  65
-                </Typography>
-              </Box>
-              <Typography
-                component="div"
-                variant="p"
-                sx={{
-                  fontSize: "15px",
-                  fontWeight: "500",
-                  lineHeight: "22px",
-                  color: "#5D586C",
-                }}
-              >
-                Total Job Posted
-              </Typography>
-            </Stack>
-            <Box
-              sx={{
-                width: "37px",
-                height: "39px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: "6px",
-                background: "rgba(0, 49, 139, 0.06)",
-              }}
-            >
-              <PostedIcon />
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              width: "100%",
-              height: "104px",
-              // minWidth: "383px",
-              p: "24px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              bgcolor: "white",
-              borderRadius: "6px",
-              borderBottom: "2px solid #00CA99",
-              boxShadow: "0px 4px 18px 0px rgba(75, 70, 92, 0.10)",
-            }}
-          >
-            <Box>
-              <Typography
-                component="div"
-                variant="p"
-                sx={{
-                  fontSize: "22px",
-                  fontWeight: "600",
-                  lineHeight: "30px",
-                  color: "#4B465C",
-                }}
-              >
-                55
-              </Typography>
-              <Typography
-                component="div"
-                variant="p"
-                sx={{
-                  fontSize: "15px",
-                  fontWeight: "400",
-                  lineHeight: "22px",
-                  color: "#4B465C",
-                }}
-              >
-                Jobs Listed Currently
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                width: "37px",
-                height: "39px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: "6px",
-                background: "rgba(0, 49, 139, 0.06)",
-                borderRadius: "6px",
-                background: "rgba(0, 202, 153, 0.10)",
-              }}
-            >
-              <JobListedIcon />
-            </Box>
-          </Box>
-
-          <Box
-            sx={{
-              width: "100%",
-              height: "104px",
-              // minWidth: "383px",
-              p: "24px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              bgcolor: "white",
-              borderRadius: "6px",
-              borderBottom: "2px solid #F7CA18",
-              boxShadow: "0px 4px 18px 0px rgba(75, 70, 92, 0.10)",
-            }}
-          >
-            <Box>
-              <Typography
-                component="div"
-                variant="p"
-                sx={{
-                  fontSize: "22px",
-                  fontWeight: "600",
-                  lineHeight: "30px",
-                  color: "#4B465C",
-                }}
-              >
-                100
-              </Typography>
-              <Typography
-                component="div"
-                variant="p"
-                sx={{
-                  fontSize: "15px",
-                  fontWeight: "400",
-                  lineHeight: "22px",
-                  color: "#4B465C",
-                }}
-              >
-                Total Shortlist Alumni&apos;s
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                width: "37px",
-                height: "39px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: "6px",
-                background: "rgba(247, 202, 24, 0.10)",
-              }}
-            >
-              <JobShortlistedIcon />
-            </Box>
-          </Box>
+          {cardItems?.map((item, index) => (
+            <JobCardItem 
+              title={item?.title}
+              status={item?.status}
+              total={item.total}
+              icon={item.icon}
+              borderColor={item.borderColor}
+            />
+          ))}
         </Stack>
 
         <Card
@@ -347,7 +194,6 @@ const CompanyDetail = () => {
           </Box>
         </Card>
       </Box>
-    </Stack>
   );
 };
 
