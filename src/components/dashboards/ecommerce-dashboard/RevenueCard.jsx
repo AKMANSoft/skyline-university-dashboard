@@ -16,7 +16,7 @@ const Chart = dynamic(
 const series = [{ data: [32, 52, 72, 94, 116, 94, 72] }];
 
 const RevenueCard = () => {
-  if (typeof window === "undefined") return null
+  // if (typeof window === "undefined") return null
   const options = {
     chart: {
       parentHeightOffset: 0,
@@ -97,6 +97,7 @@ const RevenueCard = () => {
           >
             <div>
               <Typography
+                component='div'
                 variant="h5"
                 sx={{
                   mb: 2,
@@ -124,6 +125,7 @@ const RevenueCard = () => {
             </div>
             <div>
               <Typography
+                component="div"
                 variant="h3"
                 sx={{
                   mb: 2,

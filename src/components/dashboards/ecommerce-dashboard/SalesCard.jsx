@@ -11,7 +11,7 @@ import React from "react";
 const series = [{ data: [40, 20, 65, 50] }];
 
 const SalesCard = () => {
-  if (typeof window === "undefined") return null
+  // if (typeof window === "undefined") return null
   const options = {
     chart: {
       parentHeightOffset: 0,

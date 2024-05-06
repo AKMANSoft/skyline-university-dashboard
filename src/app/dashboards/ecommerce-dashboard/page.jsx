@@ -4,7 +4,6 @@ import {
   Grid,
   Stack
 } from "@mui/material";
-import Sidebar from "@/components/sidebar";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import SalesCard from "@/components/dashboards/ecommerce-dashboard/SalesCard";
