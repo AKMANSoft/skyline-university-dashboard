@@ -13,7 +13,6 @@ import {
   IconButton,
   InputAdornment,
   Link,
-  Button,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
@@ -51,7 +50,7 @@ function CustomTabPanel(props) {
     >
       {value === index && (
         <Box sx={{ py: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component='div'>{children}</Typography>
         </Box>
       )}
     </div>
@@ -146,7 +145,6 @@ const Page = () => {
             >
               <Stack direction="row" alignItems="center" gap="10px">
                 <Typography
-                  variant="p"
                   component="div"
                   sx={{
                     color: "#4B465C",
@@ -239,7 +237,7 @@ const Page = () => {
                   }}
                 >
                   <Typography
-                    variant="p"
+                    component='div'
                     sx={{
                       color: "#5D596C",
                       fontSize: { xs: "10px", sm: "14px" },

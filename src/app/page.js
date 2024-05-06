@@ -4,6 +4,7 @@ import { Box, Stack } from "@mui/material";
 import RootLayout from "./layout";
 
 export default function Home() {
+
   return (
     <RootLayout>
       <main>
