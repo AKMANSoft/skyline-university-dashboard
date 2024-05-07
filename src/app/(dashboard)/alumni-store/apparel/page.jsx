@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import {
   Box,
@@ -9,7 +9,6 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-import Sidebar from "@/components/sidebar";
 import { ContentBox } from "@/components/styles/Box";
 import Appbar from "@/components/appbar";
 import { CustomCard } from "@/components/styles/Card";
@@ -56,7 +55,7 @@ const Apparel = () => {
                   direction="row"
                   alignItems="end"
                   justifyContent="space-between"
-                  gap='1rem'
+                  gap="1rem"
                   sx={{ px: "24px" }}
                 >
                   <TextField
@@ -103,7 +102,7 @@ const Apparel = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        cursor: 'pointer'
+                        cursor: "pointer",
                       }}
                       onClick={() => toggleDrawer(true)}
                     >

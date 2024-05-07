@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import { Box, Stack, Grid } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { ContentBox } from "@/components/styles/Box";
@@ -6,14 +7,18 @@ import Appbar from "@/components/appbar";
 import BreedCrumb from "@/components/mui/breedcrumbs";
 import CardItem from "@/components/events/CardItem";
 import { BlueButton } from "@/components/styles/Buttons";
+import CreateEventModal from "../../../components/events/CreateEventModal";
 
 const values = { title: "Event List" };
 const cards = [{}, {}, {}, {}];
 
 const Events = () => {
+  const[show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
   return (
     <main>
-      {/* <Sidebar /> */}
+      <CreateEventModal open={show} handleClose={handleClose} />
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>
@@ -38,6 +43,7 @@ const Events = () => {
                   ml: { xs: "10px", sm: "16px" },
                   fontSize: { xs: "12px", sm: "16px" },
                 }}
+                onClick={() => setShow(true)}
               >
                 <AddIcon
                   sx={{
