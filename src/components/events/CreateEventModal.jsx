@@ -168,7 +168,7 @@ const CreateEventModal = ({ handleClose, open, modalType }) => {
                                         width: '100%',
                                         height: '200px',
                                         border: '1px dashed gray',
-                                        borderRadius: '10px',
+                                        borderRadius: '6px',
                                         display: 'flex',
                                         flexDirection: 'column',
                                         alignItems: 'center',
