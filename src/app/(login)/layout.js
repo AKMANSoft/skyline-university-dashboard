@@ -3,9 +3,6 @@ import "../globals.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "@/theme/theme";
 import Providers from "@/redux/provider";
-import { Suspense } from "react";
-import ErrorBoundary from "@/components/ErrorBoundary";
-
 
 const inter = Inter({ subsets: ["latin"] });
 

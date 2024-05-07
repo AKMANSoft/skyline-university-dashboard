@@ -42,7 +42,6 @@ const Apparel = () => {
   return (
     <main>
       <ShopingCartModal open={openCart} toggleDrawer={toggleDrawer} />
-      {/* <Sidebar /> */}
       <Box sx={{ width: "100%", height: "auto" }}>
         <Stack direction="row">
           <Box sx={{ width: { md: "0px", lg: "260px" } }}></Box>
@@ -69,7 +68,7 @@ const Apparel = () => {
                     }}
                     InputProps={{
                       startAdornment: (
-                        <InputAdornment>
+                        <InputAdornment position="start">
                           <IconButton>
                             <SearchIcon color="#4B465C" />
                           </IconButton>
@@ -81,7 +80,6 @@ const Apparel = () => {
                         height: "45px",
                         maxHeight: "45px",
                         "& fieldset": {
-                          // Style for the border
                           border: "1px solid #DDD",
                           borderRadius: "50px",
                         },

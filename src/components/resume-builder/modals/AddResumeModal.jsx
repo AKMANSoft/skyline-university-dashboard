@@ -135,7 +135,7 @@ const AddResumeModal = ({ handleClose, open }) => {
                 alignItems="center"
                 justifyContent="space-between"
               >
-                <Stack Stack direction="row" alignItems="center" gap="4px">
+                <Stack direction="row" alignItems="center" gap="4px">
                   <Image priority alt="pdf image" src={pdfImg} width={37} height={37} />
                   <Box>
                     <Typography
