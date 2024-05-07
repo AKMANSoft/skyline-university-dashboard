@@ -208,6 +208,7 @@ const CreateEventModal = ({ handleClose, open, modalType }) => {
                                     width: '128px',
                                     height: '38px'
                                 }}
+                                onClick={handleClose}
                             >
                                 Cancel
                             </Button>
