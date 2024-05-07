@@ -181,8 +181,8 @@ const CountryMobile = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map((row) => (
-          <TableRow key={row.id}>
+        {rows.map((row, index) => (
+          <TableRow key={index}>
             <TableCell
               sx={{ color: "#6F6B7D", fontSize: "12px", fontWeight: 400, pr: "5px" }}
             >

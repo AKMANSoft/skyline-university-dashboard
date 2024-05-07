@@ -61,7 +61,7 @@ const ApparelCard = ({values}) => {
     </DiscountText>
       }
       <Stack direction="column" alignItems="center" justifyContent="center">
-        <Image
+        <Image priority
           src={logoImg}
           alt="logo-image"
           className="cart-logo-image"

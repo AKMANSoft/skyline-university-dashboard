@@ -64,7 +64,7 @@ const renderTabs = (value, theme) => {
               borderColor: item?.type === value ? "#00318B" : "#DBDADE",
             }}
           >
-            <Image src={item?.avatarIcon} alt="icon" />
+            <Image priority src={item?.avatarIcon} alt="icon" />
             <Typography
               sx={{
                 fontWeight: 500,

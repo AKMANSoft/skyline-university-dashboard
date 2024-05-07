@@ -123,8 +123,8 @@ const ProductTableMobile = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
+          {rows.map((row, index) => (
+            <TableRow key={index}>
               <TableCell
                 sx={{ color: "#7367F0", fontSize: "14px", fontWeight: 400, pr:0 }}
               >

@@ -27,21 +27,21 @@ const WelcomeCard = () => {
   return (
     <CustomCard sx={{position: 'relative', height: '251px', p:0}}>
         <AbsoluteBox1 sx={{left: {xs:'30%',sm:'auto'}, display: {xs:'none',sm:'block'}}}>
-            <Image
+            <Image priority
                 src={img2}
                 alt='img'
                 style={{height: '100%'}}
             />
         </AbsoluteBox1>
         <AbsoluteBox1 sx={{left: {xs:'40%',sm:'auto'}, display: {xs:'block',sm:'none'}}}>
-            <Image
+            <Image priority
                 src={img2Mobile}
                 alt='img'
                 style={{height: '100%'}}
             />
         </AbsoluteBox1>
         <AbsoluteBox2>
-            <Image 
+            <Image priority 
                 src={img1}
                 alt='img'
             />

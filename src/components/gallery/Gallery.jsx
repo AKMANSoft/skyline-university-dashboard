@@ -1,6 +1,6 @@
 "use client";
 import { Box, Card, Grid, Tab, Tabs, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import CardItem from "./CardItem";
 import image1 from "@/assets/images/img1.png";
@@ -67,7 +67,7 @@ function CustomTabPanel(props) {
     >
       {value === index && (
         <Box sx={{ py: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography  variant="body1">{children}</Typography>
         </Box>
       )}
     </div>
@@ -89,10 +89,15 @@ function a11yProps(index) {
 
 const Gallery = () => {
   const [value, setValue] = React.useState(0);
+  const [isClient, setIsClient] = useState(false)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   return (
     <Grid container spacing={6}>
@@ -175,6 +180,7 @@ const Gallery = () => {
                 },
               }}
             >
+              {isClient &&
               <GridBox
                 sx={{
                   gridTemplateColumns: {
@@ -186,11 +192,13 @@ const Gallery = () => {
                   },
                   gap: { xs: "6px", md: "12px", lg: "14px", xl: "18px" },
                 }}
+                suppressHydrationWarning
               >
                 {cardList?.map((card, index) => (
-                  <CardItem key={index} item={card} />
+                  <CardItem key={index} suppressHydrationWarning item={card} />
                 ))}
               </GridBox>
+              }
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
               Item Two

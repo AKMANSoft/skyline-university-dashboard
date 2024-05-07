@@ -27,6 +27,7 @@ const CardItem = ({ item }) => {
           background: "var(--Light-Solid-Color-Extra-Card-Background, #FFF)",
           boxShadow: "0px 4.117px 18.527px 0px rgba(75, 70, 92, 0.10)",
         }}
+        suppressHydrationWarning
       >
         <Box
           sx={{
@@ -38,13 +39,14 @@ const CardItem = ({ item }) => {
             },
           }}
         >
-          <Image
+          <Image priority
             style={{
               width: "100%",
               objectFit: "cover",
               aspectRatio: "1.002",
             }}
             src={item?.img}
+            alt="image"
             layout="responsive"
           />
 
@@ -85,20 +87,19 @@ const CardItem = ({ item }) => {
         >
           <Stack direction="row" gap='2px'>
             <Typography
-              variant="p"
-              component="p"
+              variant="body1"
               sx={{
                 color: "#4B465C",
                 fontSize: {xs:'13px',sm:'12px',lg:'14px',xl:'0.7vw'},
                 fontWeight: 400,
                 lineHeight: "24.703px",
               }}
+              suppressHydrationWarning
             >
               Posted on:
             </Typography>
             <Typography
-              variant="p"
-              component="p"
+              variant="body1"
               sx={{
                 color: "#4B465C",
                 fontSize: {xs:'13px',sm:'12px',xl:'0.7vw'},
@@ -112,8 +113,7 @@ const CardItem = ({ item }) => {
           </Stack>
           <Stack direction="row" alignItems="center" gap='6px'>
             <Typography
-              variant="div"
-              component="p"
+              variant="body1"
               sx={{
                 color: "#4B465C",
                 fontSize: {xs:'13px',sm:'12px',md:'14px',xl:'0.7vw'},

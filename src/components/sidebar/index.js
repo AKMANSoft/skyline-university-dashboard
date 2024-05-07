@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import {
   Box,
   List,
@@ -98,13 +98,12 @@ const Sidebar = () => {
 
   const renderSubMenuItems = (submenus, depth, parentIndex) => {
     return submenus?.map((submenu, subIndex) => (
-      <>
+      <Fragment key={subIndex}>
         {submenu?.sectionTitle ? (
           <SectionTitle title={submenu?.sectionTitle} />
         ) : (
-          <div key={subIndex}>
+          <div>
             <ListItem
-              key={subIndex}
               button
               onClick={() => {
                 if (submenu?.children?.length > 0) {
@@ -156,19 +155,18 @@ const Sidebar = () => {
             )}
           </div>
         )}
-      </>
+      </Fragment>
     ));
   };
 
   const renderMenuItems = (menuItems) => {
     return menuItems?.map((menuItem, index) => (
-      <>
+      <Fragment key={index}>
         {menuItem?.sectionTitle ? (
           <SectionTitle title="Create & Add" />
         ) : (
-          <div key={index}>
+          <div>
             <ListItem
-              key={index}
               button
               onClick={() => {
                 if (menuItem?.children?.length > 0) {
@@ -250,7 +248,7 @@ const Sidebar = () => {
             )}
           </div>
         )}
-      </>
+      </Fragment>
     ));
   };
 
@@ -304,7 +302,7 @@ const Sidebar = () => {
             pr: "14px",
           }}
         >
-          <Image src={logo} alt="logo" />
+          <Image priority src={logo} alt="logo" />
         </Box>
         <Box sx={{ width: "100%", px: "14px" }}>
           <List>{renderMenuItems(menuItems)}</List>

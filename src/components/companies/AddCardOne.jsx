@@ -39,7 +39,7 @@ const AddCardOne = () => {
             background: "#D9D9D9",
           }}
         >
-          <Image
+          <Image priority
             src={img}
             alt="image"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}

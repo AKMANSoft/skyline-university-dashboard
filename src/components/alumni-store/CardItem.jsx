@@ -78,7 +78,7 @@ const CardItem = ({values}) => {
             </Typography>
         </Stack>
         }
-        <Image 
+        <Image priority 
             src={values.icon}
             alt="icon image"
         />

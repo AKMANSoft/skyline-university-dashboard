@@ -93,7 +93,7 @@ const DetailsCard = () => {
             mt: "14px",
           }}
         >
-          <Image
+          <Image priority
             src={img}
             alt="image"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -101,8 +101,7 @@ const DetailsCard = () => {
         </Box>
 
         <Typography
-          component="div"
-          variant="p"
+          variant="body1"
           sx={{
             mt: "16px",
             fontSize: "22px",
@@ -114,8 +113,7 @@ const DetailsCard = () => {
           Social Company
         </Typography>
         <Typography
-          component="div"
-          variant="p"
+          variant="body1"
           sx={{
             mt: "16px",
             fontSize: "13px",
@@ -130,8 +128,7 @@ const DetailsCard = () => {
         <CustomDivider sx={{ mt: "29px", mb: "24px" }} />
         <Box sx={{ textAlign: "start", width: '100%' }}>
           <Typography
-            component="div"
-            variant="p"
+            variant="body1"
             sx={{
               fontSize: "13px",
               fontWeight: "400",
@@ -170,25 +167,23 @@ const DetailsCard = () => {
                   </ListText>
                 ) : (
                   <ListText sx={{display: 'flex', gap: "1rem"}}>{data?.option}:
-                  <Box
-                    sx={{
-                      // width: "59px",
-                      // height: "24px",
+                  <span
+                    style={{
                       padding: "5px 10px",
-                      bgcolor: "rgba(40, 199, 111, 0.16)",
+                      backgroundColor: "rgba(40, 199, 111, 0.16)",
                       borderRadius: "4px",
                     }}
                   >
-                    <ListValueText
-                      sx={{
+                    <span
+                      style={{
                         maxWidth: "65%",
                         color: "#28C76F !important",
                         fontSize: '13px',
                       }}
                     >
                       {data?.value}
-                    </ListValueText>
-                  </Box>
+                    </span>
+                  </span>
                   </ListText>
                 )}
               </Stack>

@@ -81,6 +81,7 @@ const Page = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  
   return (
     <main>
       <Box
@@ -123,8 +124,9 @@ const Page = () => {
                 zIndex: 999,
               }}
             >
-              <Image
+              <Image priority
                 src={logo}
+                alt="image"
                 style={{
                   width: "100%",
                   height: "100%",

@@ -314,9 +314,9 @@ const AlumniTable = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map((row) => (
+        {rows.map((row, index) => (
           <TableRow
-            key={row.id}
+            key={index}
             sx={{ cursor: "pointer" }}
             onClick={() => router.push(`/alumni/view-details`)}
           >

@@ -44,7 +44,7 @@ const ShortlistedCard = () => {
         <GreyChip sx={{top: 0}} />
         <Stack direction='row' alignItems='center' justifyContent='space-between' sx={{height: '100%', p: '20px'}}>
             <Box>
-                <Image alt='icon-image' src={img} />
+                <Image priority alt='icon-image' src={img} />
 
                 <Typography variant="body1" color="#4B465C" sx={{fontSize: '18px', fontWeight: 600, mt: '5px'}}>
                 Shortlisted

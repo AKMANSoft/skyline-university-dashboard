@@ -2,7 +2,7 @@
 import { CustomDivider } from "@/components/styles/CustomDivider";
 import styled from "@emotion/styled";
 import { Box, Button, Card, Typography } from "@mui/material";
-import React from "react";
+import React, { Fragment } from "react";
 
 
 const CardTitle = styled(Typography)(({ theme }) => ({
@@ -39,7 +39,7 @@ const ExperienceCard = ({data, isLicenseCard}) => {
     >
       <CardTitle>{data?.cardTitle}</CardTitle>
       {data?.data?.map((val, index) => (
-        <>
+        <Fragment key={index}>
             <Box sx={{mt: '17px'}}>
             <HeadText>
             {val?.title1}
@@ -68,7 +68,7 @@ const ExperienceCard = ({data, isLicenseCard}) => {
             }
         </Box>
         {!isLicenseCard && <CustomDivider sx={{my: '20px '}} /> }
-        </>
+        </Fragment>
       ))}
     </Card>
   );

@@ -22,7 +22,7 @@ const ResumeDesign = () => {
       </ResumeBuilderText>
 
       <Box sx={{ width: "100%", height: "735px", mt: "14px" }}>
-        <Image
+        <Image priority
           alt="resume image"
           src={active?.file}
           style={{ width: "100%", height: "100%" }}
@@ -49,7 +49,7 @@ const ResumeDesign = () => {
             }}
             onClick={() => setActive({index:index, file: design?.img})}
           >
-            <Image
+            <Image priority
               alt="resume image"
               src={design?.img}
               style={{ width: "100%", height: "100%" }}

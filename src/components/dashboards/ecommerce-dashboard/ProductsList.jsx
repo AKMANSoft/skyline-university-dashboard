@@ -78,7 +78,7 @@ const ProductsList = () => {
       {rows?.map((row, index) => (
         <Stack key={index} direction="row" justifyContent="space-between" alignItems="center" sx={{mb: '18px'}}>
         <Stack direction="row" alignItems="center" gap="16px">
-          <Image
+          <Image priority
             src={row.img}
             alt="image"
             style={{ width: "46px", height: "46px", objectFit: "cover" }}

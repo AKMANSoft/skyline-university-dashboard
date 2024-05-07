@@ -56,7 +56,7 @@ const JobsForYouCard = () => {
                 bgcolor: "rgba(217, 217, 217, 0.50)",
               }}
             >
-              <Image
+              <Image priority
                 src={germanyIcon}
                 alt="germany icon"
                 style={{ width: "100%" }}

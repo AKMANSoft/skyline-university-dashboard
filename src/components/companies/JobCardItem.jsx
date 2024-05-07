@@ -87,7 +87,7 @@ const JobCardItem = (props) => {
         </Box>
       )}
       <Box>
-        <Image src={props?.icon} alt="icon" />
+        <Image priority src={props?.icon} alt="icon" />
       </Box>
     </Box>
   );

@@ -24,10 +24,11 @@ const ViewImgModal = (props) => {
         bgcolor: 'background.paper',
         boxShadow: 24,
       }}>
-        <Image 
+        <Image priority 
             src={image}
             width="100%"
             height='100%'
+            alt="image"
             style={{
                 width: '100%',
                 height: '100%',

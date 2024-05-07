@@ -134,7 +134,7 @@ const OverviewCard = () => {
             height: "100%",
           }}
         >
-          <Image
+          <Image priority
             src={img}
             alt="image"
             style={{

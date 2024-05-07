@@ -53,7 +53,7 @@ const ReviewCard = () => {
                 borderRadius: "6px",
               }}
             >
-              <Image alt="image" src={printIcon} />
+              <Image priority alt="image" src={printIcon} />
             </Box>
             <Typography
               component="div"
@@ -140,7 +140,7 @@ const ReviewCard = () => {
                 borderRadius: "6px",
               }}
             >
-              <Image alt="image" src={groupIcon} />
+              <Image priority alt="image" src={groupIcon} />
             </Box>
             <Typography
               component="div"

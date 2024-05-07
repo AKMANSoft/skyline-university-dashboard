@@ -31,7 +31,7 @@ const CancelOrderModal = ({ handleClose, open }) => {
       >
         <Box sx={{ ...style, width: { xs: "auto", sm: "auto", md: "100%" } }}>
           <Stack direction="column" alignItems="center" justifyContent="center">
-            <Image
+            <Image priority
               src={cancelImg}
               alt="image"
               style={{ width: "100px", height: "100px" }}

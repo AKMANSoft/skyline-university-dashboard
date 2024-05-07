@@ -99,8 +99,9 @@ const PictureCard = (props) => {
               >
                 <RxCross2 color="#EA5455" fontSize="32px" />
               </Box>
-              <Image
+              <Image priority
                 src={img1}
+                alt="image"
                 style={{ width: "100%", height: "100%" }}
                 layout="reponsive"
               />
@@ -183,8 +184,9 @@ const PictureCard = (props) => {
               >
                 <TiTick color="#00CA99" fontSize="35px" />
               </Box>
-              <Image
+              <Image priority
                 src={img1}
+                alt="image"
                 style={{ width: "100%", height: "100%" }}
                 layout="reponsive"
               />

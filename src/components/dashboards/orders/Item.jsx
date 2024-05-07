@@ -45,7 +45,7 @@ const Item = ({ icon, orders, status, isHideBorder }) => {
           {status}
         </Typography>
       </Box>
-      <Image src={icon} alt="icon" />
+      <Image priority src={icon} alt="icon" />
     </Stack>
   );
 };

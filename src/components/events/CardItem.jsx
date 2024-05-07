@@ -33,7 +33,7 @@ const CardItem = () => {
   return (
     <CustomCard sx={{ p: "18px 15px", maxHeight: '505px' }}>
       <Box sx={{ width: "100%", height: "227px" }}>
-        <Image
+        <Image priority
           alt="img"
           src={eventImg}
           style={{ width: "100%", height: "100%", objectFit: "cover" }}

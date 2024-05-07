@@ -9,6 +9,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 import logoImg from "@/assets/images/logoImg.png";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const GreenText = styled(Typography)(({ theme }) => ({
   color: "#289D67",
@@ -19,6 +20,7 @@ const GreenText = styled(Typography)(({ theme }) => ({
 const orders = [{id:1}, {id:2}, {id:3}];
 
 const ShopingCartModal = ({ open, toggleDrawer }) => {
+  const router = useRouter()
   const[productCounter, setProductCounter] = useState({count: 1})
   return (
     <>

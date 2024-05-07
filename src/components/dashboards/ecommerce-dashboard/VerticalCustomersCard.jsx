@@ -15,7 +15,7 @@ const VerticalCustomersCard = () => {
           alignItems: "flex-start",
         }}
       >
-        <Image src={icon} alt="image" />
+        <Image priority src={icon} alt="image" />
         <Typography
           variant="h5"
           sx={{

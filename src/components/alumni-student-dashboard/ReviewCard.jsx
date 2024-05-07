@@ -83,7 +83,7 @@ const ReviewCard = () => {
                 borderRadius: "6px",
               }}
             >
-              <Image alt="image" src={uaeIcon} />
+              <Image priority alt="image" src={uaeIcon} />
             </Box>
             <CountryText>
               In UAE
@@ -155,7 +155,7 @@ const ReviewCard = () => {
                 borderRadius: "6px",
               }}
             >
-              <Image alt="image" src={worldIcon} />
+              <Image priority alt="image" src={worldIcon} />
             </Box>
             <CountryText>
             Outside UAE

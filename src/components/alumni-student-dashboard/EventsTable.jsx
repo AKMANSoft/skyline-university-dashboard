@@ -77,13 +77,13 @@ const EventsTable = () => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map((row) => (
-          <TableRow key={row.id}>
+        {rows.map((row, index) => (
+          <TableRow key={index}>
             <TableCell
               sx={{ color: "#7367F0", fontSize: "15px", fontWeight: 400 }}
             >
               <Stack direction='row' alignItems='center' gap='10px'>
-                <Image alt="image" src={row?.img} />
+                <Image priority alt="image" src={row?.img} />
                 <Typography variant="body1" color="#000" sx={{fontSize: '14px', letterSpacing: '1px'}}>{row?.name}</Typography>
               </Stack>
             </TableCell>

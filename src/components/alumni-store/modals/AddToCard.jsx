@@ -55,7 +55,7 @@ const AddToCard = ({ handleClose, open }) => {
                   justifyContent: "center",
                 }}
               >
-                <Image
+                <Image priority
                   alt="logo img"
                   src={logoImg}
                   style={{
@@ -86,7 +86,7 @@ const AddToCard = ({ handleClose, open }) => {
                       justifyContent: "center",
                     }}
                   >
-                    <Image
+                    <Image priority
                       alt="logo img"
                       src={logoImg}
                       style={{

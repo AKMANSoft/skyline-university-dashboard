@@ -61,7 +61,7 @@ const CheckoutCard = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <Image src={usaImg} alt="flag-img"/>
+                    <Image priority src={usaImg} alt="flag-img"/>
                   </InputAdornment>
                 ),
                 sx: {
